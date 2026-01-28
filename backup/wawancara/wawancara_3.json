@@ -1,0 +1,232 @@
+[
+  {
+    "id": "1",
+    "category": "WAWANCARA",
+    "question_text": "Saat melakukan verifikasi dokumen administrasi pendaftaran PPPK, Anda dihampiri seorang oknum yang mengaku sebagai panitia seleksi PPPK. Ia menawarkan bantuan untuk lolos ujian PPPK dengan memberikan sejumlah dana tertentu. Di sisi lain, Anda belum memiliki pekerjaan tetap dan memiliki tabungan yang cukup sebagai imbalan jasa untuk oknum tersebut. Sementara itu, Anda juga sudah menikah dan memiliki seorang anak. Sikap yang Anda tunjukkan dalam menghadapi situasi ini adalah ....",
+    "options": [
+      {
+        "option_text": "Melihat potensi diri terlebih dahulu sebelum menerimanya, bila masih mampu menjalani rangkaian proses maka tidak perlu berbuat curang seperti itu.",
+        "score": 2
+      },
+      {
+        "option_text": "Menerima tawaran tersebut agar mendapatkan pekerjaan dan penghasilan tetap untuk menafkahi keluarga karena persaingan seleksi PPPK sangat ketat dan kesempatan lolos semakin kecil.",
+        "score": 1
+      },
+      {
+        "option_text": "Menolaknya secara tegas dan menyampaikan bahwa perilaku tersebut melanggar hukum dan ketentuan proses seleksi ASN karena Anda ingin menjadi pegawai dengan cara yang bersih.",
+        "score": 3
+      },
+      {
+        "option_text": "Menolaknya secara tegas dan menyampaikan perilaku oknum tersebut kepada panitia seleksi PPPK.",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "WAWANCARA",
+    "question_text": "Anda menemukan bingkisan makanan di meja Anda dan memakannya. Ternyata bingkisan tersebut bukan untuk Anda, maka Anda akan ....",
+    "options": [
+      {
+        "option_text": "Diam saja dan pura-pura tidak tahu tentang bingkisan tersebut.",
+        "score": 1
+      },
+      {
+        "option_text": "Meminta maaf dan mengganti bingkisan tersebut.",
+        "score": 4
+      },
+      {
+        "option_text": "Menyalahkan orang yang menaruhnya di meja Anda.",
+        "score": 1
+      },
+      {
+        "option_text": "Marah dan hanya mau mengganti dengan separuh harga.",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "WAWANCARA",
+    "question_text": "Anda ditugaskan pimpinan untuk menjadi notulen dalam Rapat Badan Pertimbangan Jabatan dan Kepangkatan, maka sebagai notulen, respons Anda adalah ....",
+    "options": [
+      {
+        "option_text": "Memberi tahu sahabat Anda di kantor tentang keputusan hasil rapat.",
+        "score": 2
+      },
+      {
+        "option_text": "Dengan bangga Anda akan menceritakan kepada rekan sejawat mengenai hasil rapat.",
+        "score": 1
+      },
+      {
+        "option_text": "Tidak akan membocorkan hasil keputusan rapat karena bukan wewenang Anda.",
+        "score": 4
+      },
+      {
+        "option_text": "Berusaha menghindari rekan yang membujuk untuk mengetahui hasil keputusan rapat.",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "category": "WAWANCARA",
+    "question_text": "Pada akhir bulan, tagihan rekening listrik rumah kos mengalami lonjakan menjadi tiga kali lipat dari tagihan biasanya, sedangkan tidak ada penambahan jumlah penghuni rumah kos. Pemilik kost memanggil semua penghuni kos. Sebenarnya Anda termasuk penghuni kos yang akhir-akhir ini menggunakan barang elektronik dengan daya listrik cukup besar. Jika menghadapi situasi ini, maka sikap ada adalah ....",
+    "options": [
+      {
+        "option_text": "Berterus terang telah menggunakan fasilitas tambahan yang mengakibatkan daya listrik cukup tinggi.",
+        "score": 4
+      },
+      {
+        "option_text": "Sebaiknya pemilik kos bertanya kepada setiap penghuni kost untuk mengetahui siapa saja yang menggunakan fasilitas tambahan dengan daya listrik besar.",
+        "score": 3
+      },
+      {
+        "option_text": "Seharusnya pemilik kos tidak membesar-besarkan masalah ini.",
+        "score": 1
+      },
+      {
+        "option_text": "Jika pemilik kos mengetahui Anda menggunakan barang elektronik berdaya tinggi, maka Anda akan pindah kos.",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "category": "WAWANCARA",
+    "question_text": "Sebagai seorang pegawai yang sedang melanjutkan Pendidikan tingkat Magister, Anda mendapat tugas meneliti kehidupan masyarakat Suku Samin di Blora Jawa Tengah. Anda harus tinggal di daerah tersebut kurang lebih selama 3 bulan. Dalam proses penelitiannya diwajibkan mengikuti hidup Suku Samin, diantaranya mengenakan pakaian hitam, makan makanan olahan masyarakat sendiri, dan berbagai aturan lainnya. Sikap Anda adalah ....",
+    "options": [
+      {
+        "option_text": "Mengabaikan aturan tersebut karena tidak sesuai dengan pendapat Anda pribadi",
+        "score": 1
+      },
+      {
+        "option_text": "Menempatkan diri dengan baik dengan melakukan aturan sebgai wujud bentuk toleransi, meskipun berbeda dengan agama dan kebudayaan anda.",
+        "score": 4
+      },
+      {
+        "option_text": "Mengubah beberapa aturan yang berbeda dengan agama dan kebudayaan saya",
+        "score": 2
+      },
+      {
+        "option_text": "Menghormati aturan karena tiap suku memiliki perbedaan",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "category": "WAWANCARA",
+    "question_text": "Ada laporan bahwa puluhan warga yang tinggal di dekat suatu pabrik harus dilarikan ke rumah sakit karena terjadi kebocoran gas. Kejadian ini ternyata bukan untuk pertama kali, sebelumnya pernah terjadi hal serupa, namun pabrik yang bersangkutan hanya menempuh jalur musyawarah dengan warga setempat. Sebagai seorang pemimpin, langkah yang Anda tempuh untuk memberikan peringatan pabrik di wilayah yang Anda pimpin adalah ....",
+    "options": [
+      {
+        "option_text": "Meminta agar pimpinan atau wakilnya mencari solusi jangka panjang atas masalah tersebut.",
+        "score": 1
+      },
+      {
+        "option_text": "Meminta agar pabrik membuat sistem keamanan untuk mencegah kembali bocornya gas, seperti sistem otomatis yang tidak menimbulkan dampak terhadap warga sekitar.",
+        "score": 3
+      },
+      {
+        "option_text": "Mencabut izin operasi pabrik sebelum ada solusi berupa sistem keamanan yang dibuat untuk mencegah kembali bocornya gas.",
+        "score": 4
+      },
+      {
+        "option_text": "Meminta pabrik bertanggung jawab dengan mengganti kerugian dan biaya perawatan warga.",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "category": "WAWANCARA",
+    "question_text": "Ketika libur nasional jatuh pada hari Selasa, sudah menjadi kebiasaan umum di sebuah instansi pemerintahan tempat Puspa bekerja untuk melakukan 'bolos massal' di hari Senin. Menurut Anda, yang sebaiknya dilakukan oleh Puspa adalah ...",
+    "options": [
+      {
+        "option_text": "Bertanya kepada atasan untuk tidak masuk kerja pada hari Senin.",
+        "score": 2
+      },
+      {
+        "option_text": "Mempelajari aturan yang berlaku secara nasional dan mengikutinya secara konsisten.",
+        "score": 3
+      },
+      {
+        "option_text": "Menolak untuk tidak masuk kerja di hari Senin karena tidak sesuai dengan nilai dan prinsip diri sendiri.",
+        "score": 4
+      },
+      {
+        "option_text": "Mengikuti kebiasaan umum untuk tidak masuk kerja di hari Senin sebagai bentuk toleransi dengan rekan kerja lain.",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "category": "WAWANCARA",
+    "question_text": "Anda adalah seorang ASN yang barusan diangkat menjadi PPPK. Karena kekurangan sumber daya manusia di sebuah instansi, atasan Anda memutuskan untuk melakukan pemetaan, dan Anda mendengar dari teman anda bahwa anda adalah salah satu yang akan dimutasi ke daerah yang sama sekali tidak pernah Anda kunjungi yakni sebuah pulau terpencil. Sebagai seorang ASN yang berintegritas sikap Anda ....",
+    "options": [
+      {
+        "option_text": "Bersedia dipindahkan tanpa membantah sedikitpun demi kebaikan bersama dan siap melakukan usaha secara maksimal untuk menjadi ASN teladan di tempat yang baru.",
+        "score": 4
+      },
+      {
+        "option_text": "Menolak keputusan tersebut dan menemui atasan untuk membicarakan perihal pemindahan tersebut dan akan melakukan apa saja agar tidak dipindahkan",
+        "score": 1
+      },
+      {
+        "option_text": "Menerima tapi berusaha mengusulkan teman yang lain saja karena anda merasa senior dan disegani di kantor",
+        "score": 2
+      },
+      {
+        "option_text": "Berangkat mengikuti keputusan pemerintah tentang pemindahan anda ke tempat yang baru tersebut.",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "category": "WAWANCARA",
+    "question_text": "Anda berkomentar di salah satu ungguhan teman kantor. Kemudian, Anda terlibat perbincangan dengan saling balas komentar yang sifatnya sebatas candaan belaka. Namun, tanpa diduga tiba-tiba ada pihak ketiga yang tidak kenal berkomentar dan menandai Anda dengan menuliskan komentar untuk menyampaikan pesan agar rekan kerja Anda segera melunasi utangnya. Tentu saja Anda kaget melihat komentar tersebut. Sikap Anda untuk menghadapi masalah ini adalah ....",
+    "options": [
+      {
+        "option_text": "Membalas komentarnya dan menanyakan lebih detail.",
+        "score": 2
+      },
+      {
+        "option_text": "Tidak membalas komentarnya.",
+        "score": 3
+      },
+      {
+        "option_text": "Menggunjingkan rekan yang dimaksud.",
+        "score": 1
+      },
+      {
+        "option_text": "Memilih tidak membalas komentar dan mengklarifikasi kepada rekan kerja yang dimaksud.",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "category": "WAWANCARA",
+    "question_text": "Anda tergabung dalam grup Whatsapp yang saat ini sedang ramai oleh isu yang mengarah pada ujaran kebencian terhadap etnis tertentu. Pada awalnya ada salah satu anggota grup yang membagikan pesan broadcast ke grup, lalu ditanggapi oleh sebagian besar anggota di grup. Diawali dengan diskusi dan berakhir dengan keluarnya hujatan terhadap etnis tertentu. Oleh karena itu, sikap untuk menghadapi situasi ini adalah .....",
+    "options": [
+      {
+        "option_text": "Tidak ikut-ikutan karena belum mengetahui kebenaran informasi dan hanya menjadi 'silent reader' di grup whatsapp tersebut.",
+        "score": 1
+      },
+      {
+        "option_text": "Tidak langsung percaya terhadap informasi yang dibagikan oleh anggota grup dan mencari tahu kebenaran info yang dibagikan di grup di kanal berita yang tepercaya.",
+        "score": 2
+      },
+      {
+        "option_text": "Mencoba menguji kebenaran informasi yang dibagikan dan berusaha melakukan 'coolingdown' agar pembahasan di grup tidak semakin panas.",
+        "score": 3
+      },
+      {
+        "option_text": "Menguji kebenaran informasi yang dibagikan dan mengingatkan anggota grup untuk tidak tergesagesa dalam memercayai informasi yang beredar, serta menguji kebenaran informasi terlebih dahulu dan tidak memberikan respons yang mengarah pada ujaran kebencian.",
+        "score": 4
+      }
+    ]
+  }
+]

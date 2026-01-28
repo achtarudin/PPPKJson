@@ -1,0 +1,232 @@
+[
+  {
+    "id": "1",
+    "category": "TEKNIS",
+    "question_text": "Hari ini Atasan Anda sedang tidak berada di tempat. Sikap Anda adalah ....",
+    "options": [
+      {
+        "option_text": "Sangat antusias dengan hal itu.",
+        "score": 1
+      },
+      {
+        "option_text": "Tetap bekerja sebagaimana peraturan yang ada.",
+        "score": 4
+      },
+      {
+        "option_text": "Anda bisa mencuri waktu untuk mengurusi urusan lainnya.",
+        "score": 2
+      },
+      {
+        "option_text": "Membolos dari tengah waktu bekerja.",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "TEKNIS",
+    "question_text": "Orang tua saya tidak menyukai pekerjaan saya, sikap saya adalah ....",
+    "options": [
+      {
+        "option_text": "Bertanya kepada orang tua, alasan mereka tidak menyukai pekerjaan saya",
+        "score": 3
+      },
+      {
+        "option_text": "Menjelaskan bahwa saya menyukai pekerjaan tersebut",
+        "score": 4
+      },
+      {
+        "option_text": "Meminta orang tua untuk melihat sendiri pekerjaan saya dan kemudian melakukan penilaian",
+        "score": 2
+      },
+      {
+        "option_text": "Tetap bekerja dan menjelaskan kepada orang tua",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "TEKNIS",
+    "question_text": "Sudah seminggu sampah di depan rumah Anda tidak diambil oleh petugas pengambil sampah karena mobil pengangkut sampah rusak. Beberapa warga disekitar Anda tidak sabar lalu mewadahi sampahnya pada wadah plastik kemudian dibuangnya sampah dalam bungkusan plastik itu satu demi satu ke sungai yang ada di antara kampung. Hal apa yang Anda lakukan sebagai pihak kesehatan",
+    "options": [
+      {
+        "option_text": "Mengingatkan warga agar tidak membuang sampah ke sungai karena akan menimbulkan banjir.",
+        "score": 3
+      },
+      {
+        "option_text": "Membicarakan persoalan tersebut dengan ketua RT dan tokoh masyarakat untuk mencari solusinya.",
+        "score": 4
+      },
+      {
+        "option_text": "Menyewa mobil yang dapat mengangkut sampah untuk mengangkut sampah yang menumpuk.",
+        "score": 2
+      },
+      {
+        "option_text": "Memarahi warga tersebut dengan nada keras agar tidak tidak mengulangi lagi perbuatannya.",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "category": "TEKNIS",
+    "question_text": "Suatu ketika hasil pekerjaan yang sudah Anda kerjakan dengan susah payah dikritik tajam oleh Atasan. Menghadapi kritikan tersebut, pernyataan paling mendekati reaksi Anda adalah ....",
+    "options": [
+      {
+        "option_text": "Menerima kritikan apa adanya dan mencari sumber referensi baru yang mendukung.",
+        "score": 4
+      },
+      {
+        "option_text": "Menahan diri, mencermati krtitikan tersebut untuk melakukan perbaikan.",
+        "score": 3
+      },
+      {
+        "option_text": "Meminta penjelasan dan dukungan Atasan, dan mencari strategi baru untuk perbaikan.",
+        "score": 3
+      },
+      {
+        "option_text": "Tidak membalas kritikan tersebut dan juga tidak melakukan perbaikan karena tidak ada gunanya",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "category": "TEKNIS",
+    "question_text": "Di tempat Anda masih sering dijumpai beberapa orang ketika menunggu antrian pelayanan terlihat merokok di area yang dilarang merokok, padahal sudah memeberikan tulisan peringatan serta aturan untuk tidak merokok dan tidak membawa rokok ke dalam area tersebut. Sebagai Penata Layanan Operasional yang berkewajiban memberikan tauladan, berikan solusi atas permasalahan di atas!",
+    "options": [
+      {
+        "option_text": "Saya akan lebih aktif dalam memperingatkan orang tersebut yang kedapatan sering merokok di area tersebut.",
+        "score": 4
+      },
+      {
+        "option_text": "Bersama seluruh komponen instansi, untuk memberikan contoh perilaku baik tidak merokok.",
+        "score": 3
+      },
+      {
+        "option_text": "Meminta Atasan agar turun langsung menangani masalah ini dan memberikan sanksi.",
+        "score": 2
+      },
+      {
+        "option_text": "Memarahi dengan membentak orang tersebut agar tidak merokok dan mengulangi perbuatannya tersebut.",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "category": "TEKNIS",
+    "question_text": "Anda ditunjuk mewakili instansi Anda sebagai Ketua Rapat Pelayanan Operasional Masyarakat di Balai Desa dan ketika rapat sedang berlangsung ada salah seorang peserta rapat yang menerima telepon. Apakah tindakan yang akan Anda lakukan ?",
+    "options": [
+      {
+        "option_text": "Menegurnya supaya keluar dari rapat",
+        "score": 2
+      },
+      {
+        "option_text": "Membiarkannya menerima telepon",
+        "score": 1
+      },
+      {
+        "option_text": "Berbisik kepadanya supaya berhenti menerima telepon",
+        "score": 4
+      },
+      {
+        "option_text": "Membiarkannya",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "category": "TEKNIS",
+    "question_text": "Saya mengambil keputusan yang dapat berakibat buruk pada diri saya pribadi maupun Instansi tempat saya bekerja, maka saya",
+    "options": [
+      {
+        "option_text": "Bertanggung jawab atas segala akbiat yang ditimbulkan",
+        "score": 4
+      },
+      {
+        "option_text": "Menyesali keputusan tersebut",
+        "score": 2
+      },
+      {
+        "option_text": "Menyesal dan menerima akibatnya",
+        "score": 3
+      },
+      {
+        "option_text": "Mencari kesalahan orang lain",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "category": "TEKNIS",
+    "question_text": "Meskipun dilarang, teman Anda tetap meminta uang tanda terima kasih atas jasa yang kami berikan. Maka saya ....",
+    "options": [
+      {
+        "option_text": "Tidak ingin mengikutinya",
+        "score": 3
+      },
+      {
+        "option_text": "Hal tersebut sudah biasa terjadi",
+        "score": 1
+      },
+      {
+        "option_text": "Segera melaporkannya kepada atasan",
+        "score": 2
+      },
+      {
+        "option_text": "Mengajak bidan lain untuk berhenti berbuat demikian",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "category": "TEKNIS",
+    "question_text": "Sebagai Penata Layanan Operasional yang dianggap kompeten, Anda diminta menggantikan teman kerja lain yang kebetulan sakit untuk mengkoordinasikan panitia kegiatan peringatan HUT kemerdekaan RI di lembaga lain, yang akan Anda lakukan atas permintaan ini adalah ....",
+    "options": [
+      {
+        "option_text": "Mengkoordinasikan dan bersinergi dengan pihak-pihak yang terlibatkan dalam kepanitiaan.",
+        "score": 4
+      },
+      {
+        "option_text": "Menerima tugas itu, dan menjalankannya setelah tugas-tugas lain yang datang terlebih dahulu.",
+        "score": 3
+      },
+      {
+        "option_text": "Walaupun dengan berat hati akan bekerja dan menjalankan tugas itu apa adanya.",
+        "score": 2
+      },
+      {
+        "option_text": "Menolaknya karena bukan tugas dan tanggung jawab saya.",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "category": "TEKNIS",
+    "question_text": "Seorang alumni pegawai ingin mendapatkan layanan Anda bekerja dengan waktu yang cepat, teman Anda kelelahan dan butuh istirahat. Sementara Anda masih ada tugas yang belum selesai. Sikap Anda ....",
+    "options": [
+      {
+        "option_text": "Menggantikan teman Anda, dengan mengurusi kepentingan pelanggan tersebut.",
+        "score": 4
+      },
+      {
+        "option_text": "Melanjutkan tugas teman yang kelelahan, supaya klinik tidak terbengkalai.",
+        "score": 3
+      },
+      {
+        "option_text": "Menyelesaikan tugas Anda sampai selesai, baru membantu teman yang kelelahan.",
+        "score": 2
+      },
+      {
+        "option_text": "Membiarkan saja karena bukan tugas saya.",
+        "score": 1
+      }
+    ]
+  }
+]

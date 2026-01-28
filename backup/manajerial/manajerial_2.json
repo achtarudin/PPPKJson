@@ -1,0 +1,532 @@
+[
+  {
+    "id": "1",
+    "category": "MANAJERIAL",
+    "question_text": "Meskipun di musim penghujan air dari PDAM akhir-akhir ini sering mati sehingga keperluan sanitasi di tempat Anda bekerja juga terganggu. Sikap saya sebagai seorang pemimpin adalah.....",
+    "options": [
+      {
+        "option_text": "Menampung air hujan untuk kebutuhan sanitasi kantor",
+        "score": 3
+      },
+      {
+        "option_text": "Menyuruh masing-masing karyawan membawa air 1 ember setiap berangkat ke kantor",
+        "score": 1
+      },
+      { "option_text": "Mengajukan protes kepada pihak PDAM", "score": 2 },
+      {
+        "option_text": "Meminta bantuan suplai air dari sumur warga dekat kantor",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "MANAJERIAL",
+    "question_text": "Anda baru saja diangkat menjadi seorang ASN, sebagai ASN Anda dituntut memiliki kemampuan mengambil keputusan yang baik sehingga menghasilkan keputusan yang bermutu. Pendapat Anda .....",
+    "options": [
+      {
+        "option_text": "Profesionalisme dari pengambilan keputusan semakin meningkat seiring dengan mutu keputusan yang semakin baik",
+        "score": 2
+      },
+      {
+        "option_text": "Seorang ASN sebelumnya sudah diuji sehingga semua keputusan pasti bermutu",
+        "score": 1
+      },
+      {
+        "option_text": "Cara pengambilan keputusan yang baik akan menghasilkan keputusan yang bermutu",
+        "score": 4
+      },
+      {
+        "option_text": "Semakin mahir dalam menentukan keputusan yang bermutu akan meningkatkan kualitas keputusan",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "MANAJERIAL",
+    "question_text": "Sebuah lembaga pendidikan swasta yang berkembang sangat pesat namun banyak pegawai yang mengajukan resign dari lembaga tersebut. Salah satu penyebabnya adalah kurangnya kesejahteraan sehingga mengurangi konsentrasi para pegawai. Menurut saya seharusnya ....",
+    "options": [
+      {
+        "option_text": "Lembaga pendidikan mendirikan koperasi simpan pinjam bagi pegawai",
+        "score": 4
+      },
+      {
+        "option_text": "Lembaga pendidikan swasta seharusnya memberitahu wali murid untuk dadakan iuran tambahan setiap bulan untuk tunjangan guru",
+        "score": 1
+      },
+      {
+        "option_text": "Lembaga pendidikan perlu memberikan gaji yang besar kepada pegawai",
+        "score": 3
+      },
+      {
+        "option_text": "Lembaga pendidikan memberikan bonus bagi pegawai berprestasi",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "category": "MANAJERIAL",
+    "question_text": "Anda dipindahkan secara mendadak ke unit kerja sistem informasi yang belum pernah Anda tekuni selama ini. Yang ada pikirkan adalah .....",
+    "options": [
+      { "option_text": "Mengapa karir saya harus dipersulit", "score": 1 },
+      {
+        "option_text": "Bagaimana saya bisa memahami bidang kerja saya yang baru secara cepat",
+        "score": 4
+      },
+      {
+        "option_text": "Bagaimana saya bisa bekerja apabila berada di luar zona nyaman saya",
+        "score": 3
+      },
+      {
+        "option_text": "Apakah terdapat alasan politis di balik mutasi kerja saya",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "category": "MANAJERIAL",
+    "question_text": "Apabila Anda diberi tugas dan hasilnya nanti untuk menentukan besar bonus yang akan Anda terima, maka Anda akan ....",
+    "options": [
+      {
+        "option_text": "Berusaha sekuat tenaga agar saya mendapatkan bonus tinggi",
+        "score": 3
+      },
+      {
+        "option_text": "Berusaha sebatas kemampuan yang saya miliki",
+        "score": 1
+      },
+      {
+        "option_text": "Berusaha keras untuk menyelesaikan tugas dengan cara yang sehat",
+        "score": 4
+      },
+      {
+        "option_text": "Berusaha keras sambil meminta bantuan orang lain untuk mencapai penyelesaian tugas",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "category": "MANAJERIAL",
+    "question_text": "Saya membuat daftar harian urgensi dan prioritas dalam pekerjaan, yang saya lakukan adalah ....",
+    "options": [
+      {
+        "option_text": "Saya tidak membutuhkan daftar harian dan melakukan sesuai dengan yang terdekat dan terpenting",
+        "score": 1
+      },
+      {
+        "option_text": "Saya selalu mencatat untuk pertimbangkan mengambil keputusan",
+        "score": 3
+      },
+      {
+        "option_text": "Saya tidak perlu mencatat karena saya adalah orang yang pintar dibanding yang lainnya",
+        "score": 2
+      },
+      {
+        "option_text": "Saya mencatat untuk pertimbangkan, sasaran dan deadline",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "category": "MANAJERIAL",
+    "question_text": "Sindi adalah teman saya yang bertugas di loket pelayanan, suatu ketika Sindi tiba-tiba pingsan karena kelelahan karena menerima masyarakat yang datang. Saya yang sedang bekerja diminta menggantikan di loket karena menurut penilaian atasan tugas yang saya kerjakan tenggang waktunya masih lama. Yang saya lakukan ....",
+    "options": [
+      {
+        "option_text": "Mencari teman lain yang bebannya lebih ringan untuk membantu",
+        "score": 2
+      },
+      {
+        "option_text": "Menuju ke loket dan mengatakan kepada masyarakat untuk datang lagi besok",
+        "score": 1
+      },
+      { "option_text": "Menuju ke loket dan melayani masyarakat", "score": 4 },
+      {
+        "option_text": "Melayani di loket dan sambil juga menyelesaikan tugas sendiri",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "category": "MANAJERIAL",
+    "question_text": "Anda adalah seorang ASN pada saat menghadapi suatu keluhan atau komplain dari pelanggan mengenai pelayanan yang diberikan tempat kerja Anda, maka Anda akan ....",
+    "options": [
+      {
+        "option_text": "Menjelaskan peran saya dalam menangani keluhan pelanggan",
+        "score": 2
+      },
+      {
+        "option_text": "Menjelaskan pada pelanggan bahwa saya karyawan baru yang tidak mengerti apa-apa",
+        "score": 1
+      },
+      {
+        "option_text": "Mencatat dan menyampaikan keluhan itu pada atasan saya",
+        "score": 3
+      },
+      {
+        "option_text": "Mencoba membantu pelanggan menyelesaikan persoalannya",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "category": "MANAJERIAL",
+    "question_text": "Junior di tim kerja Anda membuat kesalahan dalam mengakses informasi saat sedang bertugas, yang Anda lakukan adalah ....",
+    "options": [
+      {
+        "option_text": "Mencari jalan keluar untuk tim kerja Anda",
+        "score": 2
+      },
+      {
+        "option_text": "Membahas permasalahan tersebut dengan tim kerja Anda",
+        "score": 4
+      },
+      {
+        "option_text": "Melapor kepada atasan dan mengikuti aturannya",
+        "score": 1
+      },
+      {
+        "option_text": "Memanggil ahli IT untuk memberi pengetahuan dan informasi tentang pentingnya teknologi informasi",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "category": "MANAJERIAL",
+    "question_text": "Setiap pegawai di kantor anda diminta untuk melakukan update data pribadi secara online sebagai bagian dari penerapan sistem informasi yang baru. Tindakan Anda adalah ....",
+    "options": [
+      {
+        "option_text": "Meminta bantuan pendampingan karena keterbatasan saya di bidang teknologi",
+        "score": 3
+      },
+      {
+        "option_text": "Mempelajari cara melakukan update dan data apa saja yang harus dimasukkan dalam sistem",
+        "score": 4
+      },
+      {
+        "option_text": "Mengabaikan karena saya takut data saya akan disadap orang yang tidak bertanggung jawab",
+        "score": 1
+      },
+      {
+        "option_text": "Menegur rekan kerja yang lain untuk melakukan update dan mengikuti cara mereka",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "category": "MANAJERIAL",
+    "question_text": "Anda ditugaskan untuk menjadi ketua pelaksana dalam acara ulang tahun perusahaan dan akan menampilkan beberapa pentas musik yang Anda gemari, tetapi salah seorang anggota mengingatkan bahwa budaya di lingkungan tempat Anda bekerja tersebut menganggap kurang baik, yang Anda lakukan adalah ....",
+    "options": [
+      {
+        "option_text": "Meminta saran dari pimpinan perusahaan mengenai hal tersebut",
+        "score": 1
+      },
+      { "option_text": "Membatalkan acara pentas musik tersebut", "score": 2 },
+      {
+        "option_text": "Menerima saran dan menggantinya dengan yang lebih cocok dengan lingkungan",
+        "score": 4
+      },
+      { "option_text": "Menerima saran dengan senang hati", "score": 3 }
+    ]
+  },
+  {
+    "id": "12",
+    "category": "MANAJERIAL",
+    "question_text": "Suasana di lingkungan tempat saya tinggal memanas karena adanya perbedaan dalam pandangan politik. Sering terjadi perbedaan antar warga yang membuat suasana bertetangga menjadi tidak nyaman. Yang saya lakukan ....",
+    "options": [
+      {
+        "option_text": "Menahan diri untuk tidak terlibat dalam perdebatan-perdebatan tersebut",
+        "score": 3
+      },
+      {
+        "option_text": "Mencari cara supaya suasana lingkungan kembali kondusif",
+        "score": 4
+      },
+      {
+        "option_text": "Mengingatkan pada mereka yang berdebat bahwa kebersamaan di lingkungan lebih penting daripada perbedaan pandangan politik mereka",
+        "score": 2
+      },
+      {
+        "option_text": "Tidak terpengaruh dan tetap fokus pada kehidupan saya",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "category": "MANAJERIAL",
+    "question_text": "Saya merupakan seorang ASN dan Anda ditempatkan di bagian loket pelayanan pengaduan. Hal ini banyak complain yang disampaikan secara offline. Padahal sudah tersedia fasilitas penanganan complain secara online. Sikap saya adalah .....",
+    "options": [
+      {
+        "option_text": "Menerima dan menanggapi keluhan sembari mengajarkan cara Menyampaikan keluhan secara online",
+        "score": 3
+      },
+      {
+        "option_text": "Menerima dan menyelesaikan keluhan konsumen sambil menanyakan apakah ada kesulitan saat Menyampaikan keluhan secara online",
+        "score": 4
+      },
+      {
+        "option_text": "Menerima keluhan para konsumen sembari mengajarkan cara Menyampaikan keluhan secara online",
+        "score": 2
+      },
+      {
+        "option_text": "Menyelesaikan keluhan konsumen sambil menanyakan apakah ada kesulitan saat menyampaikan keluhan secara online",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "category": "MANAJERIAL",
+    "question_text": "Seberapa seringkah Anda berusaha dengan aktif untuk mencegah gangguan (tamu, rapat dan telepon) yang biasanya selalu mengacaukan hari kerja Anda?",
+    "options": [
+      {
+        "option_text": "Saya tidak pernah merasa terganggu dengan itu",
+        "score": 2
+      },
+      {
+        "option_text": "Saya selalu menyortir seberapa penting hal tersebut terlebih dahulu",
+        "score": 4
+      },
+      {
+        "option_text": "Saya selalu menolak dan menjauhi hal tersebut agar pekerjaan saya selesai dengan baik",
+        "score": 1
+      },
+      {
+        "option_text": "Tergantung situasi apakah dapat dilakukan atau tidak",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "category": "MANAJERIAL",
+    "question_text": "Rudi adalah ketua kelompok pecinta alam yang baru. Sebetulnya ia belum lama bergabung tetapi karena ia luwes dan mudah bergaul akhirnya ia terpilih sebagai ketua. Ternyata setelah jadi ketua, sikapnya menjadi berubah. Ia cenderung menjadi kaku dan keputusan yang dibuat sulit untuk diubah. Jika Anda menjadi anggota pecinta alam tersebut, tindakan yang anda lakukan adalah ....",
+    "options": [
+      {
+        "option_text": "Meminta Rudi untuk tidak otoriter di forum formal sehingga menjadi kesepakatan bersama",
+        "score": 3
+      },
+      {
+        "option_text": "Mengajak teman-teman untuk mengganti ketua kelompok yang baru",
+        "score": 1
+      },
+      {
+        "option_text": "Mengajak teman-teman lain untuk memberi masukan ke Rudi sehingga kelompok yang sudah solid tidak pecah",
+        "score": 4
+      },
+      { "option_text": "Mengajak dialog secara personal", "score": 2 }
+    ]
+  },
+  {
+    "id": "16",
+    "category": "MANAJERIAL",
+    "question_text": "Anda berada di suatu tim. Pada suatu saat tim Anda sedang mengerjakan tugas dan mengalami hambatan untuk menyelesaikannya. Sebagai ketua tim Apa yang akan Anda lakukan?",
+    "options": [
+      {
+        "option_text": "Memberi alternatif penyelesaian kepada kelompok",
+        "score": 3
+      },
+      {
+        "option_text": "Mengajak kelompok berdiskusi untuk menentukan alternatif penyelesaian masalah",
+        "score": 4
+      },
+      {
+        "option_text": "Membantu kelompok dengan mencari penyelesaian masalah",
+        "score": 2
+      },
+      {
+        "option_text": "Menunggu arahan kelompok dalam mencari penyelesaian masalah",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "category": "MANAJERIAL",
+    "question_text": "Saya baru saja mendapatkan informasi menarik dari jurnal yang dapat diterapkan dalam perbaikan kinerja kelompok. Cara saya mengkomunikasikan adalah .....",
+    "options": [
+      { "option_text": "Memberitahu dan mendiskusikan saat rapat", "score": 4 },
+      {
+        "option_text": "Memberitahu rekan kerja yang mau tahu saja",
+        "score": 2
+      },
+      { "option_text": "Memberitahu kalau ada yang tanya", "score": 1 },
+      { "option_text": "Memberitahu rekan kerja yang dekat saja", "score": 1 }
+    ]
+  },
+  {
+    "id": "18",
+    "category": "MANAJERIAL",
+    "question_text": "Anda sebagai pegawai kantoran memiliki delapan jam kerja aktif. Di lain sisi Anda adalah seorang istri dan ibu dari dua balita. Bagaimana Anda mengatur tugas sebagai pegawai dan ibu rumah tangga agar semua berjalan seimbang?",
+    "options": [
+      {
+        "option_text": "Mendahulukan kepentingan keluarga dibanding tugas kantor",
+        "score": 1
+      },
+      {
+        "option_text": "Membagi waktu seadil-adilnya untuk keluarga dan pekerjaan",
+        "score": 4
+      },
+      {
+        "option_text": "Mengerti posisinya dan mampu menyesuaikan diri di rumah maupun di kantor",
+        "score": 3
+      },
+      {
+        "option_text": "Melaksanakan tugas-tugas yang memang seharusnya dikerjakan",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "category": "MANAJERIAL",
+    "question_text": "Seberapa sering gagasan Anda diterima dan dijalankan dengan baik oleh tim atau rekan kerja?",
+    "options": [
+      {
+        "option_text": "Sering kebanyakan gagasan saya unik sehingga dapat diterima",
+        "score": 3
+      },
+      {
+        "option_text": "Selalu gagasan Cemerlang dan selalu diterima",
+        "score": 4
+      },
+      { "option_text": "Kadang-kadang jika ide baik itu muncul", "score": 2 },
+      {
+        "option_text": "Gagasan saya tidak pernah dijalankan dengan baik oleh anggota tim",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "category": "MANAJERIAL",
+    "question_text": "Setujukah Anda dengan diadakan karyawisata bagi para pegawai di kantor Anda ....",
+    "options": [
+      {
+        "option_text": "Setuju, hitung-hitung sebagai penghematan pengeluaran",
+        "score": 2
+      },
+      {
+        "option_text": "Setuju, sebab karyawisata bisa membuat pegawai rileks sejenak di tengah pekerjaan",
+        "score": 4
+      },
+      {
+        "option_text": "Karyawisata hanya menghabiskan anggaran saja",
+        "score": 2
+      },
+      { "option_text": "Tak semua orang mau diajak berekreasi", "score": 1 }
+    ]
+  },
+  {
+    "id": "21",
+    "category": "MANAJERIAL",
+    "question_text": "Ketika Anda naik sepeda motor di jalan mendekati gedung kantor, Anda melihat kepala kantor berjalan kaki. Anda akan ....",
+    "options": [
+      {
+        "option_text": "Mengurangi kecepatan sambil mengucapkan salam",
+        "score": 3
+      },
+      { "option_text": "Berhenti meminta izin untuk mendahului", "score": 2 },
+      { "option_text": "Berhenti sambil menawari untuk dibonceng", "score": 4 },
+      {
+        "option_text": "Mengurangi kecepatan sambil minta izin mendahului",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "category": "MANAJERIAL",
+    "question_text": "Pak Andi menjadi sumber keluhan bagi rekan kerja yang lain akibat cara kerjanya yang lambat. Sebagai temannya, tindakan Anda adalah .....",
+    "options": [
+      {
+        "option_text": "Menghindari agar tidak berada satu tim dengannya",
+        "score": 1
+      },
+      {
+        "option_text": "Mengingatkannya akan pola kerjanya dan menawarkan bantuan jika dibutuhkan",
+        "score": 4
+      },
+      {
+        "option_text": "Menegur cara kerjanya yang lamban karena menghambat kerja orang lain",
+        "score": 3
+      },
+      {
+        "option_text": "Membiarkan apa yang terjadi karena semua orang memiliki keunikan cara kerja sendiri",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "category": "MANAJERIAL",
+    "question_text": "Saya adalah salah satu junior di sebuah perusahaan. Pada era saya, perusahaan mengharuskan mengubah sistem kerja menggunakan IT mulai dari pengirim surat, komunikasi dengan pihak lain untuk bekerja sama, dan segala macam hal lain. Senior di tempat saya masih tetap menggunakan sarana non IT. Apa yang saya lakukan ....",
+    "options": [
+      {
+        "option_text": "Memberi penjelasan kepada senior tersebut",
+        "score": 3
+      },
+      {
+        "option_text": "Memberi penjelasan kepada senior tersebut dan mengajarkan mengenai IT",
+        "score": 4
+      },
+      {
+        "option_text": "Membantu bekerja senior dalam bekerja yang mengharuskan penggunaan IT",
+        "score": 2
+      },
+      {
+        "option_text": "Karena IT diharuskan, seharusnya senior mawas diri",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "category": "MANAJERIAL",
+    "question_text": "Kantor tempat saya bekerja meminta laporan harian secara online, sementara saya adalah bekerja di lapangan yang kadang terkendala sinyal untuk melaporkan kegiatan. Saya akan ....",
+    "options": [
+      {
+        "option_text": "Meminta kelonggaran pada atasan untuk melaporkan saat sinyal sedang bagus",
+        "score": 3
+      },
+      {
+        "option_text": "Berusaha mencari tempat dengan sinyal bagus untuk dapat melaporkan sesuai ketentuan kantor",
+        "score": 4
+      },
+      {
+        "option_text": "Meminta teman yang berada di lokasi dengan sinyal bagus untuk dapat melaporkan kegiatan harian saya ke kantor",
+        "score": 2
+      },
+      {
+        "option_text": "Saat sedang berada di tempat dengan sinyal jelek, saya menunda laporan pada keesokan harinya",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "category": "MANAJERIAL",
+    "question_text": "Di jalan raya Anda sering sekali menemui jalan-jalan yang rusak yang sering dilalui banyak orang, sikap Anda ....",
+    "options": [
+      {
+        "option_text": "Menghindarinya namun tidak berusaha untuk menyampaikan hal tersebut",
+        "score": 2
+      },
+      { "option_text": "Berpura-pura seolah tidak tahu", "score": 1 },
+      { "option_text": "Masa bodoh dengan hal tersebut", "score": 1 },
+      {
+        "option_text": "Segera menindaklanjuti hal itu kepada pihak berwajib atau instansi terkait",
+        "score": 4
+      }
+    ]
+  }
+]

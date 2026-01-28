@@ -1,0 +1,511 @@
+[
+  {
+    "id": "1",
+    "category": "MANAJERIAL",
+    "question_text": "Anda baru saja diangkat menjadi seorang ASN, sebagai ASN Anda dituntut memiliki kemampuan mengambil keputusan yang baik sehingga menghasilkan keputusan yang bermutu. Pendapat Anda ....",
+    "options": [
+      {
+        "option_text": "Mutu keputusan yang semakin meningkat akan semakin meyakinkan orang lain",
+        "score": 3
+      },
+      {
+        "option_text": "Profesionalisme dari pengambilan keputusan semakin meningkat seiring dengan mutu keputusan yang semakin baik",
+        "score": 4
+      },
+      {
+        "option_text": "Seorang ASN sebelumnya sudah diuji sehingga semua keputusan pasti bermutu",
+        "score": 1
+      },
+      {
+        "option_text": "Cara pengambilan keputusan yang baik akan menghasilkan keputusan yang bermutu",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "MANAJERIAL",
+    "question_text": "Saat ini teknologi berkembang sangat pesat, kaitannya dengan pekerjaan saya, sikap saya adalah ....",
+    "options": [
+      {
+        "option_text": "Belajar teknologi informasi agar dapat menyelesaikan tugas dengan baik",
+        "score": 3
+      },
+      {
+        "option_text": "Belajar teknologi informasi dengan semangat untuk memperbaiki kinerja",
+        "score": 4
+      },
+      {
+        "option_text": "Belajar teknologi informasi dengan penuh sukacita karena menyukai bidang tersebut",
+        "score": 2
+      },
+      {
+        "option_text": "Saya adalah seorang ahli IT dibandingkan karyawan yang lain yang kemampuan IT nya di bawah saya",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "MANAJERIAL",
+    "question_text": "Saya di tempatkan di bagian yang membutuhkan kerjasama tim, kekompakan tim bagi saya adalah ....",
+    "options": [
+      { "option_text": "Penting tapi yang utama adalah target", "score": 3 },
+      {
+        "option_text": "Tidak terlalu penting karena saya bisa mengerjakan semua sendiri",
+        "score": 1
+      },
+      { "option_text": "[Teks Terpotong pada gambar]", "score": 0 },
+      { "option_text": "[Teks Terpotong pada gambar]", "score": 0 }
+    ]
+  },
+  {
+    "id": "4",
+    "category": "MANAJERIAL",
+    "question_text": "Tim Anda saat ini sedang menghadapi suatu masalah, bagaimana pendapat Anda tentang masalah yang sedang dihadapi tim?",
+    "options": [
+      {
+        "option_text": "Saya menganggap masalah tim adalah masalah saya juga sehingga saya akan menyelesaikannya",
+        "score": 4
+      },
+      {
+        "option_text": "Masalah tim adalah masalah bersama yang harus diselesaikan oleh tim",
+        "score": 3
+      },
+      {
+        "option_text": "Bersikap biasa saja karena ketua tim pasti akan mendapatkan solusinya",
+        "score": 2
+      },
+      {
+        "option_text": "Ketua tim adalah penanggungjawab terbesar masalah tersebut",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "category": "MANAJERIAL",
+    "question_text": "Anda berada di suatu perusahaan dimana target sangat diperhitungkan. Bagaimana merespon target pencapaian rekan kerja Anda?",
+    "options": [
+      {
+        "option_text": "Saya akan memberikan apresiasi sekedarnya jika baik saya katakan baik dan jika tidak saya katakan tidak",
+        "score": 2
+      },
+      { "option_text": "Akan memberikan apresiasi ke rekan kerja", "score": 3 },
+      {
+        "option_text": "Saya akan bersikap biasa saja karena target pencapaian saya lebih bagus dibandingkan teman saya",
+        "score": 1
+      },
+      {
+        "option_text": "Saya mudah melakukan apresiasi positif terhadap rekan kerja",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "category": "MANAJERIAL",
+    "question_text": "Anda bekerja di bagian yang membutuhkan kerjasama tim, Bagaimana pendapat Anda tentang pencapaian target tim Anda dan individu?",
+    "options": [
+      {
+        "option_text": "Target individu tercapai maka target tim akan tercapai",
+        "score": 1
+      },
+      {
+        "option_text": "Target tim utama meskipun target individu tidak tercapai",
+        "score": 4
+      },
+      {
+        "option_text": "Sebisa mungkin kedua target tercapai meskipun tidak bisa mencapai 100%",
+        "score": 2
+      },
+      {
+        "option_text": "Mencapai target tim dulu lalu menyelesaikan target individu",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "category": "MANAJERIAL",
+    "question_text": "Apabila anda menjadi anggota yang melanggar pakta integritas, maka ketika mendapat teguran sikap Anda adalah ....",
+    "options": [
+      {
+        "option_text": "Menemui pimpinan Anda sebelum mendapat teguran",
+        "score": 2
+      },
+      {
+        "option_text": "Memberi alasan yang dapat diterima Mengapa saya melanggar pakta integritas",
+        "score": 1
+      },
+      {
+        "option_text": "Saya akan menerima teguran tersebut karena memang salah meskipun menghadapi konsekuensi juga akan disalahkan oleh anggota yang lain",
+        "score": 4
+      },
+      {
+        "option_text": "Menunggu dipanggil dan mempersiapkan jawaban-jawaban yang akan saya berikan",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "category": "MANAJERIAL",
+    "question_text": "Secara umum orang yang mengatakan saya orang yang dapat dipercaya karena ....",
+    "options": [
+      {
+        "option_text": "Saya orang yang ramah dan mau mendengar keluhan orang lain",
+        "score": 2
+      },
+      { "option_text": "Saya orang yang paling terbuka", "score": 1 },
+      { "option_text": "Saya melakukan apa yang saya katakan", "score": 4 },
+      {
+        "option_text": "Saya siap membantu tanpa memikirkan imbalan yang akan saya terima",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "category": "MANAJERIAL",
+    "question_text": "Akan ada libur nasional yang jatuh pada hari Selasa. Sudah menjadi kebiasaan umum di sebuah instansi pemerintahan, tempat Irma kerja, untuk melakukan bolos massal di hari Senin dengan alasan hari kejepit nasional. Menurut Anda yang sebaiknya dilakukan oleh Irma adalah ....",
+    "options": [
+      {
+        "option_text": "Bertanya pada atasan langsung, apakah diizinkan untuk bolos massal di hari Senin",
+        "score": 2
+      },
+      {
+        "option_text": "Mempelajari aturan yang berlaku secara nasional dan mengikutinya secara konsisten",
+        "score": 3
+      },
+      {
+        "option_text": "Menolak bolos massal di hari Senin karena bertentangan dengan nilai-nilai dalam diri sendiri",
+        "score": 4
+      },
+      {
+        "option_text": "Masuk setengah hari di hari Senin, jika kantor sepi maka tidak melanjutkan kerja dan memutuskan pulang",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "category": "MANAJERIAL",
+    "question_text": "Berikut ini adalah salah satu yang paling sesuai dengan apa yang saya lakukan saat bekerja yaitu ....",
+    "options": [
+      {
+        "option_text": "Saya bersemangat justru ketika menghadapi kesulitan dalam bekerja",
+        "score": 4
+      },
+      {
+        "option_text": "Saya menjadi kurang produktif apabila menghadapi hambatan dalam bekerja",
+        "score": 1
+      },
+      {
+        "option_text": "Saya dapat bekerja apabila berada di zona nyaman saya",
+        "score": 2
+      },
+      {
+        "option_text": "Saya bekerja sesuai dengan apa yang ditargetkan pada saya",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "category": "MANAJERIAL",
+    "question_text": "Saya adalah seorang ASN PPPK, penilaian rekan kerja saya terhadap saya ketika ada yang membutuhkan adalah ....",
+    "options": [
+      {
+        "option_text": "Ringan tangan, membantu siapapun yang membutuhkan",
+        "score": 4
+      },
+      {
+        "option_text": "Mau membantu asal dengan upah yang sesuai",
+        "score": 1
+      },
+      { "option_text": "Penuh pertimbangan dalam memberi bantuan", "score": 3 },
+      {
+        "option_text": "Menghindar saat diminta untuk membantu orang lain",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "category": "MANAJERIAL",
+    "question_text": "Seorang ASN selalu berkaitan dengan pelayanan publik. Ketika saya menjadi ASN, saya akan ....",
+    "options": [
+      {
+        "option_text": "Menginformasikan bentuk layanan yang dapat dimanfaatkan masyarakat",
+        "score": 3
+      },
+      { "option_text": "Bekerja sesuai tugas utama saja", "score": 2 },
+      {
+        "option_text": "Melaksanakan aturan dan prosedur pelayanan publik yang berlaku",
+        "score": 4
+      },
+      {
+        "option_text": "Memilih posisi yang secara langsung berperan dalam pelayanan publik",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "category": "MANAJERIAL",
+    "question_text": "Saya sedang mengurus pencairan dana PIP di salah satu bank. Di saat mengantri saya mendapati seorang kakek berumur sekitar 80 tahun ikut dalam antrian. Saat kakek tersebut meminta dilayani terlebih dahulu, sikap saya ....",
+    "options": [
+      {
+        "option_text": "Mempersilahkan kakek menggunakan nomor antrian dari saya",
+        "score": 3
+      },
+      {
+        "option_text": "Acuh tak acuh dan tetap minta dilayani dahulu karena saya sudah antri sejak awal",
+        "score": 1
+      },
+      {
+        "option_text": "Minta maaf dan tetap meminta sang kakek untuk antri",
+        "score": 2
+      },
+      {
+        "option_text": "Minta maaf dan mempersilahkan sang kakek beristirahat di kursi yang tersedia",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "category": "MANAJERIAL",
+    "question_text": "Suatu hari saya diberikan tugas oleh pimpinan saya. Karena pekerjaannya terlalu banyak makan pimpinan meminta salah satu rekan saya untuk membantu. Namun rekan yang sedang membantu saya mengerjakan tugas tampak tidak bersemangat. Sikap saya ....",
+    "options": [
+      {
+        "option_text": "Menyemangati rekan kerja saya tersebut untuk mengerjakannya",
+        "score": 3
+      },
+      {
+        "option_text": "Meminta agar tugas tersebut dapat diselesaikan tepat waktu",
+        "score": 2
+      },
+      {
+        "option_text": "Melaporkan bahwa rekan kerja tersebut tidak mau membantu mengerjakan tugas",
+        "score": 1
+      },
+      {
+        "option_text": "Menanyakan hal yang membuatnya tidak bersemangat",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "category": "MANAJERIAL",
+    "question_text": "Sekolah dan Orang tua peserta didik memiliki keterkaitan yang sangat erat. Adapun tujuan dalam menjalin hubungan kerjasama antara sekolah dan orang tua peserta didik adalah ....",
+    "options": [
+      {
+        "option_text": "Bantuan keuangan dan sarana prasarana sekolah",
+        "score": 2
+      },
+      {
+        "option_text": "Saling membantu dan saling isi mengisi kepentingan pendidikan",
+        "score": 4
+      },
+      {
+        "option_text": "Bersama-sama membuat rencana yang baik untuk sang anak",
+        "score": 3
+      },
+      {
+        "option_text": "Agar orang tua peserta didik tidak selalu memprotes guru",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "category": "MANAJERIAL",
+    "question_text": "Sekolah dan Masyarakat memiliki keterkaitan yang sangat erat, adapun pendekatan yang bisa dilakukan untuk menjalin hubungan sekolah dengan masyarakat tumbuh dengan baik adalah ....",
+    "options": [
+      {
+        "option_text": "Melaksanakan pembelajaran realistik memanfaatkan lingkungan sekitar",
+        "score": 4
+      },
+      {
+        "option_text": "Melaksanakan market day untuk keluarga sekolah",
+        "score": 3
+      },
+      {
+        "option_text": "Melakukan pendekatan terlebih dulu kepada kepala daerah",
+        "score": 1
+      },
+      {
+        "option_text": "Mengadakan open house untuk menjaring pendaftaran ppdb",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "category": "MANAJERIAL",
+    "question_text": "Bentuk kerjasama antar guru dapat dilakukan dalam suatu wadah asosiasi ataupun suatu perkumpulan. Menurut saya hal tersebut berfungsi untuk ....",
+    "options": [
+      { "option_text": "Sarana meningkatkan kinerja", "score": 4 },
+      { "option_text": "Sarana agar sekolah terlihat aktif", "score": 1 },
+      { "option_text": "Sarana saling berkomunikasi", "score": 2 },
+      { "option_text": "Karena saling belajar", "score": 3 }
+    ]
+  },
+  {
+    "id": "18",
+    "category": "MANAJERIAL",
+    "question_text": "Supervisi adalah aktivitas serta kegiatan pembinaan yang dilakukan oleh seorang profesional. Tujuan supervisi pendidikan yang paling penting bagi Anda sebagai guru adalah ....",
+    "options": [
+      { "option_text": "Mengetahui hasil evaluasi", "score": 2 },
+      { "option_text": "Memperbaiki kesalahan yang dibuat guru", "score": 4 },
+      { "option_text": "Mengetahui kesalahan guru", "score": 1 },
+      { "option_text": "Memberi motivasi kerja", "score": 3 }
+    ]
+  },
+  {
+    "id": "19",
+    "category": "MANAJERIAL",
+    "question_text": "Di tempat kerja saya, saya menemukan beberapa inventaris kantor yang rusak dan hanya saya yang mengetahuinya, sikap saya adalah ....",
+    "options": [
+      {
+        "option_text": "Saya akan menegur teman yang biasanya menggunakan inventaris tersebut",
+        "score": 2
+      },
+      { "option_text": "Saya memberitahu rekan saya", "score": 3 },
+      {
+        "option_text": "Saya diam saja karena saya bisa dituduh sebagai pelaku kalau melapor",
+        "score": 1
+      },
+      {
+        "option_text": "Melapor ke bagian perlengkapan agar ditindak lanjuti",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "category": "MANAJERIAL",
+    "question_text": "Terkait dengan perubahan, secara umum saya dinilai orang di sekitar saya sebagai orang yang ....",
+    "options": [
+      {
+        "option_text": "Butuh waktu untuk bergaul dengan secara akrab dengan orang lain",
+        "score": 2
+      },
+      {
+        "option_text": "Mempunyai keinginan tinggi untuk mengetahui kegiatan orang lain",
+        "score": 1
+      },
+      {
+        "option_text": "Cenderung kurang adaptif terhadap perubahan",
+        "score": 1
+      },
+      {
+        "option_text": "Mudah menyesuaikan diri dengan lingkungan yang baru",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "category": "MANAJERIAL",
+    "question_text": "Perkembangan teknologi sangatlah pesat. Semua sektor pekerjaan menggunakan sistem IT. Adapun dampak perkembangan IT terhadap kualitas layanan yang saya berikan adalah ....",
+    "options": [
+      { "option_text": "Pekerjaan cepat selesai", "score": 3 },
+      { "option_text": "Mengerjakan tugas lebih banyak", "score": 1 },
+      { "option_text": "Fasilitas tambahan", "score": 2 },
+      { "option_text": "Kinerja lebih baik", "score": 4 }
+    ]
+  },
+  {
+    "id": "22",
+    "category": "MANAJERIAL",
+    "question_text": "Saat ini saya diangkat menjadi kepala bagian, namun beberapa pegawai hendak mengundurkan diri dengan alasan tidak dapat mengembangkan diri di bagian yang saat ini saya pimpin. Bahkan termasuk diantaranya adalah pegawai yang menurut saya berprestasi. Sementara sampai saat ini belum tersedia alokasi anggaran untuk pengembangan diri pegawai, yang saya lakukan adalah ....",
+    "options": [
+      {
+        "option_text": "Meminta anggaran untuk memfasilitasi pengembangan diri mereka",
+        "score": 4
+      },
+      { "option_text": "Membiarkan saja dan pura-pura tidak tahu", "score": 1 },
+      {
+        "option_text": "Memberikan mereka kesempatan mengikuti pelatihan",
+        "score": 2
+      },
+      {
+        "option_text": "Memberikan pemberkasan secukupnya sesuai pengalaman",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "category": "MANAJERIAL",
+    "question_text": "Saya baru diangkat menjadi pengawas sekolah. Suatu hari setelah melakukan supervisi, kepala sekolah memberikan sebuah amplop yang tentunya berisi uang saku sebagaimana umumnya dilakukan oleh beberapa sekolah yang saya supervisi. Sikap saya ....",
+    "options": [
+      {
+        "option_text": "Menerima amplop tersebut karena sudah umum dilakukan",
+        "score": 1
+      },
+      {
+        "option_text": "Menolak secara tegas segala macam bentuk gratifikasi",
+        "score": 4
+      },
+      {
+        "option_text": "Menolak karena bertentangan dengan nilai-nilai integritas",
+        "score": 3
+      },
+      {
+        "option_text": "Mengembalikan amplop tersebut secara halus",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "category": "MANAJERIAL",
+    "question_text": "Saat ini Anda baru diangkat menjadi seorang ASN PPPK, menurut Anda sepuluh tahun setelah Anda diangkat sebagai ASN PPPK ini, Anda akan menjadi ....",
+    "options": [
+      {
+        "option_text": "Pejabat struktural atau pejabat fungsional yang profesional dalam bidangnya",
+        "score": 4
+      },
+      {
+        "option_text": "Bosan dengan pekerjaan pemerintah dan akan mengajukan resign",
+        "score": 1
+      },
+      {
+        "option_text": "ASN masih sebagai pelaksana di unit yang pertama kali saya terima",
+        "score": 2
+      },
+      {
+        "option_text": "ASN masih sebagai pelaksana dengan kompetensi saya",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "category": "MANAJERIAL",
+    "question_text": "Saya ditegur oleh kepala sekolah dengan nada tinggi di depan guru lain, hal itu karena terlambat menyerahkan laporan BOS. Sementara keterlambatan itu terjadi karena adanya kerusakan printer yang saya gunakan. Sikap saya adalah ....",
+    "options": [
+      {
+        "option_text": "Meminta maaf dan berjanji tidak akan terlambat lagi",
+        "score": 4
+      },
+      {
+        "option_text": "Tidak dapat menerima perlakuan kepala sekolah tersebut",
+        "score": 1
+      },
+      {
+        "option_text": "Minta maaf dan menjelaskan sebab keterlambatan tersebut",
+        "score": 3
+      },
+      {
+        "option_text": "Menjelaskan bahwa printer di ruang guru perlu diganti",
+        "score": 2
+      }
+    ]
+  }
+]

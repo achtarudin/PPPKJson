@@ -1,0 +1,242 @@
+[
+  {
+    "id": "1",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Saya bersabar jika teman saya di tempat kerja suka sombong dan memamerkan penghasilannya yang lebih besar.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda memilih memberikan pelayanan kepada masyarakat yang satu suku dengan Anda, karena menyadari keterbatasan bahasa daerah.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Ketika Anda sedang berjalan menuju kantor, Anda bertemu dengan seseorang yang langsung memarahi Anda padahal Anda tidak mengenalnya dan tidak merasa berbuat salah kepadanya. Adapun memarahinya atas apa yang dilakukan kepada Anda.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "4",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda tidak bisa bekerja maksimal karena ruangan kantor sedang dalam keadaan tidak nyaman.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "5",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda tetap merasa tenang ketika rekan kerja mendapatkan pekerjaan yang lebih sedikit daripada yang Anda terima.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "6",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Saya merasa marah ketika ada yang menolak pendapat saya dalam rapat kantor.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "7",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda merasa nyaman meskipun pegawai di lingkungan unit kerja anda mayoritas berasal dari daerah tertentu.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "8",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda tetap berkepala dingin saat rekan kerja bersitegang terkait pekerjaan di tempat kerja.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "9",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda memilih untuk makan di tempat yang sepi saat rekan kerja berpuasa untuk menghargai perbedaan keyakinan dengan rekan Anda.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "10",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Saya akan menerima dengan baik apabila diberikan partner kerja yang berasal dari suku lain.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "11",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda bangun kesiangan dan memilih tidak menyelesaikan pekerjaan rumah tangga terlebih dahulu karena Anda akan mengikuti meeting tempat kerja.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "12",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Di tempat Anda Bekerja akan diadakan lomba 17 Agustus. Pimpinan meminta Anda agar tidak memilih panitia lomba yang berbeda suku dengan Anda.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "13",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda hanya bisa bekerja dalam keadaan nyaman.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "14",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Pada saat atasan menegur Anda dengan membentak di depan kantor, Anda tetap tenang menerima dan akan melakukan perbaikan.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "15",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda menerima pekerjaan yang diberikan atasan ketika hari libur walaupun selama sepekan Anda sudah bekerja keras di kantor.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  },
+  {
+    "id": "16",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Keberagaman menjadi masalah karena hanya akan menimbulkan perpecahan dan selisih paham.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "17",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Saya tidak bisa melakukan suatu pekerjaan yang cukup berat apalagi saya kerjakan sendiri.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "18",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda tidak dapat bersikap tenang ketika memiliki teman yang berbeda adat dan budaya di tempat Anda bekerja.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "19",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Saya tidak bisa mengendalikan diri untuk tidak ikut campur ketika ada teman sekantor saya berselisih paham tentang perbedaan.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 1 },
+      { "option_text": "Setuju", "score": 2 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 4 },
+      { "option_text": "Sangat tidak setuju", "score": 5 }
+    ]
+  },
+  {
+    "id": "20",
+    "category": "SOSIAL KULTURAL",
+    "question_text": "Anda menikah dengan orang yang latar belakang budayanya berbeda, namun Anda tidak membutuhkan waktu lama untuk beradaptasi.",
+    "options": [
+      { "option_text": "Sangat Setuju", "score": 5 },
+      { "option_text": "Setuju", "score": 4 },
+      { "option_text": "Ragu-ragu", "score": 3 },
+      { "option_text": "Tidak setuju", "score": 2 },
+      { "option_text": "Sangat tidak setuju", "score": 1 }
+    ]
+  }
+]
