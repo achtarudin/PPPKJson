@@ -53,13 +53,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/handlers.APIResponse"
+                                    "$ref": "#/definitions/dto.APIResponse"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/handlers.ExamSessionResponse"
+                                            "$ref": "#/definitions/dto.ExamSessionResponse"
                                         }
                                     }
                                 }
@@ -69,13 +69,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid user ID",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "500": {
                         "description": "Failed to create exam session",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     }
                 }
@@ -109,7 +109,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/handlers.SubmitAnswerRequest"
+                            "$ref": "#/definitions/dto.SubmitAnswerRequest"
                         }
                     }
                 ],
@@ -117,25 +117,25 @@ const docTemplate = `{
                     "200": {
                         "description": "Answer submitted successfully",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "400": {
                         "description": "Invalid request",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "404": {
                         "description": "Exam session not found",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "500": {
                         "description": "Failed to submit answer",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     }
                 }
@@ -170,7 +170,7 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/handlers.APIResponse"
+                                    "$ref": "#/definitions/dto.APIResponse"
                                 },
                                 {
                                     "type": "object",
@@ -187,19 +187,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid user ID",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "404": {
                         "description": "Exam session not found",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "500": {
                         "description": "Failed to complete exam",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     }
                 }
@@ -234,13 +234,13 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/handlers.APIResponse"
+                                    "$ref": "#/definitions/dto.APIResponse"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/handlers.ExamResultsResponse"
+                                            "$ref": "#/definitions/dto.ExamResultsResponse"
                                         }
                                     }
                                 }
@@ -250,13 +250,13 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid user ID",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "404": {
                         "description": "Exam results not found",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     }
                 }
@@ -291,7 +291,7 @@ const docTemplate = `{
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/handlers.APIResponse"
+                                    "$ref": "#/definitions/dto.APIResponse"
                                 },
                                 {
                                     "type": "object",
@@ -308,19 +308,19 @@ const docTemplate = `{
                     "400": {
                         "description": "Invalid user ID",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "404": {
                         "description": "Exam session not found",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     },
                     "500": {
                         "description": "Failed to start exam",
                         "schema": {
-                            "$ref": "#/definitions/handlers.APIResponse"
+                            "$ref": "#/definitions/dto.APIResponse"
                         }
                     }
                 }
@@ -352,7 +352,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "handlers.APIResponse": {
+        "dto.APIResponse": {
             "type": "object",
             "properties": {
                 "data": {},
@@ -370,7 +370,7 @@ const docTemplate = `{
                 }
             }
         },
-        "handlers.CategoryStatsResponse": {
+        "dto.CategoryStatsResponse": {
             "type": "object",
             "properties": {
                 "answered_count": {
@@ -387,7 +387,7 @@ const docTemplate = `{
                 }
             }
         },
-        "handlers.ExamResultResponse": {
+        "dto.ExamResultResponse": {
             "type": "object",
             "properties": {
                 "category": {
@@ -432,27 +432,27 @@ const docTemplate = `{
                 }
             }
         },
-        "handlers.ExamResultsResponse": {
+        "dto.ExamResultsResponse": {
             "type": "object",
             "properties": {
                 "results_by_category": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/handlers.ExamResultResponse"
+                        "$ref": "#/definitions/dto.ExamResultResponse"
                     }
                 },
                 "summary": {
-                    "$ref": "#/definitions/handlers.ExamSummaryResponse"
+                    "$ref": "#/definitions/dto.ExamSummaryResponse"
                 }
             }
         },
-        "handlers.ExamSessionResponse": {
+        "dto.ExamSessionResponse": {
             "type": "object",
             "properties": {
                 "category_stats": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/handlers.CategoryStatsResponse"
+                        "$ref": "#/definitions/dto.CategoryStatsResponse"
                     }
                 },
                 "duration": {
@@ -466,7 +466,7 @@ const docTemplate = `{
                 "questions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/handlers.QuestionResponse"
+                        "$ref": "#/definitions/dto.QuestionResponse"
                     }
                 },
                 "session_code": {
@@ -493,7 +493,7 @@ const docTemplate = `{
                 }
             }
         },
-        "handlers.ExamSummaryResponse": {
+        "dto.ExamSummaryResponse": {
             "type": "object",
             "properties": {
                 "completed_at": {
@@ -542,7 +542,7 @@ const docTemplate = `{
                 }
             }
         },
-        "handlers.QuestionOptionResponse": {
+        "dto.QuestionOptionResponse": {
             "type": "object",
             "properties": {
                 "id": {
@@ -555,7 +555,7 @@ const docTemplate = `{
                 }
             }
         },
-        "handlers.QuestionResponse": {
+        "dto.QuestionResponse": {
             "type": "object",
             "properties": {
                 "category": {
@@ -575,7 +575,7 @@ const docTemplate = `{
                 "options": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/handlers.QuestionOptionResponse"
+                        "$ref": "#/definitions/dto.QuestionOptionResponse"
                     }
                 },
                 "order_number": {
@@ -592,7 +592,7 @@ const docTemplate = `{
                 }
             }
         },
-        "handlers.SubmitAnswerRequest": {
+        "dto.SubmitAnswerRequest": {
             "type": "object",
             "required": [
                 "exam_question_id",

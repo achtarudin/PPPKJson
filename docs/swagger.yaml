@@ -1,6 +1,6 @@
 basePath: /api/v1
 definitions:
-  handlers.APIResponse:
+  dto.APIResponse:
     properties:
       data: {}
       error:
@@ -13,7 +13,7 @@ definitions:
         example: true
         type: boolean
     type: object
-  handlers.CategoryStatsResponse:
+  dto.CategoryStatsResponse:
     properties:
       answered_count:
         example: 0
@@ -25,7 +25,7 @@ definitions:
         example: 5
         type: integer
     type: object
-  handlers.ExamResultResponse:
+  dto.ExamResultResponse:
     properties:
       category:
         example: MANAJERIAL
@@ -58,20 +58,20 @@ definitions:
         example: 16
         type: integer
     type: object
-  handlers.ExamResultsResponse:
+  dto.ExamResultsResponse:
     properties:
       results_by_category:
         items:
-          $ref: '#/definitions/handlers.ExamResultResponse'
+          $ref: '#/definitions/dto.ExamResultResponse'
         type: array
       summary:
-        $ref: '#/definitions/handlers.ExamSummaryResponse'
+        $ref: '#/definitions/dto.ExamSummaryResponse'
     type: object
-  handlers.ExamSessionResponse:
+  dto.ExamSessionResponse:
     properties:
       category_stats:
         items:
-          $ref: '#/definitions/handlers.CategoryStatsResponse'
+          $ref: '#/definitions/dto.CategoryStatsResponse'
         type: array
       duration:
         example: 120
@@ -81,7 +81,7 @@ definitions:
         type: string
       questions:
         items:
-          $ref: '#/definitions/handlers.QuestionResponse'
+          $ref: '#/definitions/dto.QuestionResponse'
         type: array
       session_code:
         example: EXAM_1234_1643356800
@@ -101,7 +101,7 @@ definitions:
         example: "1234"
         type: string
     type: object
-  handlers.ExamSummaryResponse:
+  dto.ExamSummaryResponse:
     properties:
       completed_at:
         example: "2026-01-28T11:30:00Z"
@@ -137,7 +137,7 @@ definitions:
         example: "1234"
         type: string
     type: object
-  handlers.QuestionOptionResponse:
+  dto.QuestionOptionResponse:
     properties:
       id:
         example: 59
@@ -146,7 +146,7 @@ definitions:
         example: Dalam hati tidak menyetujui hal tersebut
         type: string
     type: object
-  handlers.QuestionResponse:
+  dto.QuestionResponse:
     properties:
       category:
         enum:
@@ -161,7 +161,7 @@ definitions:
         type: integer
       options:
         items:
-          $ref: '#/definitions/handlers.QuestionOptionResponse'
+          $ref: '#/definitions/dto.QuestionOptionResponse'
         type: array
       order_number:
         example: 1
@@ -173,7 +173,7 @@ definitions:
         example: Atasan Anda melakukan rekayasa laporan...
         type: string
     type: object
-  handlers.SubmitAnswerRequest:
+  dto.SubmitAnswerRequest:
     properties:
       exam_question_id:
         example: 1
@@ -219,19 +219,19 @@ paths:
           description: Exam session ready
           schema:
             allOf:
-            - $ref: '#/definitions/handlers.APIResponse'
+            - $ref: '#/definitions/dto.APIResponse'
             - properties:
                 data:
-                  $ref: '#/definitions/handlers.ExamSessionResponse'
+                  $ref: '#/definitions/dto.ExamSessionResponse'
               type: object
         "400":
           description: Invalid user ID
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "500":
           description: Failed to create exam session
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
       summary: Create or get exam session
       tags:
       - exam
@@ -252,26 +252,26 @@ paths:
         name: request
         required: true
         schema:
-          $ref: '#/definitions/handlers.SubmitAnswerRequest'
+          $ref: '#/definitions/dto.SubmitAnswerRequest'
       produces:
       - application/json
       responses:
         "200":
           description: Answer submitted successfully
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "400":
           description: Invalid request
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "404":
           description: Exam session not found
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "500":
           description: Failed to submit answer
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
       summary: Submit answer
       tags:
       - exam
@@ -294,7 +294,7 @@ paths:
           description: Exam completed successfully
           schema:
             allOf:
-            - $ref: '#/definitions/handlers.APIResponse'
+            - $ref: '#/definitions/dto.APIResponse'
             - properties:
                 data:
                   additionalProperties: true
@@ -303,15 +303,15 @@ paths:
         "400":
           description: Invalid user ID
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "404":
           description: Exam session not found
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "500":
           description: Failed to complete exam
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
       summary: Complete exam
       tags:
       - exam
@@ -335,19 +335,19 @@ paths:
           description: Exam results retrieved
           schema:
             allOf:
-            - $ref: '#/definitions/handlers.APIResponse'
+            - $ref: '#/definitions/dto.APIResponse'
             - properties:
                 data:
-                  $ref: '#/definitions/handlers.ExamResultsResponse'
+                  $ref: '#/definitions/dto.ExamResultsResponse'
               type: object
         "400":
           description: Invalid user ID
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "404":
           description: Exam results not found
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
       summary: Get exam results
       tags:
       - exam
@@ -370,7 +370,7 @@ paths:
           description: Exam started successfully
           schema:
             allOf:
-            - $ref: '#/definitions/handlers.APIResponse'
+            - $ref: '#/definitions/dto.APIResponse'
             - properties:
                 data:
                   additionalProperties: true
@@ -379,15 +379,15 @@ paths:
         "400":
           description: Invalid user ID
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "404":
           description: Exam session not found
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
         "500":
           description: Failed to start exam
           schema:
-            $ref: '#/definitions/handlers.APIResponse'
+            $ref: '#/definitions/dto.APIResponse'
       summary: Start exam
       tags:
       - exam
