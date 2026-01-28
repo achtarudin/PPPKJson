@@ -22,7 +22,7 @@ services:
   migrate:
     image: migrate/migrate:4
     volumes:
-      - ./migrations:/migrations
+      - ./backend/migrations:/migrations
     environment:
       - DATABASE_URL=postgres://encang_cutbray:encang_cutbray@postgres:5432/togotestgo?sslmode=disable
     networks:
