@@ -1,0 +1,416 @@
+basePath: /api/v1
+definitions:
+  handlers.APIResponse:
+    properties:
+      data: {}
+      error:
+        example: Error message
+        type: string
+      message:
+        example: Success message
+        type: string
+      success:
+        example: true
+        type: boolean
+    type: object
+  handlers.CategoryStatsResponse:
+    properties:
+      answered_count:
+        example: 0
+        type: integer
+      category:
+        example: MANAJERIAL
+        type: string
+      total_questions:
+        example: 5
+        type: integer
+    type: object
+  handlers.ExamResultResponse:
+    properties:
+      category:
+        example: MANAJERIAL
+        type: string
+      exam_session_id:
+        example: 1
+        type: integer
+      grade:
+        example: B
+        type: string
+      id:
+        example: 1
+        type: integer
+      is_passed:
+        example: true
+        type: boolean
+      max_score:
+        example: 20
+        type: integer
+      percentage:
+        example: 80
+        type: number
+      total_answered:
+        example: 5
+        type: integer
+      total_questions:
+        example: 5
+        type: integer
+      total_score:
+        example: 16
+        type: integer
+    type: object
+  handlers.ExamResultsResponse:
+    properties:
+      results_by_category:
+        items:
+          $ref: '#/definitions/handlers.ExamResultResponse'
+        type: array
+      summary:
+        $ref: '#/definitions/handlers.ExamSummaryResponse'
+    type: object
+  handlers.ExamSessionResponse:
+    properties:
+      category_stats:
+        items:
+          $ref: '#/definitions/handlers.CategoryStatsResponse'
+        type: array
+      duration:
+        example: 120
+        type: integer
+      expires_at:
+        example: "2026-01-28T12:00:00Z"
+        type: string
+      questions:
+        items:
+          $ref: '#/definitions/handlers.QuestionResponse'
+        type: array
+      session_code:
+        example: EXAM_1234_1643356800
+        type: string
+      session_id:
+        example: 1
+        type: integer
+      status:
+        enum:
+        - NOT_STARTED
+        - IN_PROGRESS
+        - COMPLETED
+        - EXPIRED
+        example: NOT_STARTED
+        type: string
+      user_id:
+        example: "1234"
+        type: string
+    type: object
+  handlers.ExamSummaryResponse:
+    properties:
+      completed_at:
+        example: "2026-01-28T11:30:00Z"
+        type: string
+      exam_session_id:
+        example: 1
+        type: integer
+      id:
+        example: 1
+        type: integer
+      is_passed:
+        example: true
+        type: boolean
+      max_score:
+        example: 80
+        type: integer
+      overall_grade:
+        example: B
+        type: string
+      overall_percentage:
+        example: 81.25
+        type: number
+      total_answered:
+        example: 18
+        type: integer
+      total_questions:
+        example: 20
+        type: integer
+      total_score:
+        example: 65
+        type: integer
+      user_id:
+        example: "1234"
+        type: string
+    type: object
+  handlers.QuestionOptionResponse:
+    properties:
+      id:
+        example: 59
+        type: integer
+      option_text:
+        example: Dalam hati tidak menyetujui hal tersebut
+        type: string
+    type: object
+  handlers.QuestionResponse:
+    properties:
+      category:
+        enum:
+        - MANAJERIAL
+        - SOSIAL KULTURAL
+        - TEKNIS
+        - WAWANCARA
+        example: MANAJERIAL
+        type: string
+      exam_question_id:
+        example: 1
+        type: integer
+      options:
+        items:
+          $ref: '#/definitions/handlers.QuestionOptionResponse'
+        type: array
+      order_number:
+        example: 1
+        type: integer
+      question_id:
+        example: 15
+        type: integer
+      question_text:
+        example: Atasan Anda melakukan rekayasa laporan...
+        type: string
+    type: object
+  handlers.SubmitAnswerRequest:
+    properties:
+      exam_question_id:
+        example: 1
+        type: integer
+      question_option_id:
+        example: 59
+        type: integer
+    required:
+    - exam_question_id
+    - question_option_id
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@example.com
+    name: API Support
+    url: http://www.example.com/support
+  description: PPPK Examination Management System API with randomized questions
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: http://swagger.io/terms/
+  title: PPPKJson Exam API
+  version: 1.0.0
+paths:
+  /exam/{userID}:
+    get:
+      consumes:
+      - application/json
+      description: Creates a new exam session with 20 random questions (5 per category)
+        or returns existing active session
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Exam session ready
+          schema:
+            allOf:
+            - $ref: '#/definitions/handlers.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/handlers.ExamSessionResponse'
+              type: object
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "500":
+          description: Failed to create exam session
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+      summary: Create or get exam session
+      tags:
+      - exam
+  /exam/{userID}/answer:
+    post:
+      consumes:
+      - application/json
+      description: Submits user's answer for a specific question
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      - description: Answer submission
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.SubmitAnswerRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Answer submitted successfully
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "404":
+          description: Exam session not found
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "500":
+          description: Failed to submit answer
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+      summary: Submit answer
+      tags:
+      - exam
+  /exam/{userID}/complete:
+    post:
+      consumes:
+      - application/json
+      description: Completes the exam session and calculates final results
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Exam completed successfully
+          schema:
+            allOf:
+            - $ref: '#/definitions/handlers.APIResponse'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+              type: object
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "404":
+          description: Exam session not found
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "500":
+          description: Failed to complete exam
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+      summary: Complete exam
+      tags:
+      - exam
+  /exam/{userID}/results:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves detailed exam results including summary and category
+        breakdown
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Exam results retrieved
+          schema:
+            allOf:
+            - $ref: '#/definitions/handlers.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/handlers.ExamResultsResponse'
+              type: object
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "404":
+          description: Exam results not found
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+      summary: Get exam results
+      tags:
+      - exam
+  /exam/{userID}/start:
+    post:
+      consumes:
+      - application/json
+      description: Starts the exam timer and changes status to IN_PROGRESS
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Exam started successfully
+          schema:
+            allOf:
+            - $ref: '#/definitions/handlers.APIResponse'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+              type: object
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "404":
+          description: Exam session not found
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+        "500":
+          description: Failed to start exam
+          schema:
+            $ref: '#/definitions/handlers.APIResponse'
+      summary: Start exam
+      tags:
+      - exam
+  /health:
+    get:
+      consumes:
+      - application/json
+      description: Get the health status of the application
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Health Check
+      tags:
+      - system
+schemes:
+- http
+- https
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"

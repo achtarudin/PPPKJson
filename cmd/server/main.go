@@ -1,21 +1,47 @@
+// Package main provides the entry point for the PPPKJson Exam API application.
+//
+// @title           PPPKJson Exam API
+// @version         1.0.0
+// @description     PPPK Examination Management System API with randomized questions
+// @termsOfService  http://swagger.io/terms/
+//
+// @contact.name    API Support
+// @contact.url     http://www.example.com/support
+// @contact.email   support@example.com
+//
+// @license.name    MIT
+// @license.url     https://opensource.org/licenses/MIT
+//
+// @host            localhost:8080
+// @BasePath        /api/v1
+// @schemes         http https
+//
+// @securityDefinitions.basic BasicAuth
 package main
 
 import (
 	"context"
 	"cutbray/pppk-json/cmd/config"
+	_ "cutbray/pppk-json/docs" // for swagger docs
 	"cutbray/pppk-json/internal/adapters/db_adapter"
+	"cutbray/pppk-json/internal/adapters/gin_adapter"
 	"cutbray/pppk-json/internal/adapters/logger"
+	"cutbray/pppk-json/internal/handlers"
 	"cutbray/pppk-json/internal/utils"
 	"fmt"
 	"log"
 	"os/signal"
 	"syscall"
 
+	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
 func main() {
 	logger.New()
+
+	port := utils.GetEnvOrDefault("PORT", "8080")
+	ginMode := utils.GetEnvOrDefault("GIN_MODE", gin.ReleaseMode)
 
 	dbHost := utils.GetEnvOrDefault("DB_HOST", "localhost")
 	dbUser := utils.GetEnvOrDefault("DB_USER", "encang_cutbray")
@@ -31,9 +57,14 @@ func main() {
 
 	// Initialize Adapters
 	dbAdapter := db_adapter.New(dsn, &gorm.Config{})
+	ginAdapter := gin_adapter.New(gin_adapter.GinConfig{
+		Port: port,
+		Mode: ginMode,
+	})
 
 	connectManagers := []config.ConnectManager{
 		{Name: "Postgres DB", Adapter: dbAdapter},
+		{Name: "Gin HTTP Server", Adapter: ginAdapter},
 	}
 
 	if err := config.ConnectAdapters(shutdown, connectManagers...); err != nil {
@@ -41,10 +72,20 @@ func main() {
 	}
 
 	// Safety Check Initialize Connected Adapters
-	_, ok := dbAdapter.Value().(*gorm.DB)
+	db, ok := dbAdapter.Value().(*gorm.DB)
 	if !ok {
 		log.Fatalf("Database adapter is not properly initialized")
 	}
+
+	// Setup handlers and routes
+	ginEngine, ok := ginAdapter.Value().(*gin.Engine)
+	if !ok {
+		log.Fatalf("Gin adapter is not properly initialized")
+	}
+
+	// Register exam handlers
+	examHandler := handlers.NewGinExamHandler(db)
+	examHandler.RegisterRoutes(ginEngine)
 
 	<-shutdown.Done()
 

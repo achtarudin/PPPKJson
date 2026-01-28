@@ -35,3 +35,15 @@ migrate-force:
 migrate-reset:
 	@echo "⚠️ DESTROYING ALL DATA..."
 	$(MIGRATE_CMD) -c 'migrate -path=/migrations -database $$DATABASE_URL down'
+
+swag-gen:
+	@echo "Generating swagger documentation..."
+	swag init -g cmd/server/main.go -o ./docs
+
+compose-up:
+	@echo "Starting containers..."
+	docker compose -f compose.dev.yaml up -d
+
+compose-down:
+	@echo "Stopping containers..."
+	docker compose -f compose.dev.yaml down
