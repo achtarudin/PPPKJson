@@ -24,20 +24,62 @@ const ExamBoard = () => {
     try {
       setLoading(true);
       const response = await examAPI.getOrCreateExam(userID);
+      
       if (response.data.success) {
         const exam = response.data.data;
         setExamData(exam);
         setExamStarted(exam.status === 'IN_PROGRESS');
+        
+        // If exam is already completed or expired, redirect to results
         if (exam.status === 'COMPLETED' || exam.status === 'EXPIRED') {
           navigate(`/results/${userID}`);
+          return;
+        }
+        
+        // If exam is in progress, load existing answers
+        if (exam.status === 'IN_PROGRESS') {
+          // Load existing answers after exam data is set
+          setTimeout(() => loadExistingAnswers(), 100);
         }
       } else {
         setError(response.data.error || 'Failed to load exam');
       }
     } catch (error) {
       setError('Connection failed. Please try again.');
+      console.error('Load exam error:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadExistingAnswers = async () => {
+    try {
+      const response = await examAPI.getUserAnswers(userID);
+      if (response.data.success) {
+        const userAnswers = response.data.data || {};
+        const newAnswers = {};
+        
+        // Map exam question IDs to their answers using currentQuestion index
+        Object.entries(userAnswers).forEach(([examQuestionId, optionId]) => {
+          const examQuestionIdInt = parseInt(examQuestionId);
+          const optionIdInt = parseInt(optionId);
+          
+          // Find which question index this exam question ID corresponds to
+          if (examData && examData.questions) {
+            examData.questions.forEach((question, index) => {
+              if (question.examQuestionId === examQuestionIdInt) {
+                newAnswers[index] = optionIdInt;
+              }
+            });
+          }
+        });
+        
+        setAnswers(newAnswers);
+        console.log('Loaded existing answers:', newAnswers);
+      }
+    } catch (error) {
+      console.error('Failed to load existing answers:', error);
+      // Don't show error to user, just log it
     }
   };
 
@@ -46,12 +88,14 @@ const ExamBoard = () => {
       const response = await examAPI.startExam(userID);
       if (response.data.success) {
         setExamStarted(true);
-        loadExamSession();
+        // Reload exam data to get updated status
+        await loadExamSession();
       } else {
         setError(response.data.error || 'Failed to start exam');
       }
     } catch (error) {
       setError('Failed to start exam');
+      console.error('Start exam error:', error);
     }
   };
 
@@ -59,7 +103,7 @@ const ExamBoard = () => {
     try {
       const response = await examAPI.submitAnswer(userID, examQuestionId, optionId);
       if (response.data.success) {
-        setAnswers(prev => ({ ...prev, [examQuestionId]: optionId }));
+        setAnswers(prev => ({ ...prev, [currentIndex]: optionId }));
       }
     } catch (error) {
       // Optionally show error
@@ -137,7 +181,7 @@ const ExamBoard = () => {
                       .filter(q => q.category === stat.category)
                       .map((q, idx) => {
                         const globalIdx = examData.questions.findIndex(quest => quest.exam_question_id === q.exam_question_id);
-                        const isAnswered = answers[q.exam_question_id];
+                        const isAnswered = answers[globalIdx] !== undefined;
                         const isCurrent = globalIdx === currentIndex;
                         return (
                           <button
@@ -174,7 +218,7 @@ const ExamBoard = () => {
             <>
               <QuestionCard
                 question={currentQuestion}
-                selectedOption={answers[currentQuestion.exam_question_id]}
+                selectedOption={answers[currentIndex]}
                 onSelect={handleOptionSelect}
                 questionNumber={currentIndex + 1}
               />

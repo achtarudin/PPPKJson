@@ -26,7 +26,14 @@ export const examAPI = {
       question_option_id: optionId
     }),
   completeExam: (userID) => api.post(`/exam/${userID}/complete`),
-  getResults: (userID) => api.get(`/exam/${userID}/results`)
+  getResults: (userID) => api.get(`/exam/${userID}/results`),
+  
+  // Get existing user answers for repopulation
+  getUserAnswers: (userID) => api.get(`/exam/${userID}/answers`),
+  
+  // Dashboard endpoints
+  getUserDashboard: (userID) => api.get(`/exam/${userID}/dashboard`),
+  getAllUsersDashboard: () => api.get(`/dashboard/users`)
 };
 
 export default api;

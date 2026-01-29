@@ -7,12 +7,12 @@ const QuestionCard = ({ question, selectedOption, onSelect, questionNumber }) =>
       <div className="card-body">
         <div className="d-flex justify-content-between align-items-center mb-2">
           <span className="badge bg-primary">#{questionNumber}</span>
-          <span className={`badge bg-$
-            {question.category === 'MANAJERIAL' ? 'primary' :
+          <span className={`badge bg-${
+            question.category === 'MANAJERIAL' ? 'primary' :
               question.category === 'SOSIAL_KULTURAL' ? 'success' :
               question.category === 'TEKNIS' ? 'warning' :
-              'info'}
-          `}>{question.category}</span>
+              'info'
+          }`}>{question.category}</span>
         </div>
         <h5 className="mb-3">{question.question_text}</h5>
         <form>

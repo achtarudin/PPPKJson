@@ -1,0 +1,37 @@
+nohup: ignoring input
+[32m29/01/2026 02:16:47 [Gin HTTP Server] Connecting...
+[0m[32m29/01/2026 02:16:47 [Gin HTTP Server] Connected successfully.
+[0m[32m29/01/2026 02:16:47 [Postgres DB] Connecting...
+[0m[32m29/01/2026 02:16:47 [Postgres DB] Connected successfully.
+[0m[GIN] 2026/01/29 - 09:16:54 | 200 |   24.988023ms |             ::1 | GET      "/api/v1/exam/sdfg"
+[GIN] 2026/01/29 - 09:19:21 | 200 |    4.113634ms |             ::1 | GET      "/api/v1/exam/qwerty"
+[GIN] 2026/01/29 - 09:19:21 | 200 |    3.428045ms |             ::1 | GET      "/api/v1/exam/qwerty"
+[GIN] 2026/01/29 - 09:19:42 | 200 |   11.493331ms |             ::1 | POST     "/api/v1/exam/qwerty/start"
+[GIN] 2026/01/29 - 09:19:43 | 200 |    8.148358ms |             ::1 | GET      "/api/v1/exam/qwerty"
+[GIN] 2026/01/29 - 09:19:43 | 200 |    3.210629ms |             ::1 | GET      "/api/v1/exam/qwerty/answers"
+[GIN] 2026/01/29 - 09:19:44 | 204 |      16.327µs |             ::1 | OPTIONS  "/api/v1/exam/qwerty/answer"
+
+2026/01/29 09:19:44 [31;1m/home/encang-cutbay/Documents/PPPKJson/backend/internal/repositories/exam_service/exam_service.go:167 [35;1mrecord not found
+[0m[33m[1.546ms] [34;1m[rows:0][0m SELECT * FROM "user_answers" WHERE (exam_session_id = 25 AND exam_question_id = 276) AND "user_answers"."deleted_at" IS NULL ORDER BY "user_answers"."id" LIMIT 1
+[GIN] 2026/01/29 - 09:19:44 | 200 |   21.508104ms |             ::1 | POST     "/api/v1/exam/qwerty/answer"
+[GIN] 2026/01/29 - 09:19:51 | 200 |    7.444128ms |             ::1 | GET      "/api/v1/exam/qwerty"
+[GIN] 2026/01/29 - 09:19:51 | 200 |    6.034202ms |             ::1 | GET      "/api/v1/exam/qwerty"
+[GIN] 2026/01/29 - 09:19:52 | 200 |    2.867849ms |             ::1 | GET      "/api/v1/exam/qwerty/answers"
+[GIN] 2026/01/29 - 09:19:52 | 200 |    2.377808ms |             ::1 | GET      "/api/v1/exam/qwerty/answers"
+[GIN] 2026/01/29 - 09:19:56 | 204 |       13.68µs |             ::1 | OPTIONS  "/api/v1/exam/qwerty/answer"
+
+2026/01/29 09:19:56 [31;1m/home/encang-cutbay/Documents/PPPKJson/backend/internal/repositories/exam_service/exam_service.go:167 [35;1mrecord not found
+[0m[33m[0.644ms] [34;1m[rows:0][0m SELECT * FROM "user_answers" WHERE (exam_session_id = 25 AND exam_question_id = 278) AND "user_answers"."deleted_at" IS NULL ORDER BY "user_answers"."id" LIMIT 1
+[GIN] 2026/01/29 - 09:19:56 | 200 |   12.244903ms |             ::1 | POST     "/api/v1/exam/qwerty/answer"
+
+2026/01/29 09:19:58 [31;1m/home/encang-cutbay/Documents/PPPKJson/backend/internal/repositories/exam_service/exam_service.go:167 [35;1mrecord not found
+[0m[33m[0.731ms] [34;1m[rows:0][0m SELECT * FROM "user_answers" WHERE (exam_session_id = 25 AND exam_question_id = 279) AND "user_answers"."deleted_at" IS NULL ORDER BY "user_answers"."id" LIMIT 1
+[GIN] 2026/01/29 - 09:19:58 | 200 |   12.120353ms |             ::1 | POST     "/api/v1/exam/qwerty/answer"
+[GIN] 2026/01/29 - 09:20:00 | 200 |    30.19037ms |             ::1 | POST     "/api/v1/exam/qwerty/complete"
+[GIN] 2026/01/29 - 09:20:00 | 200 |    8.371183ms |             ::1 | GET      "/api/v1/exam/qwerty/results"
+[GIN] 2026/01/29 - 09:20:00 | 200 |    5.389872ms |             ::1 | GET      "/api/v1/exam/qwerty/results"
+
+2026/01/29 09:20:15 [31;1m/home/encang-cutbay/Documents/PPPKJson/backend/internal/repositories/exam_service/exam_service.go:101 [35;1mrecord not found
+[0m[33m[0.259ms] [34;1m[rows:0][0m SELECT * FROM "exam_sessions" WHERE (user_id = 'newuser789' AND status IN ('NOT_STARTED','IN_PROGRESS')) AND "exam_sessions"."deleted_at" IS NULL ORDER BY created_at DESC,"exam_sessions"."id" LIMIT 1
+[GIN] 2026/01/29 - 09:20:15 | 200 |    7.128393ms |             ::1 | GET      "/api/v1/exam/newuser789"
+[GIN] 2026/01/29 - 09:20:15 | 200 |    2.426687ms |             ::1 | GET      "/api/v1/exam/newuser789"

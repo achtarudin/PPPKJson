@@ -22,6 +22,47 @@
     "host": "localhost:8080",
     "basePath": "/api/v1",
     "paths": {
+        "/dashboard/users": {
+            "get": {
+                "description": "Gets dashboard data for all users who have taken exams, including their status and results",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dashboard"
+                ],
+                "summary": "Get all users dashboard",
+                "responses": {
+                    "200": {
+                        "description": "All users dashboard data retrieved",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/dto.UserListDashboardResponse"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to get dashboard data",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/exam/{userID}": {
             "get": {
                 "description": "Creates a new exam session with 20 random questions (5 per category) or returns existing active session",
@@ -196,6 +237,63 @@
                     },
                     "500": {
                         "description": "Failed to complete exam",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/exam/{userID}/dashboard": {
+            "get": {
+                "description": "Gets comprehensive dashboard data including exam status, progress, and results if completed",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "exam"
+                ],
+                "summary": "Get dashboard information",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "\"1234\"",
+                        "description": "User ID",
+                        "name": "userID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Dashboard data retrieved",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/dto.DashboardResponse"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid user ID",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to get dashboard data",
                         "schema": {
                             "$ref": "#/definitions/dto.APIResponse"
                         }
@@ -385,6 +483,39 @@
                 }
             }
         },
+        "dto.DashboardResponse": {
+            "type": "object",
+            "properties": {
+                "exam_results": {
+                    "$ref": "#/definitions/dto.ExamResultsResponse"
+                },
+                "exam_session": {
+                    "$ref": "#/definitions/dto.ExamSessionResponse"
+                },
+                "exam_status": {
+                    "type": "string",
+                    "enum": [
+                        "NO_EXAM",
+                        "NOT_STARTED",
+                        "IN_PROGRESS",
+                        "COMPLETED",
+                        "EXPIRED"
+                    ],
+                    "example": "IN_PROGRESS"
+                },
+                "has_exam": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "progress_info": {
+                    "$ref": "#/definitions/dto.ProgressInfoResponse"
+                },
+                "user_id": {
+                    "type": "string",
+                    "example": "1234"
+                }
+            }
+        },
         "dto.ExamResultResponse": {
             "type": "object",
             "properties": {
@@ -540,6 +671,23 @@
                 }
             }
         },
+        "dto.ProgressInfoResponse": {
+            "type": "object",
+            "properties": {
+                "answered_questions": {
+                    "type": "integer",
+                    "example": 8
+                },
+                "remaining_time_minutes": {
+                    "type": "integer",
+                    "example": 95
+                },
+                "total_questions": {
+                    "type": "integer",
+                    "example": 20
+                }
+            }
+        },
         "dto.QuestionOptionResponse": {
             "type": "object",
             "properties": {
@@ -604,6 +752,73 @@
                 "question_option_id": {
                     "type": "integer",
                     "example": 59
+                }
+            }
+        },
+        "dto.UserDashboardSummary": {
+            "type": "object",
+            "properties": {
+                "completed_at": {
+                    "type": "string",
+                    "example": "2026-01-28T11:30:00Z"
+                },
+                "exam_status": {
+                    "type": "string",
+                    "enum": [
+                        "NO_EXAM",
+                        "NOT_STARTED",
+                        "IN_PROGRESS",
+                        "COMPLETED",
+                        "EXPIRED"
+                    ],
+                    "example": "COMPLETED"
+                },
+                "grade": {
+                    "type": "string",
+                    "example": "B"
+                },
+                "is_passed": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "max_score": {
+                    "type": "integer",
+                    "example": 16
+                },
+                "percentage": {
+                    "type": "number",
+                    "example": 75
+                },
+                "session_code": {
+                    "type": "string",
+                    "example": "EXAM_1234_1643356800"
+                },
+                "started_at": {
+                    "type": "string",
+                    "example": "2026-01-28T10:00:00Z"
+                },
+                "total_score": {
+                    "type": "integer",
+                    "example": 12
+                },
+                "user_id": {
+                    "type": "string",
+                    "example": "1234"
+                }
+            }
+        },
+        "dto.UserListDashboardResponse": {
+            "type": "object",
+            "properties": {
+                "total_users": {
+                    "type": "integer",
+                    "example": 25
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.UserDashboardSummary"
+                    }
                 }
             }
         }

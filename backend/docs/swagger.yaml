@@ -25,6 +25,30 @@ definitions:
         example: 5
         type: integer
     type: object
+  dto.DashboardResponse:
+    properties:
+      exam_results:
+        $ref: '#/definitions/dto.ExamResultsResponse'
+      exam_session:
+        $ref: '#/definitions/dto.ExamSessionResponse'
+      exam_status:
+        enum:
+        - NO_EXAM
+        - NOT_STARTED
+        - IN_PROGRESS
+        - COMPLETED
+        - EXPIRED
+        example: IN_PROGRESS
+        type: string
+      has_exam:
+        example: true
+        type: boolean
+      progress_info:
+        $ref: '#/definitions/dto.ProgressInfoResponse'
+      user_id:
+        example: "1234"
+        type: string
+    type: object
   dto.ExamResultResponse:
     properties:
       category:
@@ -137,6 +161,18 @@ definitions:
         example: "1234"
         type: string
     type: object
+  dto.ProgressInfoResponse:
+    properties:
+      answered_questions:
+        example: 8
+        type: integer
+      remaining_time_minutes:
+        example: 95
+        type: integer
+      total_questions:
+        example: 20
+        type: integer
+    type: object
   dto.QuestionOptionResponse:
     properties:
       id:
@@ -185,6 +221,55 @@ definitions:
     - exam_question_id
     - question_option_id
     type: object
+  dto.UserDashboardSummary:
+    properties:
+      completed_at:
+        example: "2026-01-28T11:30:00Z"
+        type: string
+      exam_status:
+        enum:
+        - NO_EXAM
+        - NOT_STARTED
+        - IN_PROGRESS
+        - COMPLETED
+        - EXPIRED
+        example: COMPLETED
+        type: string
+      grade:
+        example: B
+        type: string
+      is_passed:
+        example: true
+        type: boolean
+      max_score:
+        example: 16
+        type: integer
+      percentage:
+        example: 75
+        type: number
+      session_code:
+        example: EXAM_1234_1643356800
+        type: string
+      started_at:
+        example: "2026-01-28T10:00:00Z"
+        type: string
+      total_score:
+        example: 12
+        type: integer
+      user_id:
+        example: "1234"
+        type: string
+    type: object
+  dto.UserListDashboardResponse:
+    properties:
+      total_users:
+        example: 25
+        type: integer
+      users:
+        items:
+          $ref: '#/definitions/dto.UserDashboardSummary'
+        type: array
+    type: object
 host: localhost:8080
 info:
   contact:
@@ -199,6 +284,31 @@ info:
   title: PPPKJson Exam API
   version: 1.0.0
 paths:
+  /dashboard/users:
+    get:
+      consumes:
+      - application/json
+      description: Gets dashboard data for all users who have taken exams, including
+        their status and results
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: All users dashboard data retrieved
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserListDashboardResponse'
+              type: object
+        "500":
+          description: Failed to get dashboard data
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+      summary: Get all users dashboard
+      tags:
+      - dashboard
   /exam/{userID}:
     get:
       consumes:
@@ -313,6 +423,42 @@ paths:
           schema:
             $ref: '#/definitions/dto.APIResponse'
       summary: Complete exam
+      tags:
+      - exam
+  /exam/{userID}/dashboard:
+    get:
+      consumes:
+      - application/json
+      description: Gets comprehensive dashboard data including exam status, progress,
+        and results if completed
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Dashboard data retrieved
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.DashboardResponse'
+              type: object
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+        "500":
+          description: Failed to get dashboard data
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+      summary: Get dashboard information
       tags:
       - exam
   /exam/{userID}/results:

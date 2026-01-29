@@ -1,5 +1,8 @@
 # PPPKJson AI Development Guide
 
+Project inside at folder Backend
+
+
 ## Architecture Overview
 This is a **Hexagonal Architecture** Go application for PPPK exam management with randomized questions. The system ensures each user receives different questions across 4 categories (MANAJERIAL, SOSIAL_KULTURAL, TEKNIS, WAWANCARA) with 5 questions each.
 
@@ -29,7 +32,7 @@ All models follow GORM conventions with:
 
 ### API Development
 - Handlers use Swagger annotations: `@Summary`, `@Description`, `@Param`, `@Success`
-- Route groups: `/api/v1/exam/{userID}` pattern
+- Route groups: `/api/v1/exam/{userID}` pattern and `/api/v1/dashboard/*` for admin routes
 - Response format: `dto.APIResponse{Success, Message, Data}` structure
 - Example: [`gin_exam_handler.go`](internal/handlers/gin_exam_handler.go)
 
@@ -69,12 +72,22 @@ docker compose -f compose.dev.yaml down         # Clean shutdown
 - Seeder automatically discovers and loads all JSON files
 - Each question has `id`, `category`, `question_text`, and `options[]` with scores 1-4
 - Categories must match: MANAJERIAL, SOSIAL_KULTURAL, TEKNIS, WAWANCARA
+- Current configuration: 1 question per category (4 total) for testing
+
+### Dashboard API Endpoints
+- **Individual Dashboard**: `/exam/{userID}/dashboard` - Shows user's exam status, progress, and results
+- **Admin Dashboard**: `/dashboard/users` - Lists all users with their exam status and results
+- Dashboard responses include exam status (NO_EXAM, NOT_STARTED, IN_PROGRESS, COMPLETED, EXPIRED)
+- For completed exams: shows detailed scores, percentages, grades, and pass/fail status
+- For in-progress exams: shows answered count and remaining time
+- Auto-updates expired sessions before returning data
 
 ### Exam Session Logic
 - User ID is hardcoded from URL path (e.g., `/exam/1234`)
 - Session codes: `EXAM_{userID}_{timestamp}` format
-- Random question selection: 5 per category, stored in `exam_questions` table
+- Random question selection: 1 per category (configurable via `questionsPerCategory`), stored in `exam_questions` table
 - Status flow: NOT_STARTED → IN_PROGRESS → COMPLETED/EXPIRED
+- Dashboard endpoints: individual (`/exam/{userID}/dashboard`) and admin (`/dashboard/users`)
 
 ### Environment Configuration
 Key environment variables with defaults:

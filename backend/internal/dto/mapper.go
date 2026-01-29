@@ -101,3 +101,41 @@ func ToExamResultsResponse(summary *models.ExamSummary, results []models.ExamRes
 		ResultsByCategory: ToExamResultResponses(results),
 	}
 }
+
+// ToDashboardResponse converts dashboard data to response DTO
+func ToDashboardResponse(dashboard *DashboardData) DashboardResponse {
+	response := DashboardResponse{
+		UserID:     dashboard.UserID,
+		HasExam:    dashboard.HasExam,
+		ExamStatus: dashboard.ExamStatus,
+	}
+
+	// Convert ExamSession if exists
+	if dashboard.ExamSession != nil {
+		if examSession, ok := dashboard.ExamSession.(*models.ExamSession); ok {
+			sessionResponse := ToExamSessionResponse(examSession)
+			response.ExamSession = &sessionResponse
+		}
+	}
+
+	// Convert ExamResults if completed
+	if dashboard.ExamStatus == "COMPLETED" && dashboard.ExamSummary != nil && dashboard.ExamResults != nil {
+		if summary, ok := dashboard.ExamSummary.(*models.ExamSummary); ok {
+			if results, ok := dashboard.ExamResults.([]models.ExamResult); ok {
+				resultsResponse := ToExamResultsResponse(summary, results)
+				response.ExamResults = &resultsResponse
+			}
+		}
+	}
+
+	// Convert ProgressInfo if in progress
+	if dashboard.ProgressInfo != nil {
+		response.ProgressInfo = &ProgressInfoResponse{
+			TotalQuestions:    dashboard.ProgressInfo.TotalQuestions,
+			AnsweredQuestions: dashboard.ProgressInfo.AnsweredQuestions,
+			RemainingTime:     dashboard.ProgressInfo.RemainingTime,
+		}
+	}
+
+	return response
+}

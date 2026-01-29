@@ -2,7 +2,9 @@ PPPKFrontend AI Development Guide
 
 Project Overview
 
-This is a React + Bootstrap 5 frontend application designed to interact with the PPPK Exam Hexagonal Go Backend. The goal is to provide a minimalist, responsive interface for users to take exams across 4 categories (MANAJERIAL, SOSIAL_KULTURAL, TEKNIS, WAWANCARA). Each exam session contains 20 questions (5 per category) with a 120-minute time limit.
+Project inside at folder frontend
+
+This is a React + Bootstrap 5 frontend application designed to interact with the PPPK Exam Hexagonal Go Backend. The goal is to provide a minimalist, responsive interface for users to take exams across 4 categories (MANAJERIAL, SOSIAL_KULTURAL, TEKNIS, WAWANCARA). Each exam session contains 4 questions (1 per category) with a 120-minute time limit.
 
 Tech Stack & Setup
 
@@ -26,7 +28,8 @@ src/
 ├── pages/
 │   ├── Login.jsx     # Simple input for User ID
 │   ├── ExamBoard.jsx # Main exam interface (Question navigation)
-│   └── Result.jsx    # Score summary
+│   ├── Result.jsx    # Score summary
+│   └── AdminDashboard.jsx # Admin dashboard to view all users
 ├── services/
 │   └── api.js        # Axios instance & endpoints
 ├── App.jsx           # Routes definition
@@ -51,7 +54,7 @@ Key Endpoints Mapping
 
 GET /exam/{userID}
 
-Description: Creates a new exam session with 20 random questions (5 per category) or returns existing active session.
+Description: Creates a new exam session with 4 random questions (1 per category) or returns existing active session.
 
 Response Structure:
 ```json
@@ -83,7 +86,7 @@ Response Structure:
     "category_stats": [
       {
         "category": "MANAJERIAL",
-        "total_questions": 5,
+        "total_questions": 1,
         "answered_count": 0
       }
     ]
@@ -133,11 +136,11 @@ Response Structure:
   "success": true,
   "data": {
     "summary": {
-      "total_questions": 20,
-      "total_answered": 18,
-      "total_score": 65,
-      "max_score": 80,
-      "overall_percentage": 81.25,
+      "total_questions": 4,
+      "total_answered": 4,
+      "total_score": 12,
+      "max_score": 16,
+      "overall_percentage": 75.0,
       "overall_grade": "B",
       "is_passed": true,
       "completed_at": "2026-01-28T11:30:00Z"
@@ -145,11 +148,11 @@ Response Structure:
     "results_by_category": [
       {
         "category": "MANAJERIAL",
-        "total_questions": 5,
-        "total_answered": 5,
-        "total_score": 16,
-        "max_score": 20,
-        "percentage": 80.0,
+        "total_questions": 1,
+        "total_answered": 1,
+        "total_score": 3,
+        "max_score": 4,
+        "percentage": 75.0,
         "grade": "B",
         "is_passed": true
       }
@@ -157,6 +160,89 @@ Response Structure:
   }
 }
 ```
+
+6. Get Individual User Dashboard:
+
+GET /exam/{userID}/dashboard
+
+Description: Gets comprehensive dashboard data for a specific user including exam status, progress, and results.
+
+Response Structure:
+```json
+{
+  "success": true,
+  "data": {
+    "user_id": "1234",
+    "has_exam": true,
+    "exam_status": "COMPLETED",
+    "exam_session": {
+      "session_id": 1,
+      "user_id": "1234",
+      "session_code": "EXAM_1234_1643356800",
+      "status": "COMPLETED",
+      "expires_at": "2026-01-28T12:00:00Z",
+      "duration": 120
+    },
+    "exam_results": {
+      "summary": { ... },
+      "results_by_category": [ ... ]
+    },
+    "progress_info": {
+      "total_questions": 4,
+      "answered_questions": 2,
+      "remaining_time_minutes": 95
+    }
+  }
+}
+```
+
+7. Get All Users Dashboard (Admin):
+
+GET /dashboard/users
+
+Description: Gets dashboard data for all users who have taken exams. Useful for admin interfaces.
+
+Response Structure:
+```json
+{
+  "success": true,
+  "data": {
+    "total_users": 25,
+    "users": [
+      {
+        "user_id": "1234",
+        "exam_status": "COMPLETED",
+        "session_code": "EXAM_1234_1643356800",
+        "started_at": "2026-01-28T10:00:00Z",
+        "completed_at": "2026-01-28T11:30:00Z",
+        "total_score": 12,
+        "max_score": 16,
+        "percentage": 75.0,
+        "grade": "B",
+        "is_passed": true
+      },
+      {
+        "user_id": "5678",
+        "exam_status": "IN_PROGRESS",
+        "session_code": "EXAM_5678_1643357200",
+        "started_at": "2026-01-28T10:15:00Z"
+      },
+      {
+        "user_id": "9999",
+        "exam_status": "EXPIRED",
+        "session_code": "EXAM_9999_1643357800"
+      }
+    ]
+  }
+}
+```
+
+Status Values:
+- `NO_EXAM`: User hasn't created any exam session
+- `NOT_STARTED`: Exam session created but not started  
+- `IN_PROGRESS`: User is currently taking the exam
+- `COMPLETED`: Exam finished with results
+- `EXPIRED`: Exam session has expired
 
 Component Implementation Rules
 
@@ -176,7 +262,7 @@ State Needed:
 
 examData: Complete exam session data from GET /exam/{userID}.
 
-currentIndex: Integer (0 to 19 for 20 questions).
+currentIndex: Integer (0 to 3 for 4 questions).
 
 answers: Object/Map { examQuestionId: optionId }.
 
@@ -190,7 +276,7 @@ Layout:
 
 Header: Timer (right), User ID and Session Code (left).
 
-Sidebar/Navigation: Question pills numbered 1-20, colored by status:
+Sidebar/Navigation: Question pills numbered 1-4, colored by status:
 - Answered: btn-success
 - Current: btn-primary  
 - Unanswered: btn-outline-secondary
@@ -239,13 +325,29 @@ Display overall grade, percentage, and pass/fail status.
 
 "Back to Home" button to return to login.
 
+5. Admin Dashboard Page (AdminDashboard.jsx)
+
+Fetch all users data from GET /dashboard/users on component mount.
+
+Display table with columns: User ID, Status, Start Time, End Time, Score, Grade.
+
+Status badges with different colors for each status (COMPLETED, IN_PROGRESS, EXPIRED, NOT_STARTED).
+
+Filter/search functionality by user ID or status.
+
+Click on user row to navigate to individual results page.
+
+Pagination if there are many users.
+
+Auto-refresh data every 30 seconds to show live updates.
+
 Development Workflow Commands
 
 1. Initialization
 
 ```bash
-npm create vite@latest pppk-frontend -- --template react
-cd pppk-frontend
+npm create vite@latest frontend -- --template react
+cd frontend
 npm install bootstrap axios react-router-dom
 ```
 
@@ -305,7 +407,15 @@ export const examAPI = {
     
   // Get results
   getResults: (userID) =>
-    api.get(`/exam/${userID}/results`)
+    api.get(`/exam/${userID}/results`),
+    
+  // Get individual user dashboard
+  getUserDashboard: (userID) =>
+    api.get(`/exam/${userID}/dashboard`),
+    
+  // Get all users dashboard (admin)
+  getAllUsersDashboard: () =>
+    api.get(`/dashboard/users`)
 };
 
 export default api;

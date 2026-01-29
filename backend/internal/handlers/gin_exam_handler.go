@@ -29,6 +29,14 @@ func (h *GinExamHandler) RegisterRoutes(router *gin.Engine) {
 		examGroup.POST("/:userID/answer", h.SubmitAnswer)
 		examGroup.POST("/:userID/complete", h.CompleteExam)
 		examGroup.GET("/:userID/results", h.GetExamResults)
+		examGroup.GET("/:userID/dashboard", h.GetDashboard)
+		examGroup.GET("/:userID/answers", h.GetUserAnswers)
+	}
+
+	// Admin/Dashboard routes
+	dashboardGroup := router.Group("/api/v1/dashboard")
+	{
+		dashboardGroup.GET("/users", h.GetAllUsersDashboard)
 	}
 }
 
@@ -276,5 +284,113 @@ func (h *GinExamHandler) GetExamResults(c *gin.Context) {
 		Success: true,
 		Message: "Exam results retrieved",
 		Data:    response,
+	})
+}
+
+// GetDashboard gets dashboard information for a user
+// @Summary Get dashboard information
+// @Description Gets comprehensive dashboard data including exam status, progress, and results if completed
+// @Tags exam
+// @Accept json
+// @Produce json
+// @Param userID path string true "User ID" example("1234")
+// @Success 200 {object} dto.APIResponse{data=dto.DashboardResponse} "Dashboard data retrieved"
+// @Failure 400 {object} dto.APIResponse "Invalid user ID"
+// @Failure 500 {object} dto.APIResponse "Failed to get dashboard data"
+// @Router /exam/{userID}/dashboard [get]
+func (h *GinExamHandler) GetDashboard(c *gin.Context) {
+	userID := c.Param("userID")
+	if userID == "" {
+		c.JSON(http.StatusBadRequest, dto.APIResponse{
+			Success: false,
+			Error:   "Invalid user ID",
+		})
+		return
+	}
+
+	dashboard, err := h.examService.GetUserDashboard(c.Request.Context(), userID)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, dto.APIResponse{
+			Success: false,
+			Error:   "Failed to get dashboard data: " + err.Error(),
+		})
+		return
+	}
+
+	// Convert to response format
+	response := dto.ToDashboardResponse(dashboard)
+
+	c.JSON(http.StatusOK, dto.APIResponse{
+		Success: true,
+		Message: "Dashboard data retrieved",
+		Data:    response,
+	})
+}
+
+// GetAllUsersDashboard gets dashboard information for all users
+// @Summary Get all users dashboard
+// @Description Gets dashboard data for all users who have taken exams, including their status and results
+// @Tags dashboard
+// @Accept json
+// @Produce json
+// @Success 200 {object} dto.APIResponse{data=dto.UserListDashboardResponse} "All users dashboard data retrieved"
+// @Failure 500 {object} dto.APIResponse "Failed to get dashboard data"
+// @Router /dashboard/users [get]
+func (h *GinExamHandler) GetAllUsersDashboard(c *gin.Context) {
+	users, err := h.examService.GetAllUsersExamStatus(c.Request.Context())
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, dto.APIResponse{
+			Success: false,
+			Error:   "Failed to get users dashboard data: " + err.Error(),
+		})
+		return
+	}
+
+	response := dto.UserListDashboardResponse{
+		TotalUsers: len(users),
+		Users:      users,
+	}
+
+	c.JSON(http.StatusOK, dto.APIResponse{
+		Success: true,
+		Message: "All users dashboard data retrieved",
+		Data:    response,
+	})
+}
+
+// GetUserAnswers gets existing answers for user's active exam session
+// @Summary Get user's existing answers
+// @Description Gets existing answers for user's active exam session to repopulate on page reload
+// @Tags exam
+// @Accept json
+// @Produce json
+// @Param userID path string true "User ID" example("1234")
+// @Success 200 {object} dto.APIResponse{data=map[string]interface{}} "User answers retrieved"
+// @Failure 400 {object} dto.APIResponse "Invalid user ID"
+// @Failure 500 {object} dto.APIResponse "Failed to get user answers"
+// @Router /exam/{userID}/answers [get]
+func (h *GinExamHandler) GetUserAnswers(c *gin.Context) {
+	userID := c.Param("userID")
+	if userID == "" {
+		c.JSON(http.StatusBadRequest, dto.APIResponse{
+			Success: false,
+			Error:   "Invalid user ID",
+		})
+		return
+	}
+
+	answers, err := h.examService.GetUserAnswers(c.Request.Context(), userID)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, dto.APIResponse{
+			Success: false,
+			Error:   "Failed to get user answers: " + err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, dto.APIResponse{
+		Success: true,
+		Message: "User answers retrieved",
+		Data:    answers,
 	})
 }
