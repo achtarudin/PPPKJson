@@ -11,6 +11,10 @@ dev-go-server:
 	@echo "Running Application with args: $(ARGS)"
 	go mod tidy && gow run ./cmd/server $(ARGS)
 
+dev-client:
+	@echo "Running Application with args: $(ARGS)"
+	cd .. && cd frontend && npm run build && npm run preview $(ARGS)
+
 db-seed:
 	@echo "Running Application with args: $(ARGS)"
 	go mod tidy && go run ./cmd/seeder $(ARGS)

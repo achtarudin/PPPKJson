@@ -26,8 +26,8 @@ func (s *ExamService) CreateExamSession(ctx context.Context, userID string) (*mo
 		UserID:      userID,
 		SessionCode: sessionCode,
 		Status:      "NOT_STARTED",
-		ExpiresAt:   time.Now().Add(10 * time.Minute), // 10 minutes from now
-		Duration:    10,                               // 10 minutes
+		ExpiresAt:   time.Now().Add(130 * time.Minute), // 130 minutes from now
+		Duration:    130,                               // 130 minutes
 	}
 
 	err := s.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
@@ -36,7 +36,8 @@ func (s *ExamService) CreateExamSession(ctx context.Context, userID string) (*mo
 			return fmt.Errorf("failed to create exam session: %w", err)
 		}
 
-		// Assign random questions for each category with specific counts
+		// Assign random questions for each category with specific counts in order
+		categoryOrder := []string{"TEKNIS", "MANAJERIAL", "SOSIAL KULTURAL", "WAWANCARA"}
 		categoryQuestions := map[string]int{
 			"TEKNIS":          90,
 			"MANAJERIAL":      25,
@@ -45,7 +46,8 @@ func (s *ExamService) CreateExamSession(ctx context.Context, userID string) (*mo
 		}
 		orderNumber := 1
 
-		for category, questionCount := range categoryQuestions {
+		for _, category := range categoryOrder {
+			questionCount := categoryQuestions[category]
 			// Get random questions from this category
 			var questions []models.Question
 			if err := tx.Where("category = ?", category).
@@ -217,12 +219,21 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 			return fmt.Errorf("failed to update exam session: %w", err)
 		}
 
-		// Calculate results per category
+		// Calculate results per category in order
+		categoryOrder := []string{"TEKNIS", "MANAJERIAL", "SOSIAL KULTURAL", "WAWANCARA"}
 		categoryMaxScores := map[string]int{
-			"TEKNIS":          360, // 90 questions * 4 max score each
-			"MANAJERIAL":      100, // 25 questions * 4 max score each
-			"SOSIAL KULTURAL": 80,  // 20 questions * 4 max score each
-			"WAWANCARA":       40,  // 10 questions * 4 max score each
+			"TEKNIS":          450, // 90 questions * 5 max score each
+			"MANAJERIAL":      200, // 25 questions * 5 max score each (but max achievable is 200)
+			"SOSIAL KULTURAL": 100, // 20 questions * 5 max score each
+			"WAWANCARA":       40,  // 10 questions * 5 max score each (but max achievable is 40)
+		}
+
+		// Category passing thresholds
+		categoryThresholds := map[string]int{
+			"TEKNIS":          0,   // No minimum threshold specified (terkumpul)
+			"MANAJERIAL":      130, // Minimum 130 from table
+			"SOSIAL KULTURAL": 0,   // No minimum threshold specified
+			"WAWANCARA":       24,  // Minimum 24 from table
 		}
 
 		categoryQuestionCounts := map[string]int{
@@ -234,7 +245,8 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		totalScore := 0
 		totalAnswered := 0
 
-		for category, questionCount := range categoryQuestionCounts {
+		for _, category := range categoryOrder {
+			questionCount := categoryQuestionCounts[category]
 			var categoryStats struct {
 				TotalAnswered int
 				TotalScore    int
@@ -251,9 +263,11 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 			}
 
 			maxScore := categoryMaxScores[category]
+			threshold := categoryThresholds[category]
 			percentage := float64(categoryStats.TotalScore) / float64(maxScore) * 100.0
 			grade := calculateGrade(percentage)
-			isPassed := percentage >= 60.0
+			// Pass if score meets threshold (or no threshold set)
+			isPassed := threshold == 0 || categoryStats.TotalScore >= threshold
 
 			examResult := models.ExamResult{
 				ExamSessionID:  examSessionID,
@@ -276,11 +290,12 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		}
 
 		// Create overall exam summary
-		totalMaxScore := 580  // 90*4 + 25*4 + 20*4 + 10*4 = 360 + 100 + 80 + 40
+		totalMaxScore := 690  // Official PPPK total max score: 450 + 200 + 100 + 40
 		totalQuestions := 145 // 90 + 25 + 20 + 10
 		overallPercentage := float64(totalScore) / float64(totalMaxScore) * 100.0
 		overallGrade := calculateGrade(overallPercentage)
-		overallPassed := overallPercentage >= 60.0
+		// Overall passing: must meet individual category thresholds
+		overallPassed := overallPercentage >= 60.0 // General 60% rule
 
 		// Get exam session for user ID
 		var examSession models.ExamSession
