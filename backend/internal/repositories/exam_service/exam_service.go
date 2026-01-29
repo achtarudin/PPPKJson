@@ -26,8 +26,8 @@ func (s *ExamService) CreateExamSession(ctx context.Context, userID string) (*mo
 		UserID:      userID,
 		SessionCode: sessionCode,
 		Status:      "NOT_STARTED",
-		ExpiresAt:   time.Now().Add(2 * time.Hour), // 2 hours from now
-		Duration:    120,                           // 120 minutes
+		ExpiresAt:   time.Now().Add(10 * time.Minute), // 10 minutes from now
+		Duration:    10,                               // 10 minutes
 	}
 
 	err := s.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
@@ -36,24 +36,28 @@ func (s *ExamService) CreateExamSession(ctx context.Context, userID string) (*mo
 			return fmt.Errorf("failed to create exam session: %w", err)
 		}
 
-		// Assign random questions for each category
-		categories := []string{"MANAJERIAL", "SOSIAL KULTURAL", "TEKNIS", "WAWANCARA"}
-		questionsPerCategory := 1
+		// Assign random questions for each category with specific counts
+		categoryQuestions := map[string]int{
+			"TEKNIS":          90,
+			"MANAJERIAL":      25,
+			"SOSIAL KULTURAL": 20,
+			"WAWANCARA":       10,
+		}
 		orderNumber := 1
 
-		for _, category := range categories {
-			// Get random 5 questions from this category
+		for category, questionCount := range categoryQuestions {
+			// Get random questions from this category
 			var questions []models.Question
 			if err := tx.Where("category = ?", category).
 				Order("RANDOM()").
-				Limit(questionsPerCategory).
+				Limit(questionCount).
 				Find(&questions).Error; err != nil {
 				return fmt.Errorf("failed to get random questions for category %s: %w", category, err)
 			}
 
-			if len(questions) < questionsPerCategory {
+			if len(questions) < questionCount {
 				return fmt.Errorf("not enough questions in category %s: need %d, got %d",
-					category, questionsPerCategory, len(questions))
+					category, questionCount, len(questions))
 			}
 
 			// Assign questions to exam session
@@ -214,11 +218,23 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		}
 
 		// Calculate results per category
-		categories := []string{"MANAJERIAL", "SOSIAL KULTURAL", "TEKNIS", "WAWANCARA"}
+		categoryMaxScores := map[string]int{
+			"TEKNIS":          360, // 90 questions * 4 max score each
+			"MANAJERIAL":      100, // 25 questions * 4 max score each
+			"SOSIAL KULTURAL": 80,  // 20 questions * 4 max score each
+			"WAWANCARA":       40,  // 10 questions * 4 max score each
+		}
+
+		categoryQuestionCounts := map[string]int{
+			"TEKNIS":          90,
+			"MANAJERIAL":      25,
+			"SOSIAL KULTURAL": 20,
+			"WAWANCARA":       10,
+		}
 		totalScore := 0
 		totalAnswered := 0
 
-		for _, category := range categories {
+		for category, questionCount := range categoryQuestionCounts {
 			var categoryStats struct {
 				TotalAnswered int
 				TotalScore    int
@@ -234,17 +250,18 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 				return fmt.Errorf("failed to calculate stats for category %s: %w", category, err)
 			}
 
-			percentage := float64(categoryStats.TotalScore) / 4.0 * 100.0 // Max score per category is 4 (1 question * 4 max score)
+			maxScore := categoryMaxScores[category]
+			percentage := float64(categoryStats.TotalScore) / float64(maxScore) * 100.0
 			grade := calculateGrade(percentage)
 			isPassed := percentage >= 60.0
 
 			examResult := models.ExamResult{
 				ExamSessionID:  examSessionID,
 				Category:       category,
-				TotalQuestions: 1, // 1 question per category
+				TotalQuestions: questionCount,
 				TotalAnswered:  categoryStats.TotalAnswered,
 				TotalScore:     categoryStats.TotalScore,
-				MaxScore:       4, // 4 is max score per question
+				MaxScore:       maxScore,
 				Percentage:     percentage,
 				Grade:          grade,
 				IsPassed:       isPassed,
@@ -259,7 +276,9 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		}
 
 		// Create overall exam summary
-		overallPercentage := float64(totalScore) / 16.0 * 100.0 // Max total score is 16 (4 categories * 4 max score each)
+		totalMaxScore := 580  // 90*4 + 25*4 + 20*4 + 10*4 = 360 + 100 + 80 + 40
+		totalQuestions := 145 // 90 + 25 + 20 + 10
+		overallPercentage := float64(totalScore) / float64(totalMaxScore) * 100.0
 		overallGrade := calculateGrade(overallPercentage)
 		overallPassed := overallPercentage >= 60.0
 
@@ -272,10 +291,10 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		examSummary := models.ExamSummary{
 			ExamSessionID:     examSessionID,
 			UserID:            examSession.UserID,
-			TotalQuestions:    4, // 4 questions total (1 per category)
+			TotalQuestions:    totalQuestions,
 			TotalAnswered:     totalAnswered,
 			TotalScore:        totalScore,
-			MaxScore:          16, // 16 max total score
+			MaxScore:          totalMaxScore,
 			OverallPercentage: overallPercentage,
 			OverallGrade:      overallGrade,
 			IsPassed:          overallPassed,
@@ -392,9 +411,9 @@ func (s *ExamService) GetUserDashboard(ctx context.Context, userID string) (*dto
 			Count(&answeredCount)
 
 		dashboard.ProgressInfo = &dto.ProgressInfo{
-			TotalQuestions:    4, // 1 question per 4 categories
+			TotalQuestions:    145, // 90 + 25 + 20 + 10 total questions
 			AnsweredQuestions: int(answeredCount),
-			RemainingTime:     int(examSession.ExpiresAt.Sub(time.Now()).Minutes()),
+			RemainingTime:     int(time.Until(examSession.ExpiresAt).Minutes()),
 		}
 	}
 

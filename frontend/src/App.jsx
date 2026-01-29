@@ -5,6 +5,7 @@ import ExamBoard from './pages/ExamBoard';
 import Result from './pages/Result';
 import AdminDashboard from './pages/AdminDashboard';
 import DebugExam from './pages/DebugExam';
+import DebugAnswers from './pages/DebugAnswers';
 import Layout from './components/Layout';
 
 const App = () => (
@@ -18,6 +19,7 @@ const App = () => (
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/dashboard" element={<AdminDashboard />} />
         <Route path="/debug" element={<DebugExam />} />
+        <Route path="/debug-answers" element={<DebugAnswers />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>

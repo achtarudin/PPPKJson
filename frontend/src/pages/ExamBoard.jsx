@@ -10,7 +10,7 @@ const ExamBoard = () => {
   
   const [examData, setExamData] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState({}); // examQuestionId -> optionId
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [examStarted, setExamStarted] = useState(false);
@@ -19,6 +19,14 @@ const ExamBoard = () => {
     loadExamSession();
     // eslint-disable-next-line
   }, [userID]);
+
+  // Load existing answers when exam data is available and exam is in progress
+  useEffect(() => {
+    if (examData && examData.status === 'IN_PROGRESS') {
+      loadExistingAnswers();
+    }
+    // eslint-disable-next-line
+  }, [examData]);
 
   const loadExamSession = async () => {
     try {
@@ -35,12 +43,6 @@ const ExamBoard = () => {
           navigate(`/results/${userID}`);
           return;
         }
-        
-        // If exam is in progress, load existing answers
-        if (exam.status === 'IN_PROGRESS') {
-          // Load existing answers after exam data is set
-          setTimeout(() => loadExistingAnswers(), 100);
-        }
       } else {
         setError(response.data.error || 'Failed to load exam');
       }
@@ -54,28 +56,27 @@ const ExamBoard = () => {
 
   const loadExistingAnswers = async () => {
     try {
+      console.log('Loading existing answers for user:', userID);
       const response = await examAPI.getUserAnswers(userID);
+      console.log('getUserAnswers response:', response);
+      
       if (response.data.success) {
         const userAnswers = response.data.data || {};
-        const newAnswers = {};
+        console.log('userAnswers from backend:', userAnswers);
         
-        // Map exam question IDs to their answers using currentQuestion index
-        Object.entries(userAnswers).forEach(([examQuestionId, optionId]) => {
-          const examQuestionIdInt = parseInt(examQuestionId);
+        // userAnswers format from backend: { "examQuestionId": optionId }
+        // Convert string keys to numbers and set directly
+        const newAnswers = {};
+        Object.entries(userAnswers).forEach(([examQuestionIdStr, optionId]) => {
+          const examQuestionIdInt = parseInt(examQuestionIdStr);
           const optionIdInt = parseInt(optionId);
-          
-          // Find which question index this exam question ID corresponds to
-          if (examData && examData.questions) {
-            examData.questions.forEach((question, index) => {
-              if (question.examQuestionId === examQuestionIdInt) {
-                newAnswers[index] = optionIdInt;
-              }
-            });
-          }
+          newAnswers[examQuestionIdInt] = optionIdInt;
         });
         
+        console.log('Converted answers:', newAnswers);
         setAnswers(newAnswers);
-        console.log('Loaded existing answers:', newAnswers);
+      } else {
+        console.log('getUserAnswers failed:', response.data.error);
       }
     } catch (error) {
       console.error('Failed to load existing answers:', error);
@@ -101,12 +102,18 @@ const ExamBoard = () => {
 
   const submitAnswer = async (examQuestionId, optionId) => {
     try {
+      console.log('Submitting answer:', { examQuestionId, optionId });
       const response = await examAPI.submitAnswer(userID, examQuestionId, optionId);
+      console.log('submitAnswer response:', response);
+      
       if (response.data.success) {
-        setAnswers(prev => ({ ...prev, [currentIndex]: optionId }));
+        console.log('Answer submitted successfully, updating state');
+        setAnswers(prev => ({ ...prev, [examQuestionId]: optionId }));
+      } else {
+        console.error('Submit answer failed:', response.data.error);
       }
     } catch (error) {
-      // Optionally show error
+      console.error('Submit answer error:', error);
     }
   };
 
@@ -181,7 +188,7 @@ const ExamBoard = () => {
                       .filter(q => q.category === stat.category)
                       .map((q, idx) => {
                         const globalIdx = examData.questions.findIndex(quest => quest.exam_question_id === q.exam_question_id);
-                        const isAnswered = answers[globalIdx] !== undefined;
+                        const isAnswered = answers[q.exam_question_id] !== undefined;
                         const isCurrent = globalIdx === currentIndex;
                         return (
                           <button
@@ -218,7 +225,7 @@ const ExamBoard = () => {
             <>
               <QuestionCard
                 question={currentQuestion}
-                selectedOption={answers[currentIndex]}
+                selectedOption={answers[currentQuestion.exam_question_id]}
                 onSelect={handleOptionSelect}
                 questionNumber={currentIndex + 1}
               />
