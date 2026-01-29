@@ -9,15 +9,15 @@ $(eval $(ARGS):;@:)
 .PHONY: dev-go-server
 dev-go-server:
 	@echo "Running Application with args: $(ARGS)"
-	go mod tidy && gow run ./cmd/server $(ARGS)
+	cd backend && go mod tidy && gow run ./cmd/server $(ARGS)
 
 dev-client:
 	@echo "Running Application with args: $(ARGS)"
-	cd .. && cd frontend && npm run build && npm run preview $(ARGS)
+	 cd frontend && npm run build && npm run preview $(ARGS)
 
 db-seed:
 	@echo "Running Application with args: $(ARGS)"
-	go mod tidy && go run ./cmd/seeder $(ARGS)
+	cd backend && go mod tidy && go run ./cmd/seeder $(ARGS)
 
 migrate-create:
 	@echo "Creating migration files..."
@@ -51,3 +51,4 @@ compose-up:
 compose-down:
 	@echo "Stopping containers..."
 	docker compose -f compose.dev.yaml down
+

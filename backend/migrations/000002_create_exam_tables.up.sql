@@ -148,5 +148,7 @@ CREATE INDEX IF NOT EXISTS idx_exam_summaries_exam_session_id ON exam_summaries(
 CREATE INDEX IF NOT EXISTS idx_exam_summaries_user_id ON exam_summaries(user_id);
 CREATE INDEX IF NOT EXISTS idx_exam_summaries_deleted_at ON exam_summaries(deleted_at);
 
--- Add unique constraint to prevent duplicate exam sessions per user per day
-CREATE UNIQUE INDEX IF NOT EXISTS idx_exam_sessions_user_date ON exam_sessions(user_id, DATE(created_at)) WHERE deleted_at IS NULL;
+-- Add unique constraint to prevent duplicate exam sessions per user
+-- Remove per-day constraint as it may cause issues with multiple exam sessions
+-- Let the application logic handle session validation instead
+-- CREATE UNIQUE INDEX IF NOT EXISTS idx_exam_sessions_user_active ON exam_sessions(user_id) WHERE status NOT IN ('COMPLETED', 'EXPIRED') AND deleted_at IS NULL;

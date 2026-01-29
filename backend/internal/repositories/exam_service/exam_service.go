@@ -222,18 +222,18 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		// Calculate results per category in order
 		categoryOrder := []string{"TEKNIS", "MANAJERIAL", "SOSIAL KULTURAL", "WAWANCARA"}
 		categoryMaxScores := map[string]int{
-			"TEKNIS":          450, // 90 questions * 5 max score each
-			"MANAJERIAL":      200, // 25 questions * 5 max score each (but max achievable is 200)
-			"SOSIAL KULTURAL": 200, // 20 questions * 5 max score each (but max achievable is 200)
-			"WAWANCARA":       40,  // 10 questions * 5 max score each (but max achievable is 40)
+			"TEKNIS":          450, // 90 questions → 450 max (official PPPK spec)
+			"MANAJERIAL":      200, // 25 questions → 200 max (official PPPK spec)
+			"SOSIAL KULTURAL": 200, // 20 questions → 200 max (official PPPK spec)
+			"WAWANCARA":       40,  // 10 questions → 40 max (official PPPK spec)
 		}
 
-		// Category passing thresholds
-		categoryThresholds := map[string]int{
-			"TEKNIS":          0,   // No minimum threshold specified (terkumpul)
-			"MANAJERIAL":      130, // Minimum 130 from table
-			"SOSIAL KULTURAL": 0,   // No minimum threshold specified
-			"WAWANCARA":       24,  // Minimum 24 from table
+		// Category passing thresholds - only Grade A (100%) and B (90%) pass
+		categoryThresholds := map[string]float64{
+			"TEKNIS":          90.0, // Minimum 90% (Grade B)
+			"MANAJERIAL":      90.0, // Minimum 90% (Grade B)
+			"SOSIAL KULTURAL": 90.0, // Minimum 90% (Grade B)
+			"WAWANCARA":       90.0, // Minimum 90% (Grade B)
 		}
 
 		categoryQuestionCounts := map[string]int{
@@ -266,8 +266,8 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 			threshold := categoryThresholds[category]
 			percentage := float64(categoryStats.TotalScore) / float64(maxScore) * 100.0
 			grade := calculateGrade(percentage)
-			// Pass if score meets threshold (or no threshold set)
-			isPassed := threshold == 0 || categoryStats.TotalScore >= threshold
+			// Pass if percentage meets minimum threshold
+			isPassed := percentage >= threshold
 
 			examResult := models.ExamResult{
 				ExamSessionID:  examSessionID,
@@ -290,12 +290,12 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		}
 
 		// Create overall exam summary
-		totalMaxScore := 890  // Updated total: 450 + 200 + 200 + 40
+		totalMaxScore := 690  // Official PPPK total: 450 + 200 + 200 + 40
 		totalQuestions := 145 // 90 + 25 + 20 + 10
 		overallPercentage := float64(totalScore) / float64(totalMaxScore) * 100.0
 		overallGrade := calculateGrade(overallPercentage)
-		// Overall passing: must meet individual category thresholds
-		overallPassed := overallPercentage >= 60.0 // General 60% rule
+		// Overall passing: minimum 90% overall (Grade B or better)
+		overallPassed := overallPercentage >= 90.0 // Only Grade A and B pass
 
 		// Get exam session for user ID
 		var examSession models.ExamSession
@@ -325,14 +325,15 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 }
 
 // calculateGrade calculates grade based on percentage
+// 100%=A, 90%=B, 80%=C, 70%=D (minimum passing), <70%=E (fail)
 func calculateGrade(percentage float64) string {
-	if percentage >= 90 {
+	if percentage >= 100 {
 		return "A"
-	} else if percentage >= 80 {
+	} else if percentage >= 90 {
 		return "B"
-	} else if percentage >= 70 {
+	} else if percentage >= 80 {
 		return "C"
-	} else if percentage >= 60 {
+	} else if percentage >= 70 {
 		return "D"
 	} else {
 		return "E"
