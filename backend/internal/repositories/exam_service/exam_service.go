@@ -224,7 +224,7 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		categoryMaxScores := map[string]int{
 			"TEKNIS":          450, // 90 questions * 5 max score each
 			"MANAJERIAL":      200, // 25 questions * 5 max score each (but max achievable is 200)
-			"SOSIAL KULTURAL": 100, // 20 questions * 5 max score each
+			"SOSIAL KULTURAL": 200, // 20 questions * 5 max score each (but max achievable is 200)
 			"WAWANCARA":       40,  // 10 questions * 5 max score each (but max achievable is 40)
 		}
 
@@ -290,7 +290,7 @@ func (s *ExamService) CompleteExam(ctx context.Context, examSessionID uint) erro
 		}
 
 		// Create overall exam summary
-		totalMaxScore := 690  // Official PPPK total max score: 450 + 200 + 100 + 40
+		totalMaxScore := 890  // Updated total: 450 + 200 + 200 + 40
 		totalQuestions := 145 // 90 + 25 + 20 + 10
 		overallPercentage := float64(totalScore) / float64(totalMaxScore) * 100.0
 		overallGrade := calculateGrade(overallPercentage)
