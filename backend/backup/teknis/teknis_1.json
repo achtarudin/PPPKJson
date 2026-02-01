@@ -2,231 +2,1385 @@
   {
     "id": "1",
     "category": "TEKNIS",
-    "question_text": "Hari ini Atasan Anda sedang tidak berada di tempat. Sikap Anda adalah ....",
+    "question_text": "Tugas utama seorang penata layanan operasional adalah ....",
     "options": [
+      { "option_text": "Menyusun rencana keuangan perusahaan", "score": 0 },
+      { "option_text": "Mengelola arsip dinamis perusahaan", "score": 0 },
       {
-        "option_text": "Sangat antusias dengan hal itu.",
-        "score": 1
+        "option_text": "Mengatur pelaksanaan kegiatan operasional harian",
+        "score": 5
       },
-      {
-        "option_text": "Tetap bekerja sebagaimana peraturan yang ada.",
-        "score": 4
-      },
-      {
-        "option_text": "Anda bisa mencuri waktu untuk mengurusi urusan lainnya.",
-        "score": 2
-      },
-      {
-        "option_text": "Membolos dari tengah waktu bekerja.",
-        "score": 1
-      }
+      { "option_text": "Mengawasi pelaksanaan audit keuangan", "score": 0 },
+      { "option_text": "Menyusun strategi pemasaran produk", "score": 0 }
     ]
   },
   {
     "id": "2",
     "category": "TEKNIS",
-    "question_text": "Orang tua saya tidak menyukai pekerjaan saya, sikap saya adalah ....",
+    "question_text": "Dalam memastikan layanan operasional berjalan efisien, penata layanan operasional harus memiliki kemampuan untuk ....",
     "options": [
+      { "option_text": "Mengembangkan produk baru", "score": 0 },
+      { "option_text": "Mengelola proyek secara mandiri", "score": 0 },
+      { "option_text": "Menganalisis laporan keuangan", "score": 0 },
+      { "option_text": "Merancang strategi komunikasi bisnis", "score": 0 },
       {
-        "option_text": "Bertanya kepada orang tua, alasan mereka tidak menyukai pekerjaan saya",
-        "score": 3
-      },
-      {
-        "option_text": "Menjelaskan bahwa saya menyukai pekerjaan tersebut",
-        "score": 4
-      },
-      {
-        "option_text": "Meminta orang tua untuk melihat sendiri pekerjaan saya dan kemudian melakukan penilaian",
-        "score": 2
-      },
-      {
-        "option_text": "Tetap bekerja dan menjelaskan kepada orang tua",
-        "score": 4
+        "option_text": "Mengoptimalkan penggunaan sumber daya perusahaan",
+        "score": 5
       }
     ]
   },
   {
     "id": "3",
     "category": "TEKNIS",
-    "question_text": "Sudah seminggu sampah di depan rumah Anda tidak diambil oleh petugas pengambil sampah karena mobil pengangkut sampah rusak. Beberapa warga disekitar Anda tidak sabar lalu mewadahi sampahnya pada wadah plastik kemudian dibuangnya sampah dalam bungkusan plastik itu satu demi satu ke sungai yang ada di antara kampung. Hal apa yang Anda lakukan sebagai pihak kesehatan",
+    "question_text": "Penata layanan operasional bertanggung jawab atas pengelolaan sistem antrian pada pelayanan publik. Langkah berikut yang merupakan strategi pengelolaan antrian yang efektif adalah ....",
     "options": [
+      { "option_text": "Mengurangi jumlah petugas layanan", "score": 0 },
+      { "option_text": "Membatasi jam operasional", "score": 0 },
       {
-        "option_text": "Mengingatkan warga agar tidak membuang sampah ke sungai karena akan menimbulkan banjir.",
-        "score": 3
+        "option_text": "Menggunakan sistem nomor antrian otomatis",
+        "score": 5
       },
       {
-        "option_text": "Membicarakan persoalan tersebut dengan ketua RT dan tokoh masyarakat untuk mencari solusinya.",
-        "score": 4
+        "option_text": "Mengurangi jumlah pelanggan yang dilayani per hari",
+        "score": 0
       },
       {
-        "option_text": "Menyewa mobil yang dapat mengangkut sampah untuk mengangkut sampah yang menumpuk.",
-        "score": 2
-      },
-      {
-        "option_text": "Memarahi warga tersebut dengan nada keras agar tidak tidak mengulangi lagi perbuatannya.",
-        "score": 1
+        "option_text": "Menghentikan layanan jika antrian terlalu panjang",
+        "score": 0
       }
     ]
   },
   {
     "id": "4",
     "category": "TEKNIS",
-    "question_text": "Suatu ketika hasil pekerjaan yang sudah Anda kerjakan dengan susah payah dikritik tajam oleh Atasan. Menghadapi kritikan tersebut, pernyataan paling mendekati reaksi Anda adalah ....",
+    "question_text": "Untuk meningkatkan efisiensi operasional, penata layanan operasional dapat menerapkan konsep berikut, kecuali ....",
     "options": [
-      {
-        "option_text": "Menerima kritikan apa adanya dan mencari sumber referensi baru yang mendukung.",
-        "score": 4
-      },
-      {
-        "option_text": "Menahan diri, mencermati krtitikan tersebut untuk melakukan perbaikan.",
-        "score": 3
-      },
-      {
-        "option_text": "Meminta penjelasan dan dukungan Atasan, dan mencari strategi baru untuk perbaikan.",
-        "score": 3
-      },
-      {
-        "option_text": "Tidak membalas kritikan tersebut dan juga tidak melakukan perbaikan karena tidak ada gunanya",
-        "score": 1
-      }
+      { "option_text": "Lean management", "score": 0 },
+      { "option_text": "Just-in-time", "score": 0 },
+      { "option_text": "Outsourcing", "score": 0 },
+      { "option_text": "Perencanaan agregat", "score": 0 },
+      { "option_text": "Overstaffing", "score": 5 }
     ]
   },
   {
     "id": "5",
     "category": "TEKNIS",
-    "question_text": "Di tempat Anda masih sering dijumpai beberapa orang ketika menunggu antrian pelayanan terlihat merokok di area yang dilarang merokok, padahal sudah memeberikan tulisan peringatan serta aturan untuk tidak merokok dan tidak membawa rokok ke dalam area tersebut. Sebagai Penata Layanan Operasional yang berkewajiban memberikan tauladan, berikan solusi atas permasalahan di atas!",
+    "question_text": "Penata layanan operasional yang baik harus mampu berkolaborasi dengan divisi lain. Divisi mana yang paling sering membutuhkan koordinasi langsung dengan penata layanan operasional?",
     "options": [
-      {
-        "option_text": "Saya akan lebih aktif dalam memperingatkan orang tersebut yang kedapatan sering merokok di area tersebut.",
-        "score": 4
-      },
-      {
-        "option_text": "Bersama seluruh komponen instansi, untuk memberikan contoh perilaku baik tidak merokok.",
-        "score": 3
-      },
-      {
-        "option_text": "Meminta Atasan agar turun langsung menangani masalah ini dan memberikan sanksi.",
-        "score": 2
-      },
-      {
-        "option_text": "Memarahi dengan membentak orang tersebut agar tidak merokok dan mengulangi perbuatannya tersebut.",
-        "score": 1
-      }
+      { "option_text": "Divisi Hukum", "score": 0 },
+      { "option_text": "Divisi IT", "score": 0 },
+      { "option_text": "Divisi Produksi", "score": 5 },
+      { "option_text": "Divisi Pemasaran", "score": 0 },
+      { "option_text": "Divisi Keuangan", "score": 0 }
     ]
   },
   {
     "id": "6",
     "category": "TEKNIS",
-    "question_text": "Anda ditunjuk mewakili instansi Anda sebagai Ketua Rapat Pelayanan Operasional Masyarakat di Balai Desa dan ketika rapat sedang berlangsung ada salah seorang peserta rapat yang menerima telepon. Apakah tindakan yang akan Anda lakukan ?",
+    "question_text": "Ketika terjadi masalah teknis dalam operasional layanan, langkah pertama yang harus diambil oleh penata layanan operasional adalah...",
     "options": [
       {
-        "option_text": "Menegurnya supaya keluar dari rapat",
-        "score": 2
+        "option_text": "Mengabaikan masalah jika tidak berdampak besar",
+        "score": 0
       },
       {
-        "option_text": "Membiarkannya menerima telepon",
-        "score": 1
+        "option_text": "Melaporkan masalah kepada pimpinan tertinggi",
+        "score": 0
       },
       {
-        "option_text": "Berbisik kepadanya supaya berhenti menerima telepon",
-        "score": 4
+        "option_text": "Mencari solusi sementara agar operasional tidak terhenti",
+        "score": 5
       },
       {
-        "option_text": "Membiarkannya",
-        "score": 1
-      }
+        "option_text": "Menghentikan seluruh kegiatan operasional",
+        "score": 0
+      },
+      { "option_text": "Menghubungi pelanggan untuk meminta maaf", "score": 0 }
     ]
   },
   {
     "id": "7",
     "category": "TEKNIS",
-    "question_text": "Saya mengambil keputusan yang dapat berakibat buruk pada diri saya pribadi maupun Instansi tempat saya bekerja, maka saya",
+    "question_text": "Seorang penata layanan operasional harus mengawasi pelaksanaan evaluasi kinerja secara berkala. Manakah dari berikut yang merupakan tujuan utama dari evaluasi tersebut?",
     "options": [
+      { "option_text": "Menentukan bonus karyawan", "score": 0 },
+      { "option_text": "Mengurangi beban kerja karyawan", "score": 0 },
       {
-        "option_text": "Bertanggung jawab atas segala akbiat yang ditimbulkan",
-        "score": 4
+        "option_text": "Mengidentifikasi area yang perlu ditingkatkan",
+        "score": 5
       },
-      {
-        "option_text": "Menyesali keputusan tersebut",
-        "score": 2
-      },
-      {
-        "option_text": "Menyesal dan menerima akibatnya",
-        "score": 3
-      },
-      {
-        "option_text": "Mencari kesalahan orang lain",
-        "score": 1
-      }
+      { "option_text": "Mempercepat waktu pelayanan", "score": 0 },
+      { "option_text": "Menambah jumlah proyek baru", "score": 0 }
     ]
   },
   {
     "id": "8",
     "category": "TEKNIS",
-    "question_text": "Meskipun dilarang, teman Anda tetap meminta uang tanda terima kasih atas jasa yang kami berikan. Maka saya ....",
+    "question_text": "Apa yang dimaksud dengan penata layanan operasional dalam sebuah organisasi?",
     "options": [
       {
-        "option_text": "Tidak ingin mengikutinya",
-        "score": 3
+        "option_text": "Seseorang yang bertanggung jawab dalam mengelola administrasi kantor.",
+        "score": 0
       },
       {
-        "option_text": "Hal tersebut sudah biasa terjadi",
-        "score": 1
+        "option_text": "Seseorang yang bertanggung jawab dalam merancang strategi pemasaran.",
+        "score": 0
       },
       {
-        "option_text": "Segera melaporkannya kepada atasan",
-        "score": 2
+        "option_text": "Seseorang yang bertanggung jawab atas pelayanan publik dan pengelolaan operasional di sebuah organisasi.",
+        "score": 5
       },
       {
-        "option_text": "Mengajak bidan lain untuk berhenti berbuat demikian",
-        "score": 4
+        "option_text": "Seseorang yang bertanggung jawab atas keuangan organisasi.",
+        "score": 0
+      },
+      {
+        "option_text": "Seseorang yang bertanggung jawab dalam menyusun laporan keuangan.",
+        "score": 0
       }
     ]
   },
   {
     "id": "9",
     "category": "TEKNIS",
-    "question_text": "Sebagai Penata Layanan Operasional yang dianggap kompeten, Anda diminta menggantikan teman kerja lain yang kebetulan sakit untuk mengkoordinasikan panitia kegiatan peringatan HUT kemerdekaan RI di lembaga lain, yang akan Anda lakukan atas permintaan ini adalah ....",
+    "question_text": "Tugas utama seorang penata layanan operasional di lingkungan pelayanan publik adalah...",
     "options": [
+      { "option_text": "Mengelola anggaran organisasi.", "score": 0 },
+      { "option_text": "Menjaga hubungan dengan pelanggan.", "score": 0 },
       {
-        "option_text": "Mengkoordinasikan dan bersinergi dengan pihak-pihak yang terlibatkan dalam kepanitiaan.",
-        "score": 4
+        "option_text": "Mengelola operasional harian untuk memastikan layanan berjalan efektif dan efisien.",
+        "score": 5
       },
+      { "option_text": "Menyusun laporan kegiatan organisasi.", "score": 0 },
       {
-        "option_text": "Menerima tugas itu, dan menjalankannya setelah tugas-tugas lain yang datang terlebih dahulu.",
-        "score": 3
-      },
-      {
-        "option_text": "Walaupun dengan berat hati akan bekerja dan menjalankan tugas itu apa adanya.",
-        "score": 2
-      },
-      {
-        "option_text": "Menolaknya karena bukan tugas dan tanggung jawab saya.",
-        "score": 1
+        "option_text": "Mengawasi pengembangan sumber daya manusia.",
+        "score": 0
       }
     ]
   },
   {
     "id": "10",
     "category": "TEKNIS",
-    "question_text": "Seorang alumni pegawai ingin mendapatkan layanan Anda bekerja dengan waktu yang cepat, teman Anda kelelahan dan butuh istirahat. Sementara Anda masih ada tugas yang belum selesai. Sikap Anda ....",
+    "question_text": "Dalam penata layanan operasional, apa yang dimaksud dengan 'pengelolaan sistem layanan'?",
     "options": [
       {
-        "option_text": "Menggantikan teman Anda, dengan mengurusi kepentingan pelanggan tersebut.",
-        "score": 4
+        "option_text": "Pengembangan sistem komputer dalam organisasi.",
+        "score": 0
       },
       {
-        "option_text": "Melanjutkan tugas teman yang kelelahan, supaya klinik tidak terbengkalai.",
-        "score": 3
+        "option_text": "Penyusunan laporan keuangan berbasis teknologi.",
+        "score": 0
       },
       {
-        "option_text": "Menyelesaikan tugas Anda sampai selesai, baru membantu teman yang kelelahan.",
-        "score": 2
+        "option_text": "Pengelolaan prosedur dan kebijakan yang memastikan layanan operasional berjalan dengan baik.",
+        "score": 5
       },
+      { "option_text": "Pengelolaan sistem informasi manajemen.", "score": 0 },
       {
-        "option_text": "Membiarkan saja karena bukan tugas saya.",
-        "score": 1
+        "option_text": "Penerapan sistem keuangan baru di perusahaan.",
+        "score": 0
       }
+    ]
+  },
+
+  {
+    "id": "11",
+    "category": "TEKNIS",
+    "question_text": "Apa perbedaan antara penata layanan operasional dan operator layanan operasional?",
+    "options": [
+      {
+        "option_text": "Penata layanan operasional mengelola strategi perusahaan, sedangkan operator layanan operasional hanya menjalankan tugas administratif.",
+        "score": 0
+      },
+      {
+        "option_text": "Penata layanan operasional berfokus pada manajemen sistem, sementara operator layanan operasional fokus pada implementasi tugas-tugas teknis.",
+        "score": 5
+      },
+      {
+        "option_text": "Penata layanan operasional bertanggung jawab atas pemasaran, sedangkan operator layanan operasional bertanggung jawab atas keuangan.",
+        "score": 0
+      },
+      {
+        "option_text": "Operator layanan operasional mengelola kebijakan, sedangkan penata layanan operasional fokus pada evaluasi.",
+        "score": 0
+      },
+      { "option_text": "Tidak ada perbedaan antara keduanya.", "score": 0 }
+    ]
+  },
+  {
+    "id": "12",
+    "category": "TEKNIS",
+    "question_text": "Fasilitas apa yang biasanya termasuk dalam pengelolaan ini?",
+    "options": [
+      { "option_text": "Hanya fasilitas peralatan teknologi.", "score": 0 },
+      { "option_text": "Hanya fasilitas transportasi.", "score": 0 },
+      {
+        "option_text": "Semua fasilitas fisik seperti gedung, perangkat kantor, dan kendaraan.",
+        "score": 5
+      },
+      { "option_text": "Fasilitas komunikasi antara divisi.", "score": 0 },
+      {
+        "option_text": "Fasilitas keuangan dan manajemen anggaran.",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "category": "TEKNIS",
+    "question_text": "Apa fungsi dari sistem antrian yang dikelola oleh penata layanan operasional?",
+    "options": [
+      { "option_text": "Meningkatkan keuntungan perusahaan.", "score": 0 },
+      { "option_text": "Mempercepat proses pengiriman barang.", "score": 0 },
+      {
+        "option_text": "Mengatur alur pelanggan sehingga layanan dapat diberikan secara adil dan efisien.",
+        "score": 5
+      },
+      {
+        "option_text": "Mengawasi pergerakan karyawan dalam perusahaan.",
+        "score": 0
+      },
+      {
+        "option_text": "Mengelola sumber daya manusia dengan lebih baik.",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "category": "TEKNIS",
+    "question_text": "Apa yang dimaksud dengan \"sistem layanan terpadu\" dalam konteks penata layanan operasional?",
+    "options": [
+      {
+        "option_text": "Sistem mengintegrasikan layanan keuangan dengan layanan operasional.",
+        "score": 0
+      },
+      {
+        "option_text": "Sistem yang menghubungkan semua aspek layanan publik dalam satu platform untuk memudahkan koordinasi.",
+        "score": 5
+      },
+      {
+        "option_text": "Sistem yang hanya digunakan untuk layanan administratif.",
+        "score": 0
+      },
+      {
+        "option_text": "Sistem layanan darurat yang dikelola oleh penata layanan.",
+        "score": 0
+      },
+      {
+        "option_text": "Sistem manajemen keuangan yang mengelola anggaran operasional.",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "category": "TEKNIS",
+    "question_text": "Apa yang dimaksud dengan \"manajemen pelayanan prima\" dalam konteks penata layanan operasional?",
+    "options": [
+      {
+        "option_text": "Manajemen yang berfokus pada kepuasan pelanggan dengan memberikan layanan terbaik.",
+        "score": 5
+      },
+      {
+        "option_text": "Manajemen yang berfokus pada penjualan produk.",
+        "score": 0
+      },
+      {
+        "option_text": "Sistem pengelolaan keuangan untuk layanan publik.",
+        "score": 0
+      },
+      {
+        "option_text": "Manajemen risiko yang mengatur keamanan dalam layanan publik.",
+        "score": 0
+      },
+      { "option_text": "Sistem penilaian kinerja pegawai.", "score": 0 }
+    ]
+  },
+  {
+    "id": "16",
+    "category": "TEKNIS",
+    "question_text": "Apa fungsi utama dari Penata Layanan Operasional dalam lingkungan kerja kantor?",
+    "options": [
+      { "option_text": "Mengelola sistem keuangan kantor", "score": 0 },
+      { "option_text": "Menyusun laporan bulanan", "score": 0 },
+      {
+        "option_text": "Menyediakan layanan administrasi dan dukungan operasional",
+        "score": 5
+      },
+      { "option_text": "Menyusun strategi pemasaran", "score": 0 },
+      { "option_text": "Mengembangkan teknologi informasi kantor", "score": 0 }
+    ]
+  },
+  {
+    "id": "17",
+    "category": "TEKNIS",
+    "question_text": "Salah satu tugas Penata Layanan Operasional adalah mengelola inventaris. Apa yang dimaksud dengan inventaris dalam konteks ini?",
+    "options": [
+      {
+        "option_text": "Daftar barang-barang yang dijual perusahaan",
+        "score": 0
+      },
+      {
+        "option_text": "Daftar barang-barang aset dan non-aset yang digunakan untuk operasional",
+        "score": 5
+      },
+      { "option_text": "Dokumen keuangan kantor", "score": 0 },
+      { "option_text": "Data karyawan dan gaji bulanan", "score": 0 },
+      { "option_text": "Laporan hasil produksi harian", "score": 0 }
+    ]
+  },
+  {
+    "id": "18",
+    "category": "TEKNIS",
+    "question_text": "Apa peran Penata Layanan Operasional dalam menjaga kelancaran operasional perusahaan?",
+    "options": [
+      { "option_text": "Menyusun strategi pemasaran", "score": 0 },
+      { "option_text": "Melakukan riset pasar", "score": 0 },
+      {
+        "option_text": "Mengelola jadwal, fasilitas, dan peralatan yang digunakan dalam operasional sehari-hari",
+        "score": 5
+      },
+      { "option_text": "Menyusun laporan keuangan tahunan", "score": 0 },
+      { "option_text": "Mengatur kegiatan promosi", "score": 0 }
+    ]
+  },
+  {
+    "id": "19",
+    "category": "TEKNIS",
+    "question_text": "Penata Layanan Operasional sering bekerja dengan sistem manajemen dokumen. Apa tujuan utama dari sistem ini?",
+    "options": [
+      {
+        "option_text": "Meningkatkan efisiensi operasional dengan menyusun dokumen keuangan",
+        "score": 0
+      },
+      { "option_text": "Mengurangi penggunaan kertas di kantor", "score": 0 },
+      {
+        "option_text": "Mengatur dan mengelola dokumen secara efisien untuk memudahkan akses dan penyimpanan",
+        "score": 5
+      },
+      {
+        "option_text": "Mengelola laporan tahunan untuk audit eksternal",
+        "score": 0
+      },
+      { "option_text": "Menyusun data produksi perusahaan", "score": 0 }
+    ]
+  },
+  {
+    "id": "20",
+    "category": "TEKNIS",
+    "question_text": "Apa tanggung jawab Penata Layanan Operasional dalam pengelolaan layanan pelanggan?",
+    "options": [
+      { "option_text": "Mengatur strategi penjualan produk", "score": 0 },
+      {
+        "option_text": "Menangani keluhan dan pertanyaan pelanggan secara langsung",
+        "score": 5
+      },
+      { "option_text": "Mengembangkan produk baru", "score": 0 },
+      { "option_text": "Membuat laporan pemasaran", "score": 0 },
+      { "option_text": "Mengurus penggajian karyawan", "score": 0 }
+    ]
+  },
+  {
+    "id": "21",
+    "category": "TEKNIS",
+    "question_text": "Penata Layanan Operasional berperan dalam pengelolaan fasilitas kantor. Apa yang termasuk dalam pengelolaan fasilitas tersebut?",
+    "options": [
+      { "option_text": "Mengembangkan strategi pemasaran", "score": 0 },
+      { "option_text": "Menyusun laporan keuangan bulanan", "score": 0 },
+      {
+        "option_text": "Memastikan ketersediaan, pemeliharaan, dan perawatan fasilitas fisik kantor",
+        "score": 5
+      },
+      { "option_text": "Menyusun anggaran tahunan", "score": 0 },
+      { "option_text": "Mengatur kegiatan seminar dan pelatihan", "score": 0 }
+    ]
+  },
+  {
+    "id": "22",
+    "category": "TEKNIS",
+    "question_text": "Bagaimana Penata Layanan Operasional berkontribusi dalam perbaikan berkelanjutan di perusahaan?",
+    "options": [
+      {
+        "option_text": "Dengan memimpin proyek riset dan pengembangan",
+        "score": 0
+      },
+      {
+        "option_text": "Dengan mengevaluasi dan meningkatkan prosedur operasional sehari-hari",
+        "score": 5
+      },
+      { "option_text": "Dengan menyusun laporan keuangan harian", "score": 0 },
+      {
+        "option_text": "Dengan mengelola program pelatihan karyawan",
+        "score": 0
+      },
+      { "option_text": "Dengan mengatur program pemasaran digital", "score": 0 }
+    ]
+  },
+  {
+    "id": "23",
+    "category": "TEKNIS",
+    "question_text": "Apa peran utama Penata Layanan Operasional dalam pengelolaan komunikasi internal kantor?",
+    "options": [
+      { "option_text": "Menyusun materi pemasaran", "score": 0 },
+      {
+        "option_text": "Mengembangkan sistem komunikasi dengan pelanggan",
+        "score": 0
+      },
+      {
+        "option_text": "Mengelola jalur komunikasi antara departemen untuk memastikan informasi penting disampaikan tepat waktu",
+        "score": 5
+      },
+      { "option_text": "Menyusun strategi penjualan", "score": 0 },
+      { "option_text": "Membuat laporan hasil kinerja bulanan", "score": 0 }
+    ]
+  },
+  {
+    "id": "24",
+    "category": "TEKNIS",
+    "question_text": "Seorang penata layanan operasional harus menyusun jadwal kegiatan harian dengan mempertimbangkan prioritas pekerjaan. Langkah pertama yang tepat dalam manajemen waktu adalah...",
+    "options": [
+      {
+        "option_text": "Menentukan pekerjaan yang paling mudah diselesaikan",
+        "score": 0
+      },
+      {
+        "option_text": "Menyusun daftar pekerjaan berdasarkan urutan abjad",
+        "score": 0
+      },
+      {
+        "option_text": "Menyusun pekerjaan berdasarkan tingkat urgensi dan kepentingan",
+        "score": 5
+      },
+      {
+        "option_text": "Melakukan pekerjaan yang membutuhkan waktu paling singkat terlebih dahulu",
+        "score": 0
+      },
+      {
+        "option_text": "Menggabungkan semua pekerjaan tanpa memprioritaskan",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "category": "TEKNIS",
+    "question_text": "Seorang penata layanan operasional mengalami kesulitan mengelola waktunya karena terlalu banyak interupsi selama bekerja. Solusi yang paling efektif untuk mengatasi masalah ini adalah...",
+    "options": [
+      {
+        "option_text": "Mengurangi waktu kerja untuk lebih rileks",
+        "score": 0
+      },
+      { "option_text": "Mendelegasikan seluruh tugas yang ada", "score": 0 },
+      {
+        "option_text": "Menggunakan teknik Pomodoro untuk membatasi waktu bekerja dan istirahat",
+        "score": 5
+      },
+      {
+        "option_text": "Menyelesaikan semua pekerjaan di waktu yang sama",
+        "score": 0
+      },
+      {
+        "option_text": "Membiarkan interupsi terjadi dan menangani satu per satu",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "26",
+    "category": "TEKNIS",
+    "question_text": "Apa yang dimaksud dengan pendekatan Just-in-Time (JIT) dalam sistem manajemen operasional?",
+    "options": [
+      {
+        "option_text": "Penyimpanan barang dalam jumlah besar untuk mengantisipasi permintaan",
+        "score": 0
+      },
+      {
+        "option_text": "Produksi barang sesuai dengan pesanan pelanggan",
+        "score": 0
+      },
+      {
+        "option_text": "Pengiriman barang tepat waktu berdasarkan jadwal",
+        "score": 0
+      },
+      {
+        "option_text": "Meminimalkan inventaris dengan memproduksi barang hanya saat dibutuhkan",
+        "score": 5
+      },
+      {
+        "option_text": "Meningkatkan volume produksi untuk mengurangi biaya produksi",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "category": "TEKNIS",
+    "question_text": "Bagaimana peran teknologi informasi dalam sistem manajemen operasional modern?",
+    "options": [
+      { "option_text": "Mengelola penggajian karyawan", "score": 0 },
+      {
+        "option_text": "Mengotomatisasi proses produksi dan distribusi",
+        "score": 5
+      },
+      {
+        "option_text": "Menyimpan data pelanggan untuk keperluan pemasaran",
+        "score": 0
+      },
+      {
+        "option_text": "Mempermudah hubungan antara perusahaan dan investor",
+        "score": 0
+      },
+      {
+        "option_text": "Menganalisis tren pasar dan permintaan pelanggan",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "28",
+    "category": "TEKNIS",
+    "question_text": "Apa yang menjadi fokus utama dalam manajemen rantai pasok (Supply Chain Management) pada sistem manajemen operasional?",
+    "options": [
+      { "option_text": "Menurunkan harga jual produk", "score": 0 },
+      { "option_text": "Memaksimalkan keuntungan perusahaan", "score": 0 },
+      {
+        "option_text": "Mengelola aliran barang dan informasi dari pemasok ke pelanggan",
+        "score": 5
+      },
+      {
+        "option_text": "Mengembangkan strategi pemasaran yang efektif",
+        "score": 0
+      },
+      { "option_text": "Meningkatkan volume penjualan", "score": 0 }
+    ]
+  },
+  {
+    "id": "29",
+    "category": "TEKNIS",
+    "question_text": "Manakah metode yang paling umum digunakan dalam pengelolaan kualitas dalam sistem manajemen operasional?",
+    "options": [
+      { "option_text": "Total Quality Management (TQM)", "score": 5 },
+      { "option_text": "Six Sigma", "score": 0 },
+      { "option_text": "ISO 9001", "score": 0 },
+      { "option_text": "Lean Manufacturing", "score": 0 },
+      { "option_text": "Balanced Scorecard", "score": 0 }
+    ]
+  },
+  {
+    "id": "30",
+    "category": "TEKNIS",
+    "question_text": "Apa peran utama dari sistem Enterprise Resource Planning (ERP) dalam manajemen operasional?",
+    "options": [
+      { "option_text": "Mengatur strategi pemasaran", "score": 0 },
+      {
+        "option_text": "Mengintegrasikan semua proses bisnis dalam satu sistem",
+        "score": 5
+      },
+      { "option_text": "Mengelola hubungan pelanggan", "score": 0 },
+      { "option_text": "Mengembangkan produk baru", "score": 0 },
+      { "option_text": "Mengontrol biaya produksi", "score": 0 }
+    ]
+  },
+  {
+    "id": "31",
+    "category": "TEKNIS",
+    "question_text": "Apa keuntungan utama dari penerapan Lean Manufacturing dalam sistem manajemen operasional?",
+    "options": [
+      {
+        "option_text": "Meningkatkan volume produksi secara signifikan",
+        "score": 0
+      },
+      {
+        "option_text": "Mengurangi biaya produksi dengan menghilangkan pemborosan",
+        "score": 5
+      },
+      { "option_text": "Mengurangi kebutuhan sumber daya manusia", "score": 0 },
+      {
+        "option_text": "Meningkatkan kualitas produk melalui otomatisasi",
+        "score": 0
+      },
+      {
+        "option_text": "Mengurangi ketergantungan pada pemasok luar",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "32",
+    "category": "TEKNIS",
+    "question_text": "Apa yang dimaksud dengan laporan operasional dalam konteks penata layanan operasional?",
+    "options": [
+      {
+        "option_text": "Laporan yang menggambarkan pencapaian keuangan perusahaan",
+        "score": 0
+      },
+      {
+        "option_text": "Laporan yang berisi data penjualan dan pembelian",
+        "score": 0
+      },
+      {
+        "option_text": "Laporan yang menyajikan informasi kinerja dan aktivitas layanan operasional",
+        "score": 5
+      },
+      {
+        "option_text": "Laporan yang hanya mencakup pengeluaran dan pemasukan",
+        "score": 0
+      },
+      { "option_text": "Laporan yang berisi hasil audit internal", "score": 0 }
+    ]
+  },
+  {
+    "id": "33",
+    "category": "TEKNIS",
+    "question_text": "Apa tujuan utama dari penyusunan laporan operasional pada penata layanan operasional?",
+    "options": [
+      { "option_text": "Mengukur keuntungan perusahaan", "score": 0 },
+      {
+        "option_text": "Mengidentifikasi inefisiensi dalam operasional",
+        "score": 5
+      },
+      {
+        "option_text": "Menyediakan informasi untuk laporan keuangan",
+        "score": 0
+      },
+      { "option_text": "Menilai loyalitas pelanggan", "score": 0 },
+      {
+        "option_text": "Melakukan perencanaan strategis jangka panjang",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "34",
+    "category": "TEKNIS",
+    "question_text": "Apa manfaat utama dari evaluasi produktivitas dalam laporan operasional?",
+    "options": [
+      { "option_text": "Memastikan keuntungan maksimal", "score": 0 },
+      {
+        "option_text": "Meningkatkan efisiensi kerja dan alokasi sumber daya",
+        "score": 5
+      },
+      { "option_text": "Mengetahui jumlah pelanggan", "score": 0 },
+      { "option_text": "Mempercepat proses audit", "score": 0 },
+      { "option_text": "Menentukan gaji karyawan", "score": 0 }
+    ]
+  },
+  {
+    "id": "35",
+    "category": "TEKNIS",
+    "question_text": "Mengapa validitas data penting dalam penyusunan laporan operasional?",
+    "options": [
+      {
+        "option_text": "Karena akan meningkatkan citra perusahaan",
+        "score": 0
+      },
+      {
+        "option_text": "Karena mempengaruhi keputusan manajemen berdasarkan laporan tersebut",
+        "score": 5
+      },
+      { "option_text": "Karena membantu dalam proses rekrutmen", "score": 0 },
+      { "option_text": "Karena menentukan jumlah stok barang", "score": 0 },
+      {
+        "option_text": "Karena akan digunakan dalam laporan keuangan",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "36",
+    "category": "TEKNIS",
+    "question_text": "Siapa yang bertanggung jawab untuk menyusun laporan operasional dalam organisasi layanan operasional?",
+    "options": [
+      { "option_text": "Manajer Keuangan", "score": 0 },
+      { "option_text": "Staf Operasional", "score": 0 },
+      { "option_text": "Manajer Operasional", "score": 5 },
+      { "option_text": "Tim Audit", "score": 0 },
+      { "option_text": "Supervisor IT", "score": 0 }
+    ]
+  },
+  {
+    "id": "37",
+    "category": "TEKNIS",
+    "question_text": "Apa tujuan utama dari analisis data operasional di bidang penata layanan operasional?",
+    "options": [
+      {
+        "option_text": "Meningkatkan kecepatan layanan tanpa mempertimbangkan kualitas",
+        "score": 0
+      },
+      {
+        "option_text": "Menurunkan biaya operasional dengan mengabaikan pelanggan",
+        "score": 0
+      },
+      {
+        "option_text": "Meningkatkan efektivitas dan efisiensi operasional layanan",
+        "score": 5
+      },
+      {
+        "option_text": "Mengumpulkan sebanyak mungkin data tanpa tujuan jelas",
+        "score": 0
+      },
+      { "option_text": "Membuat keputusan tanpa melibatkan data", "score": 0 }
+    ]
+  },
+  {
+    "id": "38",
+    "category": "TEKNIS",
+    "question_text": "Dalam analisis data operasional, indikator apa yang paling sering digunakan untuk menilai performa layanan?",
+    "options": [
+      { "option_text": "Kecepatan penyelesaian tugas", "score": 0 },
+      { "option_text": "Kepuasan pelanggan", "score": 0 },
+      { "option_text": "Biaya layanan", "score": 0 },
+      { "option_text": "Semua indikator di atas", "score": 5 },
+      { "option_text": "Hanya A dan B", "score": 0 }
+    ]
+  },
+  {
+    "id": "39",
+    "category": "TEKNIS",
+    "question_text": "Metode apa yang sering digunakan dalam analisis data operasional untuk menemukan pola atau tren?",
+    "options": [
+      { "option_text": "Regresi linier", "score": 0 },
+      { "option_text": "Analisis cluster", "score": 5 },
+      { "option_text": "Simulasi Monte Carlo", "score": 0 },
+      { "option_text": "Analisis Sentimen", "score": 0 },
+      { "option_text": "Analisis SWOT", "score": 0 }
+    ]
+  },
+  {
+    "id": "40",
+    "category": "TEKNIS",
+    "question_text": "Data operasional yang dikumpulkan seringkali bersifat real-time. Apa keuntungan utama dari memiliki data real-time dalam analisis operasional?",
+    "options": [
+      { "option_text": "Mengurangi biaya penyimpanan data", "score": 0 },
+      {
+        "option_text": "Menghilangkan kebutuhan akan analisis lebih lanjut",
+        "score": 0
+      },
+      {
+        "option_text": "Memungkinkan deteksi dini masalah dan pengambilan keputusan cepat",
+        "score": 5
+      },
+      {
+        "option_text": "Menghindari kebutuhan untuk pelatihan staf",
+        "score": 0
+      },
+      {
+        "option_text": "Memastikan data tetap akurat tanpa perlu pemrosesan",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "41",
+    "category": "TEKNIS",
+    "question_text": "Salah satu prinsip utama dalam pengelolaan layanan operasional adalah efisiensi. Apa yang dimaksud dengan efisiensi dalam konteks ini?",
+    "options": [
+      { "option_text": "Melakukan pekerjaan secepat mungkin", "score": 0 },
+      {
+        "option_text": "Menggunakan sumber daya seminimal mungkin untuk mencapai hasil maksimal",
+        "score": 5
+      },
+      {
+        "option_text": "Menyelesaikan tugas sebelum tenggat waktu",
+        "score": 0
+      },
+      { "option_text": "Menghindari kesalahan dalam pekerjaan", "score": 0 },
+      { "option_text": "Mengutamakan kualitas layanan", "score": 0 }
+    ]
+  },
+  {
+    "id": "42",
+    "category": "TEKNIS",
+    "question_text": "Dalam layanan operasional perkantoran, manajemen waktu adalah hal yang krusial. Apa yang dimaksud dengan metode prioritas \"Eisenhower Matrix\"?",
+    "options": [
+      {
+        "option_text": "Membagi tugas berdasarkan skala prioritas penting dan mendesak",
+        "score": 5
+      },
+      {
+        "option_text": "Membagi tugas berdasarkan urutan masuknya pekerjaan",
+        "score": 0
+      },
+      {
+        "option_text": "Membagi tugas berdasarkan kemudahan pengerjaan",
+        "score": 0
+      },
+      {
+        "option_text": "Membagi tugas berdasarkan instruksi atasan",
+        "score": 0
+      },
+      {
+        "option_text": "Membagi tugas berdasarkan preferensi pribadi",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "43",
+    "category": "TEKNIS",
+    "question_text": "Apa tujuan utama dari evaluasi kinerja di dalam organisasi layanan operasional?",
+    "options": [
+      { "option_text": "Menentukan biaya operasional", "score": 0 },
+      { "option_text": "Menyediakan data untuk promosi pegawai", "score": 0 },
+      {
+        "option_text": "Mengidentifikasi kekuatan dan kelemahan operasional",
+        "score": 5
+      },
+      {
+        "option_text": "Memastikan kebijakan perusahaan dijalankan",
+        "score": 0
+      },
+      { "option_text": "Mengurangi beban kerja karyawan", "score": 0 }
+    ]
+  },
+  {
+    "id": "44",
+    "category": "TEKNIS",
+    "question_text": "Apa yang dimaksud dengan Key Performance Indicators (KPI) dalam konteks evaluasi kinerja operasional?",
+    "options": [
+      { "option_text": "Ukuran kinerja keuangan", "score": 0 },
+      {
+        "option_text": "Alat untuk mengevaluasi kinerja karyawan individu",
+        "score": 0
+      },
+      {
+        "option_text": "Tolok ukur yang digunakan untuk mengukur kinerja operasional",
+        "score": 5
+      },
+      {
+        "option_text": "Standar yang ditetapkan oleh manajemen senior",
+        "score": 0
+      },
+      { "option_text": "Kebijakan internal yang harus diikuti", "score": 0 }
+    ]
+  },
+  {
+    "id": "45",
+    "category": "TEKNIS",
+    "question_text": "Salah satu aspek penting dalam pengelolaan layanan operasional adalah kemampuan untuk menangani keluhan pelanggan dengan baik. Ketika seorang pelanggan mengeluhkan keterlambatan layanan, langkah pertama yang paling efektif yang harus dilakukan oleh seorang operator layanan operasional adalah...",
+    "options": [
+      {
+        "option_text": "Mengabaikan keluhan pelanggan karena keterlambatan dianggap hal biasa",
+        "score": 0
+      },
+      {
+        "option_text": "Meminta pelanggan untuk menunggu lebih lama hingga permasalahan selesai",
+        "score": 0
+      },
+      {
+        "option_text": "Mengucapkan permintaan maaf dan segera menginformasikan estimasi waktu penyelesaian",
+        "score": 5
+      },
+      {
+        "option_text": "Menyalahkan tim lain yang bertanggung jawab atas keterlambatan",
+        "score": 0
+      },
+      {
+        "option_text": "Mengarahkan pelanggan untuk membuat pengaduan resmi kepada manajemen",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "46",
+    "category": "TEKNIS",
+    "question_text": "Sebuah perusahaan menghadapi masalah dengan antrian panjang di pusat layanan pelanggan. Sebagai penata layanan operasional, langkah pertama apa yang harus dilakukan untuk mengatasi masalah ini?",
+    "options": [
+      { "option_text": "Menambah jumlah staf", "score": 0 },
+      { "option_text": "Menerapkan sistem antrian digital", "score": 0 },
+      { "option_text": "Melakukan analisis alur kerja", "score": 5 },
+      { "option_text": "Menyediakan tempat duduk tambahan", "score": 0 },
+      { "option_text": "Mengurangi jam operasional", "score": 0 }
+    ]
+  },
+  {
+    "id": "47",
+    "category": "TEKNIS",
+    "question_text": "Dalam suatu studi kasus, ditemukan bahwa layanan di bagian resepsionis terlalu lambat karena staf resepsionis sering harus meninggalkan meja untuk mengambil dokumen. Apa solusi terbaik untuk mengatasi hal ini?",
+    "options": [
+      { "option_text": "Menambah jumlah staf", "score": 0 },
+      { "option_text": "Menyediakan dokumen secara digital", "score": 5 },
+      {
+        "option_text": "Memindahkan dokumen lebih dekat ke meja resepsionis",
+        "score": 0
+      },
+      {
+        "option_text": "Mengurangi jumlah dokumen yang harus diambil",
+        "score": 0
+      },
+      {
+        "option_text": "Melatih staf resepsionis untuk lebih efisien",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "48",
+    "category": "TEKNIS",
+    "question_text": "Sebuah kantor pemerintahan menghadapi keluhan terkait kecepatan layanan publik. Sebagai penata layanan operasional, bagaimana cara terbaik untuk meningkatkan efisiensi tanpa mengorbankan kualitas layanan?",
+    "options": [
+      { "option_text": "Mengurangi jumlah tahapan prosedur", "score": 0 },
+      { "option_text": "Mempercepat pelatihan staf", "score": 0 },
+      {
+        "option_text": "Mengimplementasikan sistem manajemen antrian otomatis",
+        "score": 5
+      },
+      { "option_text": "Menambah jam kerja staf", "score": 0 },
+      { "option_text": "Mengurangi volume pekerjaan staf", "score": 0 }
+    ]
+  },
+  {
+    "id": "49",
+    "category": "TEKNIS",
+    "question_text": "Penata layanan operasional di sebuah pusat perbelanjaan menghadapi masalah dalam pengelolaan keluhan pelanggan yang sering tidak terarsip dengan baik. Apa solusi terbaik untuk masalah ini?",
+    "options": [
+      { "option_text": "Menambah staf pengelola keluhan", "score": 0 },
+      {
+        "option_text": "Menerapkan sistem manajemen keluhan terkomputerisasi",
+        "score": 5
+      },
+      { "option_text": "Melatih staf lebih intensif", "score": 0 },
+      { "option_text": "Mengurangi jumlah keluhan yang diterima", "score": 0 },
+      { "option_text": "Menyederhanakan proses keluhan", "score": 0 }
+    ]
+  },
+  {
+    "id": "50",
+    "category": "TEKNIS",
+    "question_text": "Sebagai penata layanan operasional, Anda menemukan bahwa sebagian besar staf layanan kurang paham tentang standar pelayanan yang ditetapkan. Apa langkah terbaik untuk memperbaiki situasi ini?",
+    "options": [
+      {
+        "option_text": "Menerapkan sanksi bagi staf yang tidak mematuhi",
+        "score": 0
+      },
+      { "option_text": "Mengurangi standar pelayanan", "score": 0 },
+      { "option_text": "Mengadakan pelatihan berkala bagi staf", "score": 5 },
+      { "option_text": "Menambah dokumentasi prosedur", "score": 0 },
+      {
+        "option_text": "Menunjuk supervisor khusus untuk memantau standar",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "51",
+    "category": "TEKNIS",
+    "question_text": "Dalam menyimpan surat masuk, yang harus diperhatikan adalah...",
+    "options": [
+      {
+        "option_text": "Menyimpan semua surat di satu tempat tanpa pengelompokan",
+        "score": 0
+      },
+      {
+        "option_text": "Mengelompokkan surat berdasarkan jenis dan urgensi",
+        "score": 5
+      },
+      { "option_text": "Menyimpan surat di meja kerja", "score": 0 },
+      { "option_text": "Menyimpan surat di folder pribadi", "score": 0 },
+      { "option_text": "Mengabaikan surat yang tidak penting", "score": 0 }
+    ]
+  },
+  {
+    "id": "52",
+    "category": "TEKNIS",
+    "question_text": "Ketika menemukan surat yang berisi informasi penting dan mendesak, tindakan yang harus diambil oleh penata pelayanan operasional adalah...",
+    "options": [
+      {
+        "option_text": "Menyimpannya di arsip tanpa tindakan lanjut",
+        "score": 0
+      },
+      {
+        "option_text": "Mengagendakannya dan segera menginformasikan kepada pihak terkait",
+        "score": 5
+      },
+      {
+        "option_text": "Menunggu arahan dari atasan sebelum bertindak",
+        "score": 0
+      },
+      {
+        "option_text": "Menyimpan surat di meja kerja untuk ditangani nanti",
+        "score": 0
+      },
+      {
+        "option_text": "Membuat salinan surat dan menyimpannya di folder pribadi",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "53",
+    "category": "TEKNIS",
+    "question_text": "Untuk menjaga kerahasiaan surat masuk yang bersifat sangat rahasia, penata pelayanan operasional harus...",
+    "options": [
+      { "option_text": "Membuka surat di depan semua karyawan", "score": 0 },
+      {
+        "option_text": "Mengagendakan surat dalam buku agenda umum",
+        "score": 0
+      },
+      {
+        "option_text": "Menyimpan surat di tempat khusus yang terkunci",
+        "score": 5
+      },
+      { "option_text": "Mengabaikan surat tersebut", "score": 0 },
+      {
+        "option_text": "Mengumumkan isi surat kepada seluruh departemen",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "54",
+    "category": "TEKNIS",
+    "question_text": "Salah satu alasan penting mengagendakan surat masuk adalah untuk...",
+    "options": [
+      { "option_text": "Menyimpan surat secara permanen", "score": 0 },
+      {
+        "option_text": "Memastikan setiap surat masuk tercatat dan terdokumentasi dengan baik",
+        "score": 5
+      },
+      { "option_text": "Mengirim balasan surat dengan cepat", "score": 0 },
+      { "option_text": "Menyimpan surat di tempat aman", "score": 0 },
+      { "option_text": "Mengelompokkan surat berdasarkan warna", "score": 0 }
+    ]
+  },
+  {
+    "id": "55",
+    "category": "TEKNIS",
+    "question_text": "Setelah mengagendakan surat masuk, langkah selanjutnya yang harus dilakukan adalah...",
+    "options": [
+      { "option_text": "Menyimpan surat di arsip", "score": 0 },
+      {
+        "option_text": "Mendistribusikan surat ke bagian yang bersangkutan",
+        "score": 5
+      },
+      { "option_text": "Mengirim balasan surat", "score": 0 },
+      { "option_text": "Membuat salinan surat", "score": 0 },
+      { "option_text": "Mengabaikan surat", "score": 0 }
+    ]
+  },
+  {
+    "id": "56",
+    "category": "TEKNIS",
+    "question_text": "Jika terjadi kesalahan pada surat yang sudah diagendakan, tindakan yang harus diambil adalah...",
+    "options": [
+      { "option_text": "Mengabaikan kesalahan tersebut", "score": 0 },
+      { "option_text": "Mengirim surat apa adanya", "score": 0 },
+      {
+        "option_text": "Membuat surat baru, mengagendakannya, dan membatalkan surat yang salah",
+        "score": 5
+      },
+      { "option_text": "Menyimpan surat yang salah di arsip", "score": 0 },
+      { "option_text": "Mengirim surat tanpa koreksi", "score": 0 }
+    ]
+  },
+  {
+    "id": "57",
+    "category": "TEKNIS",
+    "question_text": "Untuk meningkatkan efisiensi dalam mendistribusikan surat keluar, penata pelayanan operasional dapat menggunakan...",
+    "options": [
+      { "option_text": "Sistem pengarsipan manual", "score": 0 },
+      { "option_text": "Sistem manajemen dokumen elektronik", "score": 5 },
+      { "option_text": "Pengiriman surat melalui kurir pribadi", "score": 0 },
+      { "option_text": "Pengarsipan surat tanpa pencatatan", "score": 0 },
+      { "option_text": "Pengiriman surat secara acak", "score": 0 }
+    ]
+  },
+  {
+    "id": "58",
+    "category": "TEKNIS",
+    "question_text": "Langkah pertama yang harus dilakukan dalam mengelola data kepegawaian adalah...",
+    "options": [
+      { "option_text": "Menyimpan data dalam arsip fisik", "score": 0 },
+      { "option_text": "Memperbarui data secara manual", "score": 0 },
+      {
+        "option_text": "Mengumpulkan dan memverifikasi data kepegawaian",
+        "score": 5
+      },
+      {
+        "option_text": "Mendistribusikan data ke semua departemen",
+        "score": 0
+      },
+      {
+        "option_text": "Membuat laporan bulanan tentang data kepegawaian",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "59",
+    "category": "TEKNIS",
+    "question_text": "Untuk menjaga kerahasiaan data kepegawaian, penata data harus...",
+    "options": [
+      { "option_text": "Menyimpan data di komputer pribadi", "score": 0 },
+      { "option_text": "Menggunakan sistem pengarsipan manual", "score": 0 },
+      {
+        "option_text": "Menyimpan data di server yang aman dengan akses terbatas",
+        "score": 5
+      },
+      { "option_text": "Membagikan data ke semua karyawan", "score": 0 },
+      { "option_text": "Mengabaikan protokol keamanan data", "score": 0 }
+    ]
+  },
+  {
+    "id": "60",
+    "category": "TEKNIS",
+    "question_text": "Salah satu tujuan utama pengelolaan data kepegawaian adalah...",
+    "options": [
+      { "option_text": "Mengurangi jumlah karyawan", "score": 0 },
+      { "option_text": "Meningkatkan biaya operasional", "score": 0 },
+      {
+        "option_text": "Memastikan informasi kepegawaian akurat dan mudah diakses",
+        "score": 5
+      },
+      { "option_text": "Mengurangi beban kerja manajer", "score": 0 },
+      { "option_text": "Mengabaikan kebutuhan pelatihan karyawan", "score": 0 }
+    ]
+  },
+  {
+    "id": "61",
+    "category": "TEKNIS",
+    "question_text": "Dalam mengelola data kepegawaian, penata data harus memastikan...",
+    "options": [
+      { "option_text": "Data diperbarui hanya sekali setahun", "score": 0 },
+      {
+        "option_text": "Data diakses oleh semua karyawan tanpa batasan",
+        "score": 0
+      },
+      {
+        "option_text": "Data diperbarui secara berkala dan sinkron dengan sistem HR",
+        "score": 5
+      },
+      { "option_text": "Data disimpan dalam format kertas saja", "score": 0 },
+      {
+        "option_text": "Data disimpan tanpa memverifikasi keakuratannya",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "62",
+    "category": "TEKNIS",
+    "question_text": "Jika terdapat perubahan dalam status kepegawaian seorang karyawan (misalnya promosi atau pindah departemen), langkah yang harus diambil adalah...",
+    "options": [
+      { "option_text": "Mengabaikan perubahan tersebut", "score": 0 },
+      {
+        "option_text": "Mengubah data kepegawaian segera dan memberitahu pihak terkait",
+        "score": 5
+      },
+      {
+        "option_text": "Menunggu hingga akhir tahun untuk memperbarui data",
+        "score": 0
+      },
+      { "option_text": "Menghapus data karyawan dari sistem", "score": 0 },
+      {
+        "option_text": "Menyimpan perubahan dalam catatan terpisah",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "63",
+    "category": "TEKNIS",
+    "question_text": "Langkah pertama dalam membantu pengelolaan dan penyusunan data kelembagaan adalah...",
+    "options": [
+      { "option_text": "Mengarsipkan data tanpa verifikasi", "score": 0 },
+      {
+        "option_text": "Mengumpulkan dan memverifikasi data yang diperlukan",
+        "score": 5
+      },
+      {
+        "option_text": "Mendistribusikan laporan tanpa pengolahan data",
+        "score": 0
+      },
+      { "option_text": "Menyimpan data di komputer pribadi", "score": 0 },
+      { "option_text": "Menghapus data yang tidak penting", "score": 0 }
+    ]
+  },
+  {
+    "id": "64",
+    "category": "TEKNIS",
+    "question_text": "Salah satu alat yang paling efektif untuk mengelola dan menyusun data kelembagaan adalah...",
+    "options": [
+      { "option_text": "Buku catatan manual", "score": 0 },
+      { "option_text": "Spreadsheet sederhana", "score": 0 },
+      { "option_text": "Sistem Manajemen Basis Data (DBMS)", "score": 5 },
+      { "option_text": "Dokumen teks", "score": 0 },
+      { "option_text": "Presentasi slide", "score": 0 }
+    ]
+  },
+  {
+    "id": "65",
+    "category": "TEKNIS",
+    "question_text": "Untuk menjaga konsistensi dalam laporan kelembagaan, penting untuk...",
+    "options": [
+      {
+        "option_text": "Menggunakan format laporan yang berbeda setiap kali",
+        "score": 0
+      },
+      { "option_text": "Mengabaikan pedoman penyusunan laporan", "score": 0 },
+      {
+        "option_text": "Mengikuti template dan standar yang ditetapkan",
+        "score": 5
+      },
+      { "option_text": "Membuat laporan secara acak", "score": 0 },
+      { "option_text": "Menyusun laporan tanpa mengacu pada data", "score": 0 }
+    ]
+  },
+  {
+    "id": "66",
+    "category": "TEKNIS",
+    "question_text": "Dalam proses penyusunan laporan kelembagaan, langkah penting yang harus dilakukan adalah...",
+    "options": [
+      { "option_text": "Menyimpan data mentah tanpa diolah", "score": 0 },
+      { "option_text": "Mengumpulkan data saja tanpa analisis", "score": 0 },
+      {
+        "option_text": "Menganalisis dan menyajikan data secara jelas dan ringkas",
+        "score": 5
+      },
+      { "option_text": "Menyusun laporan tanpa mereview data", "score": 0 },
+      { "option_text": "Membuat laporan tanpa tujuan yang jelas", "score": 0 }
+    ]
+  },
+  {
+    "id": "67",
+    "category": "TEKNIS",
+    "question_text": "Salah satu teknologi yang memungkinkan komunikasi cepat dan efektif antar departemen dalam penata layanan operasional adalah...",
+    "options": [
+      { "option_text": "Surat pos", "score": 0 },
+      { "option_text": "Telepon rumah", "score": 0 },
+      { "option_text": "Email", "score": 5 },
+      { "option_text": "Mengirim pesan melalui burung merpati", "score": 0 },
+      { "option_text": "Menggunakan pengirim telegram", "score": 0 }
+    ]
+  },
+  {
+    "id": "68",
+    "category": "TEKNIS",
+    "question_text": "Teknologi yang digunakan untuk mengelola inventaris dan stok barang dalam penata layanan operasional adalah...",
+    "options": [
+      { "option_text": "Penggunaan kartu katalog", "score": 0 },
+      { "option_text": "Sistem Barcode", "score": 5 },
+      { "option_text": "Mencatat di buku catatan", "score": 0 },
+      { "option_text": "Menggunakan tinta dan pena", "score": 0 },
+      { "option_text": "Menghitung stok secara manual", "score": 0 }
+    ]
+  },
+  {
+    "id": "69",
+    "category": "TEKNIS",
+    "question_text": "Salah satu keuntungan menggunakan Sistem Manajemen Sumber Daya Manusia (HRIS) dalam penata layanan operasional adalah...",
+    "options": [
+      { "option_text": "Memperlambat proses administrasi", "score": 0 },
+      { "option_text": "Meningkatkan keamanan data", "score": 5 },
+      {
+        "option_text": "Menghilangkan kebutuhan untuk dokumentasi",
+        "score": 0
+      },
+      { "option_text": "Mengabaikan kebutuhan pelatihan", "score": 0 },
+      { "option_text": "Meningkatkan biaya operasional", "score": 0 }
+    ]
+  },
+  {
+    "id": "70",
+    "category": "TEKNIS",
+    "question_text": "Teknologi yang memungkinkan monitoring dan pengelolaan keamanan fisik kantor dalam penata layanan operasional adalah...",
+    "options": [
+      { "option_text": "Kunci tradisional", "score": 0 },
+      { "option_text": "Penggunaan CCTV", "score": 5 },
+      { "option_text": "Menggunakan penjaga keamanan manusia", "score": 0 },
+      { "option_text": "Menggunakan gerbang bambu", "score": 0 },
+      { "option_text": "Tidak melakukan monitoring keamanan", "score": 0 }
+    ]
+  },
+  {
+    "id": "71",
+    "category": "TEKNIS",
+    "question_text": "Sebuah lembaga pendidikan ingin meningkatkan manajemen data kepegawaian mereka untuk mengoptimalkan proses administrasi dan pengembangan SDM. Teknologi apa yang bisa mereka terapkan...",
+    "options": [
+      {
+        "option_text": "Mengandalkan penggunaan buku catatan manual",
+        "score": 0
+      },
+      { "option_text": "Tidak melakukan pengelolaan data", "score": 0 },
+      {
+        "option_text": "Menerapkan Sistem Manajemen Sumber Daya Manusia (HRIS)",
+        "score": 5
+      },
+      {
+        "option_text": "Melakukan pencatatan data dengan tinta dan pena",
+        "score": 0
+      },
+      { "option_text": "Menggunakan slide PowerPoint", "score": 0 }
+    ]
+  },
+  {
+    "id": "72",
+    "category": "TEKNIS",
+    "question_text": "Sebuah perusahaan logistik menghadapi tantangan dalam mengoptimalkan rute pengiriman. Teknologi yang paling cocok untuk mereka terapkan adalah...",
+    "options": [
+      { "option_text": "Menggunakan peta dan buku jadwal manual", "score": 0 },
+      { "option_text": "Melakukan perencanaan rute secara acak", "score": 0 },
+      {
+        "option_text": "Implementasi Sistem Manajemen Transportasi (TMS)",
+        "score": 5
+      },
+      { "option_text": "Tidak melakukan perubahan pada sistem", "score": 0 },
+      { "option_text": "Mengandalkan navigasi GPS pribadi", "score": 0 }
+    ]
+  },
+  {
+    "id": "73",
+    "category": "TEKNIS",
+    "question_text": "Sebuah hotel ingin meningkatkan pengalaman tamu dengan meningkatkan sistem reservasi dan pelayanan. Teknologi yang bisa mereka terapkan untuk mencapai tujuan ini adalah...",
+    "options": [
+      { "option_text": "Menggunakan buku tamu manual", "score": 0 },
+      { "option_text": "Tidak melakukan perubahan pada sistem", "score": 0 },
+      {
+        "option_text": "Menerapkan Sistem Manajemen Reservasi Hotel (PMS)",
+        "score": 5
+      },
+      {
+        "option_text": "Melakukan reservasi hanya melalui telepon",
+        "score": 0
+      },
+      {
+        "option_text": "Menggunakan catatan kertas untuk reservasi",
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "74",
+    "category": "TEKNIS",
+    "question_text": "Sebuah agen properti ingin meningkatkan manajemen daftar properti dan proses penawaran kepada calon pembeli. Teknologi yang bisa mereka terapkan untuk mengelola informasi ini adalah...",
+    "options": [
+      { "option_text": "Menggunakan katalog fisik", "score": 0 },
+      { "option_text": "Tidak melakukan pengelolaan informasi", "score": 0 },
+      {
+        "option_text": "Implementasi Customer Relationship Management (CRM)",
+        "score": 5
+      },
+      { "option_text": "Melakukan penawaran hanya secara lisan", "score": 0 },
+      { "option_text": "Menggunakan media cetak untuk iklan", "score": 0 }
+    ]
+  },
+  {
+    "id": "75",
+    "category": "TEKNIS",
+    "question_text": "Sebuah restoran ingin meningkatkan efisiensi dalam pengelolaan inventaris makanan dan minuman mereka untuk menghindari kekurangan stok dan pemborosan. Teknologi yang bisa mereka terapkan berupa...",
+    "options": [
+      {
+        "option_text": "Mengandalkan penggunaan buku catatan manual",
+        "score": 0
+      },
+      { "option_text": "Tidak melakukan pengelolaan inventaris", "score": 0 },
+      {
+        "option_text": "Implementasi Sistem Manajemen Restoran (POS)",
+        "score": 5
+      },
+      { "option_text": "Menghitung stok secara manual", "score": 0 },
+      { "option_text": "Tidak menggunakan teknologi", "score": 0 }
     ]
   }
 ]
