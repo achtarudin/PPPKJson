@@ -180,6 +180,64 @@
                 }
             }
         },
+        "/exam/{userID}/answers": {
+            "get": {
+                "description": "Gets existing answers for user's active exam session to repopulate on page reload",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "exam"
+                ],
+                "summary": "Get user's existing answers",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "\"1234\"",
+                        "description": "User ID",
+                        "name": "userID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User answers retrieved",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "additionalProperties": true
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid user ID",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to get user answers",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/exam/{userID}/complete": {
             "post": {
                 "description": "Completes the exam session and calculates final results",
@@ -294,6 +352,75 @@
                     },
                     "500": {
                         "description": "Failed to get dashboard data",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/exam/{userID}/detailed-answers": {
+            "get": {
+                "description": "Gets detailed answers with question text, selected options, and scores for completed exam",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "exam"
+                ],
+                "summary": "Get detailed user answers",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "\"1234\"",
+                        "description": "User ID",
+                        "name": "userID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detailed answers retrieved",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "additionalProperties": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/definitions/dto.DetailedAnswer"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid user ID",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    },
+                    "404": {
+                        "description": "No completed exam found",
+                        "schema": {
+                            "$ref": "#/definitions/dto.APIResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to get detailed answers",
                         "schema": {
                             "$ref": "#/definitions/dto.APIResponse"
                         }
@@ -513,6 +640,63 @@
                 "user_id": {
                     "type": "string",
                     "example": "1234"
+                }
+            }
+        },
+        "dto.DetailedAnswer": {
+            "type": "object",
+            "properties": {
+                "answered_at": {
+                    "type": "string",
+                    "example": "2026-01-28T11:15:00Z"
+                },
+                "category": {
+                    "type": "string",
+                    "example": "MANAJERIAL"
+                },
+                "correct_option": {
+                    "type": "string",
+                    "example": "Menolak dengan tegas dan melaporkan kepada atasan"
+                },
+                "correct_option_id": {
+                    "type": "integer",
+                    "example": 60
+                },
+                "correct_score": {
+                    "type": "integer",
+                    "example": 4
+                },
+                "exam_question_id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "is_correct": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "max_score": {
+                    "type": "integer",
+                    "example": 4
+                },
+                "question_id": {
+                    "type": "integer",
+                    "example": 15
+                },
+                "question_text": {
+                    "type": "string",
+                    "example": "Atasan Anda melakukan rekayasa laporan..."
+                },
+                "score": {
+                    "type": "integer",
+                    "example": 3
+                },
+                "selected_option": {
+                    "type": "string",
+                    "example": "Dalam hati tidak menyetujui hal tersebut"
+                },
+                "selected_option_id": {
+                    "type": "integer",
+                    "example": 59
                 }
             }
         },

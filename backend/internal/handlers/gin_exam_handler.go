@@ -4,6 +4,7 @@ import (
 	"cutbray/pppk-json/internal/dto"
 	"cutbray/pppk-json/internal/repositories/exam_service"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -31,6 +32,7 @@ func (h *GinExamHandler) RegisterRoutes(router *gin.Engine) {
 		examGroup.GET("/:userID/results", h.GetExamResults)
 		examGroup.GET("/:userID/dashboard", h.GetDashboard)
 		examGroup.GET("/:userID/answers", h.GetUserAnswers)
+		examGroup.GET("/:userID/detailed-answers", h.GetDetailedUserAnswers)
 	}
 
 	// Admin/Dashboard routes
@@ -391,6 +393,51 @@ func (h *GinExamHandler) GetUserAnswers(c *gin.Context) {
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
 		Message: "User answers retrieved",
+		Data:    answers,
+	})
+}
+
+// GetDetailedUserAnswers gets detailed answers with questions and scores for completed exam
+// @Summary Get detailed user answers
+// @Description Gets detailed answers with question text, selected options, and scores for completed exam
+// @Tags exam
+// @Accept json
+// @Produce json
+// @Param userID path string true "User ID" example("1234")
+// @Success 200 {object} dto.APIResponse{data=map[string][]dto.DetailedAnswer} "Detailed answers retrieved"
+// @Failure 400 {object} dto.APIResponse "Invalid user ID"
+// @Failure 404 {object} dto.APIResponse "No completed exam found"
+// @Failure 500 {object} dto.APIResponse "Failed to get detailed answers"
+// @Router /exam/{userID}/detailed-answers [get]
+func (h *GinExamHandler) GetDetailedUserAnswers(c *gin.Context) {
+	userID := c.Param("userID")
+	if userID == "" {
+		c.JSON(http.StatusBadRequest, dto.APIResponse{
+			Success: false,
+			Error:   "Invalid user ID",
+		})
+		return
+	}
+
+	answers, err := h.examService.GetDetailedUserAnswers(c.Request.Context(), userID)
+	if err != nil {
+		if strings.Contains(err.Error(), "no completed exam session found") {
+			c.JSON(http.StatusNotFound, dto.APIResponse{
+				Success: false,
+				Error:   "No completed exam found for user",
+			})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, dto.APIResponse{
+			Success: false,
+			Error:   "Failed to get detailed answers: " + err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, dto.APIResponse{
+		Success: true,
+		Message: "Detailed answers retrieved",
 		Data:    answers,
 	})
 }

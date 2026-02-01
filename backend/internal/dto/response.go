@@ -134,3 +134,20 @@ type UserDashboardSummary struct {
 	Grade       *string  `json:"grade,omitempty" example:"B"`
 	IsPassed    *bool    `json:"is_passed,omitempty" example:"true"`
 }
+
+// DetailedAnswer represents a detailed user answer with question and score information
+type DetailedAnswer struct {
+	ExamQuestionID   uint      `json:"exam_question_id" example:"1"`
+	QuestionID       uint      `json:"question_id" example:"15"`
+	QuestionText     string    `json:"question_text" example:"Atasan Anda melakukan rekayasa laporan..."`
+	Category         string    `json:"category" example:"MANAJERIAL"`
+	SelectedOptionID uint      `json:"selected_option_id" example:"59"`
+	SelectedOption   string    `json:"selected_option" example:"Dalam hati tidak menyetujui hal tersebut"`
+	Score            int       `json:"score" example:"3"`
+	MaxScore         int       `json:"max_score" example:"4"`
+	IsCorrect        bool      `json:"is_correct" example:"false"`
+	CorrectOptionID  uint      `json:"correct_option_id" example:"60"`
+	CorrectOption    string    `json:"correct_option" example:"Menolak dengan tegas dan melaporkan kepada atasan"`
+	CorrectScore     int       `json:"correct_score" example:"4"`
+	AnsweredAt       time.Time `json:"answered_at" example:"2026-01-28T11:15:00Z"`
+}

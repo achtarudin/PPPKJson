@@ -31,6 +31,9 @@ export const examAPI = {
   // Get existing user answers for repopulation
   getUserAnswers: (userID) => api.get(`/exam/${userID}/answers`),
   
+  // Get detailed answers with questions and scores for completed exam
+  getDetailedUserAnswers: (userID) => api.get(`/exam/${userID}/detailed-answers`),
+  
   // Dashboard endpoints
   getUserDashboard: (userID) => api.get(`/exam/${userID}/dashboard`),
   getAllUsersDashboard: () => api.get(`/dashboard/users`)

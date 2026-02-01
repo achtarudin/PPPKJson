@@ -546,3 +546,84 @@ func (s *ExamService) GetUserAnswers(ctx context.Context, userID string) (map[ui
 
 	return answers, nil
 }
+
+// GetDetailedUserAnswers gets detailed answers with questions and scores for a completed exam
+func (s *ExamService) GetDetailedUserAnswers(ctx context.Context, userID string) (map[string][]dto.DetailedAnswer, error) {
+	// Get the latest completed exam session
+	var examSession models.ExamSession
+	err := s.db.WithContext(ctx).
+		Where("user_id = ? AND status = ?", userID, "COMPLETED").
+		Order("created_at DESC").
+		First(&examSession).Error
+
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, fmt.Errorf("no completed exam session found for user")
+		}
+		return nil, fmt.Errorf("failed to get exam session: %w", err)
+	}
+
+	// Get user answers with all related data
+	var userAnswers []models.UserAnswer
+	err = s.db.WithContext(ctx).
+		Where("exam_session_id = ?", examSession.ID).
+		Preload("Question").
+		Preload("QuestionOption").
+		Preload("ExamQuestion").
+		Find(&userAnswers).Error
+
+	if err != nil {
+		return nil, fmt.Errorf("failed to get user answers: %w", err)
+	}
+
+	// Group answers by category and find correct answers
+	categoryAnswers := make(map[string][]dto.DetailedAnswer)
+	for _, answer := range userAnswers {
+		// Get all options for this question to find the correct one (highest score)
+		var allOptions []models.QuestionOption
+		err := s.db.WithContext(ctx).
+			Where("question_id = ?", answer.QuestionID).
+			Order("score DESC").
+			Find(&allOptions).Error
+
+		if err != nil {
+			return nil, fmt.Errorf("failed to get question options: %w", err)
+		}
+
+		// Find the correct answer (option with highest score)
+		var correctOption models.QuestionOption
+		maxScore := 0
+		for _, option := range allOptions {
+			if option.Score > maxScore {
+				maxScore = option.Score
+				correctOption = option
+			}
+		}
+
+		// Check if user's answer is correct
+		isCorrect := answer.Score == correctOption.Score
+
+		detailedAnswer := dto.DetailedAnswer{
+			ExamQuestionID:   answer.ExamQuestionID,
+			QuestionID:       answer.QuestionID,
+			QuestionText:     answer.Question.QuestionText,
+			Category:         answer.Question.Category,
+			SelectedOptionID: answer.QuestionOptionID,
+			SelectedOption:   answer.QuestionOption.OptionText,
+			Score:            answer.Score,
+			MaxScore:         correctOption.Score,
+			IsCorrect:        isCorrect,
+			CorrectOptionID:  correctOption.ID,
+			CorrectOption:    correctOption.OptionText,
+			CorrectScore:     correctOption.Score,
+			AnsweredAt:       answer.AnsweredAt,
+		}
+
+		categoryAnswers[answer.Question.Category] = append(
+			categoryAnswers[answer.Question.Category],
+			detailedAnswer,
+		)
+	}
+
+	return categoryAnswers, nil
+}

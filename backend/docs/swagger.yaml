@@ -49,6 +49,48 @@ definitions:
         example: "1234"
         type: string
     type: object
+  dto.DetailedAnswer:
+    properties:
+      answered_at:
+        example: "2026-01-28T11:15:00Z"
+        type: string
+      category:
+        example: MANAJERIAL
+        type: string
+      correct_option:
+        example: Menolak dengan tegas dan melaporkan kepada atasan
+        type: string
+      correct_option_id:
+        example: 60
+        type: integer
+      correct_score:
+        example: 4
+        type: integer
+      exam_question_id:
+        example: 1
+        type: integer
+      is_correct:
+        example: false
+        type: boolean
+      max_score:
+        example: 4
+        type: integer
+      question_id:
+        example: 15
+        type: integer
+      question_text:
+        example: Atasan Anda melakukan rekayasa laporan...
+        type: string
+      score:
+        example: 3
+        type: integer
+      selected_option:
+        example: Dalam hati tidak menyetujui hal tersebut
+        type: string
+      selected_option_id:
+        example: 59
+        type: integer
+    type: object
   dto.ExamResultResponse:
     properties:
       category:
@@ -385,6 +427,43 @@ paths:
       summary: Submit answer
       tags:
       - exam
+  /exam/{userID}/answers:
+    get:
+      consumes:
+      - application/json
+      description: Gets existing answers for user's active exam session to repopulate
+        on page reload
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User answers retrieved
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+              type: object
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+        "500":
+          description: Failed to get user answers
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+      summary: Get user's existing answers
+      tags:
+      - exam
   /exam/{userID}/complete:
     post:
       consumes:
@@ -459,6 +538,50 @@ paths:
           schema:
             $ref: '#/definitions/dto.APIResponse'
       summary: Get dashboard information
+      tags:
+      - exam
+  /exam/{userID}/detailed-answers:
+    get:
+      consumes:
+      - application/json
+      description: Gets detailed answers with question text, selected options, and
+        scores for completed exam
+      parameters:
+      - description: User ID
+        example: '"1234"'
+        in: path
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Detailed answers retrieved
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  additionalProperties:
+                    items:
+                      $ref: '#/definitions/dto.DetailedAnswer'
+                    type: array
+                  type: object
+              type: object
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+        "404":
+          description: No completed exam found
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+        "500":
+          description: Failed to get detailed answers
+          schema:
+            $ref: '#/definitions/dto.APIResponse'
+      summary: Get detailed user answers
       tags:
       - exam
   /exam/{userID}/results:

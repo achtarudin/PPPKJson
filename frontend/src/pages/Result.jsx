@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { examAPI } from '../services/api';
+import CategoryAnswerDetails from '../components/CategoryAnswerDetails';
 
 const Result = () => {
   const { userID } = useParams();
@@ -8,6 +9,8 @@ const Result = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showDetailModal, setShowDetailModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -51,6 +54,16 @@ const Result = () => {
 
   const { summary, results_by_category } = result;
 
+  const handleShowDetail = (category) => {
+    setSelectedCategory(category);
+    setShowDetailModal(true);
+  };
+
+  const handleCloseDetail = () => {
+    setShowDetailModal(false);
+    setSelectedCategory(null);
+  };
+
   return (
     <div className="container mt-5">
       <div className="card mx-auto" style={{ maxWidth: 600 }}>
@@ -74,6 +87,7 @@ const Result = () => {
                 <th>Score</th>
                 <th>Grade</th>
                 <th>Passed</th>
+                <th>Detail</th>
               </tr>
             </thead>
             <tbody>
@@ -83,6 +97,15 @@ const Result = () => {
                   <td>{cat.total_score} / {cat.max_score}</td>
                   <td>{cat.grade}</td>
                   <td>{cat.is_passed ? <span className="text-success">Yes</span> : <span className="text-danger">No</span>}</td>
+                  <td>
+                    <button
+                      className="btn btn-sm btn-outline-primary"
+                      onClick={() => handleShowDetail(cat.category)}
+                      title="Lihat detail soal dan jawaban"
+                    >
+                      <i className="bi bi-eye"></i> Lihat Detail
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -90,6 +113,15 @@ const Result = () => {
           <button className="btn btn-secondary w-100 mt-3" onClick={() => navigate('/')}>Back to Home</button>
         </div>
       </div>
+      
+      {/* Detail Modal */}
+      {showDetailModal && selectedCategory && (
+        <CategoryAnswerDetails
+          userID={userID}
+          category={selectedCategory}
+          onClose={handleCloseDetail}
+        />
+      )}
     </div>
   );
 };
