@@ -11,6 +11,14 @@ dev-go-server:
 	@echo "Running Application with args: $(ARGS)"
 	cd backend && go mod tidy && gow run ./cmd/server $(ARGS)
 
+prod-go-server:
+	@echo "Running Application with args: $(ARGS)"
+	cd backend \
+	&& go mod tidy \
+	&& rm -f ./bin/$(BIN_GO_SERVICE) || true \
+	&& go build -o ./bin/$(BIN_GO_SERVICE) ./cmd/server \
+	&& ./bin/$(BIN_GO_SERVICE) $(ARGS)
+
 dev-client:
 	@echo "Running Application with args: $(ARGS)"
 	 cd frontend && npm run build && npm run preview $(ARGS)
