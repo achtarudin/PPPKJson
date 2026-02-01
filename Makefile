@@ -50,7 +50,7 @@ migrate-reset:
 
 swag-gen:
 	@echo "Generating swagger documentation..."
-	swag init -g cmd/server/main.go -o ./docs
+	cd backend && swag init -g cmd/server/main.go -o ./docs
 
 compose-up:
 	@echo "Starting containers..."
