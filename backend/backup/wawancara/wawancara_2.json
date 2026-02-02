@@ -6,7 +6,7 @@
     "options": [
       {
         "option_text": "Mengerjakan apa yang dilakukan atasan, karena saya takut dipindahkan ke daerah terpencil",
-        "score": 1
+        "score": 2
       },
       {
         "option_text": "Mencoba untuk meyakinkan atasan bahwa hal tersebut bukanlah hal yang baik",
@@ -14,7 +14,7 @@
       },
       {
         "option_text": "Lakukan saja apa yang diminta atasan, karena atasan adalah role model bawahannya",
-        "score": 2
+        "score": 1
       },
       {
         "option_text": "Hal yang diminta atasan tidak terlalu berdampak besar, lakukan saja permintaannya",
@@ -29,7 +29,7 @@
     "options": [
       {
         "option_text": "Saya lebih terbiasa bekerja sesuai dengan standar",
-        "score": 2
+        "score": 1
       },
       {
         "option_text": "Ada kalanya suatu pekerjaan hanya bisa dilakukan dengan bekerja keras atau bekerja cerdas",
@@ -41,7 +41,7 @@
       },
       {
         "option_text": "Tergantung rekan-rekan kerja saya bekerja dengan cara seperti apa",
-        "score": 1
+        "score": 2
       }
     ]
   },
@@ -60,11 +60,11 @@
       },
       {
         "option_text": "Mengenal rekan-rekan kerja yang ada di kantor",
-        "score": 2
+        "score": 3
       },
       {
         "option_text": "Mempelajari budaya dan menjelajahi daerah penempatan saya",
-        "score": 3
+        "score": 2
       }
     ]
   },
@@ -121,7 +121,7 @@
     "options": [
       {
         "option_text": "Bila suatu saat saya mendapatkan pilihan yang lebih baik, mungkin saya akan meninggalkan pekerjaan ASN",
-        "score": 1
+        "score": 4
       },
       {
         "option_text": "Jika ada yang menawarkan pekerjaan yang gajinya lebih tinggi, saya akan langsung resign",
@@ -133,7 +133,7 @@
       },
       {
         "option_text": "Jika ada program penambahan masa kerja sebelum pensiun, maka saya akan ikut",
-        "score": 4
+        "score": 2
       }
     ]
   },

@@ -14,11 +14,11 @@
       },
       {
         "option_text": "Menolaknya secara tegas dan menyampaikan bahwa perilaku tersebut melanggar hukum dan ketentuan proses seleksi ASN karena Anda ingin menjadi pegawai dengan cara yang bersih.",
-        "score": 3
+        "score": 4
       },
       {
         "option_text": "Menolaknya secara tegas dan menyampaikan perilaku oknum tersebut kepada panitia seleksi PPPK.",
-        "score": 4
+        "score": 3
       }
     ]
   },
@@ -37,7 +37,7 @@
       },
       {
         "option_text": "Menyalahkan orang yang menaruhnya di meja Anda.",
-        "score": 1
+        "score": 3
       },
       {
         "option_text": "Marah dan hanya mau mengganti dengan separuh harga.",
@@ -83,11 +83,11 @@
       },
       {
         "option_text": "Seharusnya pemilik kos tidak membesar-besarkan masalah ini.",
-        "score": 1
+        "score": 2
       },
       {
         "option_text": "Jika pemilik kos mengetahui Anda menggunakan barang elektronik berdaya tinggi, maka Anda akan pindah kos.",
-        "score": 2
+        "score": 1
       }
     ]
   },
@@ -98,19 +98,19 @@
     "options": [
       {
         "option_text": "Mengabaikan aturan tersebut karena tidak sesuai dengan pendapat Anda pribadi",
-        "score": 1
-      },
-      {
-        "option_text": "Menempatkan diri dengan baik dengan melakukan aturan sebgai wujud bentuk toleransi, meskipun berbeda dengan agama dan kebudayaan anda.",
-        "score": 4
-      },
-      {
-        "option_text": "Mengubah beberapa aturan yang berbeda dengan agama dan kebudayaan saya",
         "score": 2
       },
       {
-        "option_text": "Menghormati aturan karena tiap suku memiliki perbedaan",
+        "option_text": "Menempatkan diri dengan baik dengan melakukan aturan sebgai wujud bentuk toleransi, meskipun berbeda dengan agama dan kebudayaan anda.",
+        "score": 1
+      },
+      {
+        "option_text": "Mengubah beberapa aturan yang berbeda dengan agama dan kebudayaan saya",
         "score": 3
+      },
+      {
+        "option_text": "Menghormati aturan karena tiap suku memiliki perbedaan",
+        "score": 4
       }
     ]
   },
@@ -121,19 +121,19 @@
     "options": [
       {
         "option_text": "Meminta agar pimpinan atau wakilnya mencari solusi jangka panjang atas masalah tersebut.",
-        "score": 1
-      },
-      {
-        "option_text": "Meminta agar pabrik membuat sistem keamanan untuk mencegah kembali bocornya gas, seperti sistem otomatis yang tidak menimbulkan dampak terhadap warga sekitar.",
         "score": 3
       },
       {
-        "option_text": "Mencabut izin operasi pabrik sebelum ada solusi berupa sistem keamanan yang dibuat untuk mencegah kembali bocornya gas.",
+        "option_text": "Meminta agar pabrik membuat sistem keamanan untuk mencegah kembali bocornya gas, seperti sistem otomatis yang tidak menimbulkan dampak terhadap warga sekitar.",
         "score": 4
       },
       {
-        "option_text": "Meminta pabrik bertanggung jawab dengan mengganti kerugian dan biaya perawatan warga.",
+        "option_text": "Mencabut izin operasi pabrik sebelum ada solusi berupa sistem keamanan yang dibuat untuk mencegah kembali bocornya gas.",
         "score": 2
+      },
+      {
+        "option_text": "Meminta pabrik bertanggung jawab dengan mengganti kerugian dan biaya perawatan warga.",
+        "score": 1
       }
     ]
   },
