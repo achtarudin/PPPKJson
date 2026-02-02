@@ -9,10 +9,8 @@ $(eval $(ARGS):;@:)
 .PHONY: dev-go-server
 dev-go-server:
 	@echo "Running Application with args: $(ARGS)"
-
 	mkdir -p backend/web/dist
 	touch backend/web/dist/index.html
-
 	cd backend && go mod tidy && gow run ./cmd/server $(ARGS)
 
 prod-go-server: prod-frontend
