@@ -97,7 +97,7 @@ swag-gen:
 # Docker Compose commands
 compose-up:
 	@echo "Starting containers..."
-	docker compose -f compose.dev.yaml up -d
+	docker compose -f compose.dev.yaml up -d postgres
 
 compose-down:
 	@echo "Stopping containers..."
