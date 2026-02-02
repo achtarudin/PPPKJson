@@ -84,7 +84,7 @@ jobs:
       - name: Run Production App with Docker Compose
         run: |
           cd ${{ env.PATH_PROJECT }} && echo $(pwd)
-          IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f compose.prod.yaml up -d ${{ env.IMAGE_NAME}}
+          IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f compose.prod.yaml up -d pppk_json
 
       - name: Cleanup unused Docker images
         run: docker image prune -af
