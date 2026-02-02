@@ -28,9 +28,13 @@ import (
 	"cutbray/pppk-json/internal/adapters/logger"
 	"cutbray/pppk-json/internal/handlers"
 	"cutbray/pppk-json/internal/utils"
+	"cutbray/pppk-json/web"
 	"fmt"
+	"io/fs"
 	"log"
+	"net/http"
 	"os/signal"
+	"strings"
 	"syscall"
 
 	"github.com/gin-gonic/gin"
@@ -87,8 +91,61 @@ func main() {
 	examHandler := handlers.NewGinExamHandler(db)
 	examHandler.RegisterRoutes(ginEngine)
 
+	distFS, err := web.GetDistFS()
+
+	if err != nil {
+		log.Fatal("Gagal load frontend:", err)
+	}
+
+	httpFS := http.FS(distFS)
+
+	ginEngine.StaticFS("/assets", http.FS(mustSub(distFS, "assets")))
+
+	indexHTML, err := fs.ReadFile(distFS, "index.html")
+	if err != nil {
+		log.Fatalf("Gagal membaca index.html: %v", err)
+	}
+
+	ginEngine.NoRoute(func(c *gin.Context) {
+		if strings.HasPrefix(c.Request.URL.Path, "/api") || strings.HasPrefix(c.Request.URL.Path, "/swagger") {
+			c.JSON(404, gin.H{"error": "Not found"})
+			return
+		}
+
+		// 2. Cek apakah request adalah FILE FISIK (js, css, png)
+		path := strings.TrimPrefix(c.Request.URL.Path, "/")
+		if fileExists(distFS, path) {
+			c.FileFromFS(path, httpFS)
+			return
+		}
+
+		c.Header("Content-Type", "text/html; charset=utf-8")
+		c.String(200, string(indexHTML))
+	})
+
 	<-shutdown.Done()
 
 	config.DisconnectAdapters(connectManagers...)
 
+}
+
+func mustSub(f fs.FS, dir string) fs.FS {
+	sub, err := fs.Sub(f, dir)
+	if err != nil {
+		panic(err)
+	}
+	return sub
+}
+
+func fileExists(f fs.FS, path string) bool {
+	file, err := f.Open(path)
+	if err != nil {
+		return false
+	}
+	defer file.Close()
+	stat, err := file.Stat()
+	if err != nil {
+		return false
+	}
+	return !stat.IsDir()
 }

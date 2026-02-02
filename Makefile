@@ -19,9 +19,21 @@ prod-go-server:
 	&& go build -o ./bin/$(BIN_GO_SERVICE) ./cmd/server \
 	&& ./bin/$(BIN_GO_SERVICE) $(ARGS)
 
+
+prod-client:
+	@echo "Building Application for production with args: $(ARGS)"
+	cd frontend && npm install && npm run build $(ARGS)
+
+	@echo "Cleaning old assets in backend..."
+	rm -rf backend/web/dist
+
+	@echo "Copying new assets to backend/web..."
+	mkdir -p backend/web
+	cp -r frontend/dist backend/web/
+
 dev-client:
 	@echo "Running Application with args: $(ARGS)"
-	 cd frontend && npm run build && npm run preview $(ARGS)
+	 cd frontend && npm run dev $(ARGS)
 
 db-seed:
 	@echo "Running Application with args: $(ARGS)"
