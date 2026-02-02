@@ -32,7 +32,7 @@ jobs:
 
       - name: "Build Docker Image"
         run: |
-          docker compose -f compose.prod.yml up -d
+          docker compose -f compose.prod.yaml up -d
 
 
   
