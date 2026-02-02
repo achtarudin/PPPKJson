@@ -1,19 +1,19 @@
-name: Deploy Grpc Sample Server
+name: Deploy PPPK JSON Server
 
 on:
   workflow_dispatch:
   pull_request:
     branches:
-      - main
+      - master
   push:
     branches:
-      - main
+      - master
       - dev
       - feat/**
 env:
-  IMAGE_NAME: "grpc-sample-server-prod"
+  IMAGE_NAME: "pppk-json-prod"
   IMAGE_VERSION: "latest"
-  IMAGE_NAME_TAR: "grpc-sample-server-prod.tar"
+  IMAGE_NAME_TAR: "pppk-json-prod.tar"
 
 jobs:
   test:
@@ -23,15 +23,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Install grpcurl
-        run: |
-          curl -L https://github.com/fullstorydev/grpcurl/releases/download/v1.9.1/grpcurl_1.9.1_linux_x86_64.tar.gz -o grpcurl.tar.gz
-          tar -xzf grpcurl.tar.gz
-          sudo mv grpcurl /usr/local/bin/
-          rm grpcurl.tar.gz
-
-      - name: Create network traefik-network
-        run: docker network create traefik-network || echo "Network traefik-network already exists"
+      - name: Create network pppk_json_net
+        run: docker network create pppk_json_net || echo "Network pppk_json_net already exists"
 
       - name: Create .env.prod file
         run: |
@@ -39,73 +32,7 @@ jobs:
 
       - name: "Build Docker Image"
         run: |
-          docker compose -f docker-compose.prod.yml up -d
+          docker compose -f compose.prod.yml up -d
 
-      - name: Grpcurl test
-        run: grpcurl -plaintext localhost:8000 list
 
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: "Build Docker Image"
-        run: |
-          IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f docker-compose.prod.yml build grpc-sample-server-prod
-          docker save ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} -o ${{ env.IMAGE_NAME_TAR }}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.IMAGE_NAME }}
-          path: |
-            docker-compose.prod.yml
-            ${{ env.IMAGE_NAME_TAR }}
-
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: [grpc-sample-server]
-
-    environment: prod
-
-    env:
-      PATH_PROJECT: ${{ vars.PATH_PROJECT }}
-
-    steps:
-
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.IMAGE_NAME }}
-          path: ${{ env.PATH_PROJECT }}
-
-      - name: Load Docker Image
-        run: |
-          cd ${{ env.PATH_PROJECT }}
-          docker load -i ${{ env.IMAGE_NAME_TAR }}
-
-      - name: List Docker images
-        run: docker image ls
-
-      - name: Run Production App with Docker Compose
-        run: |
-          cd ${{ env.PATH_PROJECT }} && echo $(pwd)
-          IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f docker-compose.prod.yml up -d grpc-sample-server-prod
-
-      - name: Cleanup unused Docker images
-        run: docker image prune -af
-
-      - name: List Docker images
-        run: docker image ls
-
-      - name: Remove tar file and List files in workspace
-        run: |
-          cd ${{ env.PATH_PROJECT }}
-          rm ${{ env.IMAGE_NAME_TAR }} && ls -la
-
-      - name: Check running containers
-        run: docker ps -a
+  
