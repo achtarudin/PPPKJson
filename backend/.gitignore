@@ -2,5 +2,5 @@ bin/
 web/dist/*
 !web/dist/.gitkeep
 
+.env
 .env.prod
-.env.dev

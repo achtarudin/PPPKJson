@@ -41,8 +41,8 @@ import (
 func main() {
 	logger.New()
 
-	port := utils.GetEnvOrDefault("PORT", "8080")
-	ginMode := utils.GetEnvOrDefault("GIN_MODE", gin.ReleaseMode)
+	port := utils.GetEnvOrDefault("APP_PORT", "8080")
+	ginMode := utils.GetEnvOrDefault("APP_MODE", gin.ReleaseMode)
 
 	dbHost := utils.GetEnvOrDefault("DB_HOST", "localhost")
 	dbUser := utils.GetEnvOrDefault("DB_USER", "encang_cutbray")
