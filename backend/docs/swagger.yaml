@@ -312,7 +312,7 @@ definitions:
           $ref: '#/definitions/dto.UserDashboardSummary'
         type: array
     type: object
-host: localhost:8080
+host: pppk-json.cutbray.tech
 info:
   contact:
     email: support@example.com

@@ -12,7 +12,7 @@
 // @license.name    MIT
 // @license.url     https://opensource.org/licenses/MIT
 //
-// @host            localhost:8080
+// @host            pppk-json.cutbray.tech
 // @BasePath        /api/v1
 // @schemes         http https
 //
@@ -22,6 +22,7 @@ package main
 import (
 	"context"
 	"cutbray/pppk-json/cmd/config"
+	"cutbray/pppk-json/docs"
 	_ "cutbray/pppk-json/docs" // for swagger docs
 	"cutbray/pppk-json/internal/adapters/db_adapter"
 	"cutbray/pppk-json/internal/adapters/gin_adapter"
@@ -32,6 +33,7 @@ import (
 	"io/fs"
 	"log"
 	"os/signal"
+	"strings"
 	"syscall"
 
 	"github.com/gin-gonic/gin"
@@ -48,6 +50,11 @@ func main() {
 
 	port := utils.GetEnvOrDefault("APP_PORT", "8080")
 	ginMode := utils.GetEnvOrDefault("APP_MODE", gin.ReleaseMode)
+	appHost := utils.GetEnvOrDefault("APP_HOST", "localhost:8080")
+	appScheme := utils.GetEnvOrDefault("APP_SCHEME", "http")
+
+	// Update swagger host dinamically
+	updateSwaggerHost(appHost, appScheme)
 
 	dbHost := utils.GetEnvOrDefault("DB_HOST", "localhost")
 	dbUser := utils.GetEnvOrDefault("DB_USER", "encang_cutbray")
@@ -117,4 +124,24 @@ func fileExists(f fs.FS, path string) bool {
 		return false
 	}
 	return !stat.IsDir()
+}
+
+// updateSwaggerHost updates swagger documentation host dynamically
+func updateSwaggerHost(host, scheme string) {
+	if docs.SwaggerInfo == nil {
+		log.Println("[Warning] SwaggerInfo is nil, skipping host update")
+		return
+	}
+
+	// Update host
+	docs.SwaggerInfo.Host = host
+
+	// Update schemes - support both http and https
+	if strings.Contains(scheme, "https") {
+		docs.SwaggerInfo.Schemes = []string{"https", "http"}
+	} else {
+		docs.SwaggerInfo.Schemes = []string{"http", "https"}
+	}
+
+	log.Printf("[Info] Swagger host updated to: %s://%s", scheme, host)
 }

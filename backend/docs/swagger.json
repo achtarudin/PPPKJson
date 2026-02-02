@@ -19,7 +19,7 @@
         },
         "version": "1.0.0"
     },
-    "host": "localhost:8080",
+    "host": "pppk-json.cutbray.tech",
     "basePath": "/api/v1",
     "paths": {
         "/dashboard/users": {
