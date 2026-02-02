@@ -2,22 +2,24 @@
 .git
 .gitignore
 .gitattributes
-.github/*
+.github
 
-backend/backup/*
-backend/bin/*
-backend/scripts/*
+backend/backup
+backend/bin
+backend/scripts
 backend/.env
 backend/.env.prod
 !backend/.env.example
 backend/.gitignore
-backend/web/dist/*
-backend/migrations/data/*
+backend/web/dist
+backend/migrations/data
 
-frontend/dist/*
-frontend/node_modules/*
+frontend/dist
+frontend/node_modules
 frontend/.gitignore
 
-compose*.yaml
-compose*.yml
-docker/*
+compose.dev.yaml
+compose.prod.yaml
+compose.yaml
+
+docker
