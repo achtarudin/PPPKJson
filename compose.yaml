@@ -30,7 +30,19 @@ services:
     depends_on:
       postgres:
         condition: service_healthy 
-        
+
+  migrate-server:
+    image: migrate/migrate:4
+    volumes:
+      - ./backend/migrations:/migrations
+    environment:
+      - DATABASE_URL=postgres://encang_cutbray:encang_cutbray@postgres:5432/togotestgo?sslmode=disable
+    networks:
+      - pppk_json_net
+    depends_on:
+      postgres:
+        condition: service_healthy 
+
 volumes:
   postgres_data:
   

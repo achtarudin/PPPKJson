@@ -24,8 +24,8 @@ prod-go-server: prod-frontend
 	&& ./bin/$(BIN_GO_SERVICE) $(ARGS)
 
 prod-frontend:
-	@echo "Building Application for production with args: $(ARGS)"
-	cd frontend && npm install && npm run build $(ARGS)
+	@echo "Building Application for production"	
+	cd frontend && npm install && npm run build
 
 	@echo "Cleaning old assets in backend..."
 	rm -rf backend/web/dist
@@ -35,8 +35,7 @@ prod-frontend:
 	cp -r frontend/dist backend/web/
 
 dev-frontend:
-	@echo "Running Application with args: $(ARGS)"
-	 cd frontend && npm run dev $(ARGS)
+	cd frontend && npm run dev
 
 db-seed:
 	@echo "Running Application with args: $(ARGS)"

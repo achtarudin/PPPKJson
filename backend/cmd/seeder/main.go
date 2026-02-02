@@ -13,9 +13,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"strings"
 
-	"github.com/joho/godotenv"
 	"gorm.io/gorm"
 )
 
@@ -35,27 +33,7 @@ type OptionData struct {
 func main() {
 	logger.New()
 
-	envFile := ".env"
-
-	for _, arg := range os.Args[1:] {
-
-		// Jika user mengetik "env=.env.prod"
-		if strings.HasPrefix(arg, "env=") {
-			parts := strings.SplitN(arg, "=", 2)
-			if len(parts) == 2 {
-				envFile = parts[1]
-			}
-		}
-		// Jika user mengetik "-env=.env.prod" (jaga-jaga pake style Go)
-		if strings.HasPrefix(arg, "-env=") {
-			parts := strings.SplitN(arg, "=", 2)
-			if len(parts) == 2 {
-				envFile = parts[1]
-			}
-		}
-	}
-
-	err := godotenv.Load(envFile)
+	err := config.LoadEnvFile()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}

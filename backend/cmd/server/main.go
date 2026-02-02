@@ -41,6 +41,11 @@ import (
 func main() {
 	logger.New()
 
+	err := config.LoadEnvFile()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	port := utils.GetEnvOrDefault("APP_PORT", "8080")
 	ginMode := utils.GetEnvOrDefault("APP_MODE", gin.ReleaseMode)
 

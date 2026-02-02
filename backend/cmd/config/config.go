@@ -6,8 +6,11 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 	"sync"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 type ConnectManager struct {
@@ -73,4 +76,21 @@ func ConnectAdapters(ctx context.Context, adapters ...ConnectManager) error {
 	}
 
 	return nil
+}
+
+func LoadEnvFile() error {
+	envFile := ".env"
+
+	for _, arg := range os.Args[1:] {
+
+		// Jika user mengetik "make db-server-seed .env.prod"
+		// Jika user mengetik "make prod-go-server .env.prod"
+		if strings.HasPrefix(arg, ".env.") {
+			envFile = arg
+		}
+
+	}
+
+	log.Printf("Loading environment variables from file: %s", envFile)
+	return godotenv.Load(envFile)
 }
