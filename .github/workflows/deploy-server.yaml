@@ -34,5 +34,25 @@ jobs:
         run: |
           docker compose -f compose.prod.yaml up -d
 
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: "Build Docker Image"
+        run: |
+          IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f compose.prod.yaml build pppk_json
+          docker save ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} -o ${{ env.IMAGE_NAME_TAR }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.IMAGE_NAME }}
+          path: |
+            compose.prod.yaml
+            ${{ env.IMAGE_NAME_TAR }}
 
   
