@@ -1,6 +1,28 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8080/api/v1';
+// Use API base URL from Vite config, with fallback to auto-detection
+const getApiBaseUrl = () => {
+  // Use global variable from vite.config.mjs
+  if (typeof __API_BASE_URL__ !== 'undefined') {
+    return __API_BASE_URL__;
+  }
+  
+  // Fallback: Auto-detect based on current host
+  const protocol = window.location.protocol;
+  const hostname = window.location.hostname;
+  const port = window.location.port;
+  
+  // If running on localhost, assume development
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:8080/api/v1';
+  }
+  
+  // For production, use same host as frontend
+  const baseUrl = port ? `${protocol}//${hostname}:${port}` : `${protocol}//${hostname}`;
+  return `${baseUrl}/api/v1`;
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
