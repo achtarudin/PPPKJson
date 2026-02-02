@@ -11,18 +11,18 @@ import (
 	"gorm.io/gorm"
 )
 
-type GinExamHandler struct {
+type ginExamHandler struct {
 	examService *exam_service.ExamService
 }
 
-func NewGinExamHandler(db *gorm.DB) *GinExamHandler {
-	return &GinExamHandler{
+func NewGinExamHandler(db *gorm.DB) *ginExamHandler {
+	return &ginExamHandler{
 		examService: exam_service.NewExamService(db),
 	}
 }
 
 // RegisterRoutes registers all exam-related routes
-func (h *GinExamHandler) RegisterRoutes(router *gin.Engine) {
+func (h *ginExamHandler) RegisterRoutes(router *gin.Engine) {
 	examGroup := router.Group("/api/v1/exam")
 	{
 		examGroup.GET("/:userID", h.GetOrCreateExam)
@@ -53,7 +53,7 @@ func (h *GinExamHandler) RegisterRoutes(router *gin.Engine) {
 // @Failure 400 {object} dto.APIResponse "Invalid user ID"
 // @Failure 500 {object} dto.APIResponse "Failed to create exam session"
 // @Router /exam/{userID} [get]
-func (h *GinExamHandler) GetOrCreateExam(c *gin.Context) {
+func (h *ginExamHandler) GetOrCreateExam(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
@@ -99,7 +99,7 @@ func (h *GinExamHandler) GetOrCreateExam(c *gin.Context) {
 // @Failure 404 {object} dto.APIResponse "Exam session not found"
 // @Failure 500 {object} dto.APIResponse "Failed to start exam"
 // @Router /exam/{userID}/start [post]
-func (h *GinExamHandler) StartExam(c *gin.Context) {
+func (h *ginExamHandler) StartExam(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
@@ -152,7 +152,7 @@ func (h *GinExamHandler) StartExam(c *gin.Context) {
 // @Failure 404 {object} dto.APIResponse "Exam session not found"
 // @Failure 500 {object} dto.APIResponse "Failed to submit answer"
 // @Router /exam/{userID}/answer [post]
-func (h *GinExamHandler) SubmitAnswer(c *gin.Context) {
+func (h *ginExamHandler) SubmitAnswer(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
@@ -209,7 +209,7 @@ func (h *GinExamHandler) SubmitAnswer(c *gin.Context) {
 // @Failure 404 {object} dto.APIResponse "Exam session not found"
 // @Failure 500 {object} dto.APIResponse "Failed to complete exam"
 // @Router /exam/{userID}/complete [post]
-func (h *GinExamHandler) CompleteExam(c *gin.Context) {
+func (h *ginExamHandler) CompleteExam(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
@@ -260,7 +260,7 @@ func (h *GinExamHandler) CompleteExam(c *gin.Context) {
 // @Failure 400 {object} dto.APIResponse "Invalid user ID"
 // @Failure 404 {object} dto.APIResponse "Exam results not found"
 // @Router /exam/{userID}/results [get]
-func (h *GinExamHandler) GetExamResults(c *gin.Context) {
+func (h *ginExamHandler) GetExamResults(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
@@ -300,7 +300,7 @@ func (h *GinExamHandler) GetExamResults(c *gin.Context) {
 // @Failure 400 {object} dto.APIResponse "Invalid user ID"
 // @Failure 500 {object} dto.APIResponse "Failed to get dashboard data"
 // @Router /exam/{userID}/dashboard [get]
-func (h *GinExamHandler) GetDashboard(c *gin.Context) {
+func (h *ginExamHandler) GetDashboard(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
@@ -338,7 +338,7 @@ func (h *GinExamHandler) GetDashboard(c *gin.Context) {
 // @Success 200 {object} dto.APIResponse{data=dto.UserListDashboardResponse} "All users dashboard data retrieved"
 // @Failure 500 {object} dto.APIResponse "Failed to get dashboard data"
 // @Router /dashboard/users [get]
-func (h *GinExamHandler) GetAllUsersDashboard(c *gin.Context) {
+func (h *ginExamHandler) GetAllUsersDashboard(c *gin.Context) {
 	users, err := h.examService.GetAllUsersExamStatus(c.Request.Context())
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, dto.APIResponse{
@@ -371,7 +371,7 @@ func (h *GinExamHandler) GetAllUsersDashboard(c *gin.Context) {
 // @Failure 400 {object} dto.APIResponse "Invalid user ID"
 // @Failure 500 {object} dto.APIResponse "Failed to get user answers"
 // @Router /exam/{userID}/answers [get]
-func (h *GinExamHandler) GetUserAnswers(c *gin.Context) {
+func (h *ginExamHandler) GetUserAnswers(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
@@ -409,7 +409,7 @@ func (h *GinExamHandler) GetUserAnswers(c *gin.Context) {
 // @Failure 404 {object} dto.APIResponse "No completed exam found"
 // @Failure 500 {object} dto.APIResponse "Failed to get detailed answers"
 // @Router /exam/{userID}/detailed-answers [get]
-func (h *GinExamHandler) GetDetailedUserAnswers(c *gin.Context) {
+func (h *ginExamHandler) GetDetailedUserAnswers(c *gin.Context) {
 	userID := c.Param("userID")
 	if userID == "" {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{

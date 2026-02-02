@@ -9,9 +9,13 @@ $(eval $(ARGS):;@:)
 .PHONY: dev-go-server
 dev-go-server:
 	@echo "Running Application with args: $(ARGS)"
+
+	mkdir -p backend/web/dist
+	touch backend/web/dist/index.html
+
 	cd backend && go mod tidy && gow run ./cmd/server $(ARGS)
 
-prod-go-server:
+prod-go-server: prod-frontend
 	@echo "Running Application with args: $(ARGS)"
 	cd backend \
 	&& go mod tidy \
@@ -19,8 +23,7 @@ prod-go-server:
 	&& go build -o ./bin/$(BIN_GO_SERVICE) ./cmd/server \
 	&& ./bin/$(BIN_GO_SERVICE) $(ARGS)
 
-
-prod-client:
+prod-frontend:
 	@echo "Building Application for production with args: $(ARGS)"
 	cd frontend && npm install && npm run build $(ARGS)
 
@@ -31,7 +34,7 @@ prod-client:
 	mkdir -p backend/web
 	cp -r frontend/dist backend/web/
 
-dev-client:
+dev-frontend:
 	@echo "Running Application with args: $(ARGS)"
 	 cd frontend && npm run dev $(ARGS)
 

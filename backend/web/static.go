@@ -6,8 +6,9 @@ import (
 )
 
 // Embed folder dist yang ada di sebelah file ini
+// Use "all:" prefix to include empty directories and dot files
 //
-//go:embed dist/*
+//go:embed all:dist
 var distFS embed.FS
 
 // Helper function agar kita langsung dapat subfolder "dist"
