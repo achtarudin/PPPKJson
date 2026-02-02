@@ -55,4 +55,47 @@ jobs:
             compose.prod.yaml
             ${{ env.IMAGE_NAME_TAR }}
 
-  
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: [pppk-json]
+
+    environment: prod
+
+    env:
+      PATH_PROJECT: ${{ vars.PATH_PROJECT }}
+
+    steps:
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.IMAGE_NAME }}
+          path: ${{ env.PATH_PROJECT }}
+
+      - name: Load Docker Image
+        run: |
+          cd ${{ env.PATH_PROJECT }}
+          docker load -i ${{ env.IMAGE_NAME_TAR }}
+
+      - name: List Docker images
+        run: docker image ls
+
+      - name: Run Production App with Docker Compose
+        run: |
+          cd ${{ env.PATH_PROJECT }} && echo $(pwd)
+          IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f compose.prod.yaml up -d ${{ env.IMAGE_NAME}}
+
+      - name: Cleanup unused Docker images
+        run: docker image prune -af
+
+      - name: List Docker images
+        run: docker image ls
+
+      - name: Remove tar file and List files in workspace
+        run: |
+          cd ${{ env.PATH_PROJECT }}
+          rm ${{ env.IMAGE_NAME_TAR }} && ls -la
+
+      - name: Check running containers
+        run: docker ps -a
