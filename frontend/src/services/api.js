@@ -14,7 +14,7 @@ const getApiBaseUrl = () => {
   
   // If running on localhost, assume development
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return 'http://localhost:8080/api/v1';
+    return 'http://localhost:8081/api/v1';
   }
   
   // For production, use same host as frontend
@@ -59,6 +59,26 @@ export const examAPI = {
   // Dashboard endpoints
   getUserDashboard: (userID) => api.get(`/exam/${userID}/dashboard`),
   getAllUsersDashboard: () => api.get(`/dashboard/users`)
+};
+
+export const questionAPI = {
+  // Get all questions with optional category filter, search text, and pagination
+  getQuestionsByCategory: ({ category = '', search = '', page = 1, limit = 10 } = {}) => {
+    const params = {
+      page: page,
+      limit: limit
+    };
+    if (category) params.category = category;
+    if (search) params.search = search;
+    return api.get('/questions', { params });
+  },
+  
+  // Update score for a specific question option
+  updateOptionScore: (questionId, optionId, score) =>
+    api.put(`/questions/${questionId}/option/${optionId}/score`, { score }),
+  
+  // Get all available categories
+  getCategories: () => api.get('/questions/categories')
 };
 
 export default api;

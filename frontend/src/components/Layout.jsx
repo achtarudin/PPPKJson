@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
                 <Link 
-                  className={`nav-link ${isActive('/') && !isActive('/admin') ? 'active' : ''}`} 
+                  className={`nav-link ${isActive('/') && !isActive('/admin') && !isActive('/questions') ? 'active' : ''}`} 
                   to="/"
                 >
                   <i className="bi bi-house"></i> Home
@@ -42,6 +42,14 @@ const Layout = ({ children }) => {
                   to="/admin"
                 >
                   <i className="bi bi-speedometer2"></i> Admin Dashboard
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link 
+                  className={`nav-link ${isActive('/questions') ? 'active' : ''}`} 
+                  to="/questions"
+                >
+                  <i className="bi bi-question-circle"></i> Question Manager
                 </Link>
               </li>
             </ul>

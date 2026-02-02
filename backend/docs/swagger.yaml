@@ -203,6 +203,30 @@ definitions:
         example: "1234"
         type: string
     type: object
+  dto.PaginatedQuestionResponse:
+    properties:
+      pagination:
+        $ref: '#/definitions/dto.PaginationMetadata'
+      questions:
+        items:
+          $ref: '#/definitions/dto.QuestionManagementResponse'
+        type: array
+    type: object
+  dto.PaginationMetadata:
+    properties:
+      current_page:
+        example: 1
+        type: integer
+      items_per_page:
+        example: 10
+        type: integer
+      total_items:
+        example: 50
+        type: integer
+      total_pages:
+        example: 5
+        type: integer
+    type: object
   dto.ProgressInfoResponse:
     properties:
       answered_questions:
@@ -214,6 +238,49 @@ definitions:
       total_questions:
         example: 20
         type: integer
+    type: object
+  dto.QuestionManagementResponse:
+    properties:
+      category:
+        example: MANAJERIAL
+        type: string
+      created_at:
+        example: "2026-01-28T10:00:00Z"
+        type: string
+      id:
+        example: 1
+        type: integer
+      options:
+        items:
+          $ref: '#/definitions/dto.QuestionOptionManagementResponse'
+        type: array
+      question_text:
+        example: Atasan Anda melakukan rekayasa laporan...
+        type: string
+      updated_at:
+        example: "2026-01-28T10:00:00Z"
+        type: string
+    type: object
+  dto.QuestionOptionManagementResponse:
+    properties:
+      created_at:
+        example: "2026-01-28T10:00:00Z"
+        type: string
+      id:
+        example: 1
+        type: integer
+      option_text:
+        example: Dalam hati tidak menyetujui hal tersebut
+        type: string
+      question_id:
+        example: 1
+        type: integer
+      score:
+        example: 3
+        type: integer
+      updated_at:
+        example: "2026-01-28T10:00:00Z"
+        type: string
     type: object
   dto.QuestionOptionResponse:
     properties:
@@ -262,6 +329,16 @@ definitions:
     required:
     - exam_question_id
     - question_option_id
+    type: object
+  dto.UpdateScoreRequest:
+    properties:
+      score:
+        example: 5
+        maximum: 10
+        minimum: 0
+        type: integer
+    required:
+    - score
     type: object
   dto.UserDashboardSummary:
     properties:
@@ -326,6 +403,105 @@ info:
   title: PPPKJson Exam API
   version: 1.0.0
 paths:
+  /api/v1/questions:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves questions with their options, filtered by category and
+        question text, with pagination support
+      parameters:
+      - description: Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)
+        in: query
+        name: category
+        type: string
+      - description: Search by question text
+        in: query
+        name: search
+        type: string
+      - description: 'Page number (default: 1)'
+        in: query
+        minimum: 1
+        name: page
+        type: integer
+      - description: 'Items per page (default: 10, use 0 for all)'
+        in: query
+        minimum: 0
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PaginatedQuestionResponse'
+              type: object
+      summary: Get questions by category and search text with pagination
+      tags:
+      - questions
+  /api/v1/questions/{questionID}/option/{optionID}/score:
+    put:
+      consumes:
+      - application/json
+      description: Updates the score value for a specific question option
+      parameters:
+      - description: Question ID
+        in: path
+        name: questionID
+        required: true
+        type: integer
+      - description: Option ID
+        in: path
+        name: optionID
+        required: true
+        type: integer
+      - description: New score value
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateScoreRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.QuestionOptionManagementResponse'
+              type: object
+      summary: Update question option score
+      tags:
+      - questions
+  /api/v1/questions/categories:
+    get:
+      consumes:
+      - application/json
+      description: Returns list of all available question categories
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  items:
+                    type: string
+                  type: array
+              type: object
+      summary: Get question categories
+      tags:
+      - questions
   /dashboard/users:
     get:
       consumes:

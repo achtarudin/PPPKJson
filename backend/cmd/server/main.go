@@ -98,6 +98,7 @@ func main() {
 
 	// Register exam handlers
 	handlers.NewGinExamHandler(db).RegisterRoutes(ginEngine)
+	handlers.NewGinQuestionHandler(db).RegisterRoutes(ginEngine)
 	handlers.NewFrontendHandler().RegisterRoutes(ginEngine)
 	<-shutdown.Done()
 

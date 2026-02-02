@@ -139,3 +139,48 @@ func ToDashboardResponse(dashboard *DashboardData) DashboardResponse {
 
 	return response
 }
+
+// ToQuestionManagementResponse converts question model to management DTO
+func ToQuestionManagementResponse(question *models.Question) QuestionManagementResponse {
+	options := make([]QuestionOptionManagementResponse, len(question.Options))
+	for i, opt := range question.Options {
+		options[i] = QuestionOptionManagementResponse{
+			ID:         opt.ID,
+			QuestionID: opt.QuestionID,
+			OptionText: opt.OptionText,
+			Score:      opt.Score,
+			CreatedAt:  opt.CreatedAt,
+			UpdatedAt:  opt.UpdatedAt,
+		}
+	}
+
+	return QuestionManagementResponse{
+		ID:           question.ID,
+		Category:     question.Category,
+		QuestionText: question.QuestionText,
+		Options:      options,
+		CreatedAt:    question.CreatedAt,
+		UpdatedAt:    question.UpdatedAt,
+	}
+}
+
+// ToQuestionManagementResponses converts slice of question models to management DTOs
+func ToQuestionManagementResponses(questions []models.Question) []QuestionManagementResponse {
+	responses := make([]QuestionManagementResponse, len(questions))
+	for i, question := range questions {
+		responses[i] = ToQuestionManagementResponse(&question)
+	}
+	return responses
+}
+
+// ToQuestionOptionManagementResponse converts question option model to management DTO
+func ToQuestionOptionManagementResponse(option *models.QuestionOption) QuestionOptionManagementResponse {
+	return QuestionOptionManagementResponse{
+		ID:         option.ID,
+		QuestionID: option.QuestionID,
+		OptionText: option.OptionText,
+		Score:      option.Score,
+		CreatedAt:  option.CreatedAt,
+		UpdatedAt:  option.UpdatedAt,
+	}
+}

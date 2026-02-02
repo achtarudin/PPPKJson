@@ -151,3 +151,37 @@ type DetailedAnswer struct {
 	CorrectScore     int       `json:"correct_score" example:"4"`
 	AnsweredAt       time.Time `json:"answered_at" example:"2026-01-28T11:15:00Z"`
 }
+
+// QuestionManagementResponse represents a question for management interface
+type QuestionManagementResponse struct {
+	ID           uint                               `json:"id" example:"1"`
+	Category     string                             `json:"category" example:"MANAJERIAL"`
+	QuestionText string                             `json:"question_text" example:"Atasan Anda melakukan rekayasa laporan..."`
+	Options      []QuestionOptionManagementResponse `json:"options"`
+	CreatedAt    time.Time                          `json:"created_at" example:"2026-01-28T10:00:00Z"`
+	UpdatedAt    time.Time                          `json:"updated_at" example:"2026-01-28T10:00:00Z"`
+}
+
+// QuestionOptionManagementResponse represents a question option for management interface
+type QuestionOptionManagementResponse struct {
+	ID         uint      `json:"id" example:"1"`
+	QuestionID uint      `json:"question_id" example:"1"`
+	OptionText string    `json:"option_text" example:"Dalam hati tidak menyetujui hal tersebut"`
+	Score      int       `json:"score" example:"3"`
+	CreatedAt  time.Time `json:"created_at" example:"2026-01-28T10:00:00Z"`
+	UpdatedAt  time.Time `json:"updated_at" example:"2026-01-28T10:00:00Z"`
+}
+
+// PaginationMetadata represents pagination information
+type PaginationMetadata struct {
+	CurrentPage  int `json:"current_page" example:"1"`
+	ItemsPerPage int `json:"items_per_page" example:"10"`
+	TotalItems   int `json:"total_items" example:"50"`
+	TotalPages   int `json:"total_pages" example:"5"`
+}
+
+// PaginatedQuestionResponse represents paginated question response
+type PaginatedQuestionResponse struct {
+	Questions  []QuestionManagementResponse `json:"questions"`
+	Pagination PaginationMetadata           `json:"pagination"`
+}

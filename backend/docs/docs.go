@@ -24,6 +24,167 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/v1/questions": {
+            "get": {
+                "description": "Retrieves questions with their options, filtered by category and question text, with pagination support",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Get questions by category and search text with pagination",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)",
+                        "name": "category",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Search by question text",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "minimum": 1,
+                        "type": "integer",
+                        "description": "Page number (default: 1)",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "minimum": 0,
+                        "type": "integer",
+                        "description": "Items per page (default: 10, use 0 for all)",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/dto.PaginatedQuestionResponse"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/questions/categories": {
+            "get": {
+                "description": "Returns list of all available question categories",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Get question categories",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/questions/{questionID}/option/{optionID}/score": {
+            "put": {
+                "description": "Updates the score value for a specific question option",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Update question option score",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Question ID",
+                        "name": "questionID",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Option ID",
+                        "name": "optionID",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "New score value",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.UpdateScoreRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/dto.QuestionOptionManagementResponse"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         "/dashboard/users": {
             "get": {
                 "description": "Gets dashboard data for all users who have taken exams, including their status and results",
@@ -857,6 +1018,41 @@ const docTemplate = `{
                 }
             }
         },
+        "dto.PaginatedQuestionResponse": {
+            "type": "object",
+            "properties": {
+                "pagination": {
+                    "$ref": "#/definitions/dto.PaginationMetadata"
+                },
+                "questions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.QuestionManagementResponse"
+                    }
+                }
+            }
+        },
+        "dto.PaginationMetadata": {
+            "type": "object",
+            "properties": {
+                "current_page": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "items_per_page": {
+                    "type": "integer",
+                    "example": 10
+                },
+                "total_items": {
+                    "type": "integer",
+                    "example": 50
+                },
+                "total_pages": {
+                    "type": "integer",
+                    "example": 5
+                }
+            }
+        },
         "dto.ProgressInfoResponse": {
             "type": "object",
             "properties": {
@@ -871,6 +1067,66 @@ const docTemplate = `{
                 "total_questions": {
                     "type": "integer",
                     "example": 20
+                }
+            }
+        },
+        "dto.QuestionManagementResponse": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "example": "MANAJERIAL"
+                },
+                "created_at": {
+                    "type": "string",
+                    "example": "2026-01-28T10:00:00Z"
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.QuestionOptionManagementResponse"
+                    }
+                },
+                "question_text": {
+                    "type": "string",
+                    "example": "Atasan Anda melakukan rekayasa laporan..."
+                },
+                "updated_at": {
+                    "type": "string",
+                    "example": "2026-01-28T10:00:00Z"
+                }
+            }
+        },
+        "dto.QuestionOptionManagementResponse": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string",
+                    "example": "2026-01-28T10:00:00Z"
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "option_text": {
+                    "type": "string",
+                    "example": "Dalam hati tidak menyetujui hal tersebut"
+                },
+                "question_id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "score": {
+                    "type": "integer",
+                    "example": 3
+                },
+                "updated_at": {
+                    "type": "string",
+                    "example": "2026-01-28T10:00:00Z"
                 }
             }
         },
@@ -938,6 +1194,20 @@ const docTemplate = `{
                 "question_option_id": {
                     "type": "integer",
                     "example": 59
+                }
+            }
+        },
+        "dto.UpdateScoreRequest": {
+            "type": "object",
+            "required": [
+                "score"
+            ],
+            "properties": {
+                "score": {
+                    "type": "integer",
+                    "maximum": 10,
+                    "minimum": 0,
+                    "example": 5
                 }
             }
         },
