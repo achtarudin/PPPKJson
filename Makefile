@@ -2,6 +2,8 @@ BIN_GO_SERVICE=pppk-json
 
 MIGRATE_CMD=docker compose -f compose.dev.yaml run --rm --entrypoint /bin/sh migrate
 
+MIGRATE_CMD_SERVER=docker compose -f compose.dev.yaml run --rm --entrypoint /bin/sh migrate-server
+
 ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 
 $(eval $(ARGS):;@:)
@@ -40,6 +42,7 @@ db-seed:
 	@echo "Running Application with args: $(ARGS)"
 	cd backend && go mod tidy && go run ./cmd/seeder $(ARGS)
 
+# Migrate untuk local development
 migrate-create:
 	@echo "Creating migration files..."
 	# Kita panggil binary 'migrate' secara manual di sini karena entrypoint sudah diganti sh
@@ -61,10 +64,38 @@ migrate-reset:
 	@echo "⚠️ DESTROYING ALL DATA..."
 	$(MIGRATE_CMD) -c 'migrate -path=/migrations -database $$DATABASE_URL down'
 
+# Migrate untuk server
+db-server-seed:
+	@echo "Running Application with args: $(ARGS)"
+	cd backend && go mod tidy && go run ./cmd/seeder $(ARGS)
+
+migrate-server-create:
+	@echo "Creating migration files..."
+	# Kita panggil binary 'migrate' secara manual di sini karena entrypoint sudah diganti sh
+	$(MIGRATE_CMD_SERVER) -c 'migrate create -ext sql -dir /migrations -seq $(name)'
+
+migrate-server-up:
+	@echo "Running migrations..."
+	# Gunakan -c agar env var $$DATABASE_URL terbaca oleh shell
+	$(MIGRATE_CMD_SERVER) -c 'migrate -path=/migrations -database $$DATABASE_URL up'
+
+migrate-server-down:
+	@echo "Rolling back migrations..."
+	$(MIGRATE_CMD_SERVER) -c 'migrate -path=/migrations -database $$DATABASE_URL down 1'
+
+migrate-server-force:
+	$(MIGRATE_CMD_SERVER) -c 'migrate -path=/migrations -database $$DATABASE_URL force $(version)'
+
+migrate-server-reset:
+	@echo "⚠️ DESTROYING ALL DATA..."
+	$(MIGRATE_CMD_SERVER) -c 'migrate -path=/migrations -database $$DATABASE_URL down'
+
+# Swagger documentation generation
 swag-gen:
 	@echo "Generating swagger documentation..."
 	cd backend && swag init -g cmd/server/main.go -o ./docs
 
+# Docker Compose commands
 compose-up:
 	@echo "Starting containers..."
 	docker compose -f compose.dev.yaml up -d

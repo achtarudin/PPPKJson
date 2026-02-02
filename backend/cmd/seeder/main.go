@@ -14,6 +14,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/joho/godotenv"
 	"gorm.io/gorm"
 )
 
@@ -32,6 +33,11 @@ type OptionData struct {
 
 func main() {
 	logger.New()
+
+	err := godotenv.Load(".env.prod")
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
 	dbHost := utils.GetEnvOrDefault("DB_HOST", "localhost")
 	dbUser := utils.GetEnvOrDefault("DB_USER", "encang_cutbray")

@@ -30,19 +30,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy 
-
-  migrate-server:
-    image: migrate/migrate:4
-    volumes:
-      - ./backend/migrations:/migrations
-    environment:
-      - DATABASE_URL=postgres://cutbray:moncos214@db.cutbray.tech:5432/pppk_exam?sslmode=disable
-    networks:
-      - pppk_json_net
-    depends_on:
-      postgres:
-        condition: service_healthy 
-
+        
 volumes:
   postgres_data:
   
