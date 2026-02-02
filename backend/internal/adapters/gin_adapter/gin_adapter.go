@@ -4,6 +4,7 @@ import (
 	"context"
 	"cutbray/pppk-json/internal/ports"
 	"log"
+	"net"
 	"net/http"
 	"time"
 
@@ -55,6 +56,14 @@ func New(config GinConfig) *ginAdapter {
 }
 
 func (g *ginAdapter) Connect(ctx context.Context) error {
+
+	lc := net.ListenConfig{}
+
+	ln, err := lc.Listen(ctx, "tcp", ":"+g.port)
+
+	if err != nil {
+		return err
+	}
 	g.server = &http.Server{
 		Addr:         ":" + g.port,
 		Handler:      g.engine,
@@ -64,7 +73,7 @@ func (g *ginAdapter) Connect(ctx context.Context) error {
 	}
 
 	go func() {
-		if err := g.server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		if err := g.server.Serve(ln); err != nil && err != http.ErrServerClosed {
 			log.Printf("[Error] Gin server failed to start: %v", err)
 		}
 	}()
