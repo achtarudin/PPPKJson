@@ -6,3 +6,4 @@ web/dist/*
 .env.prod
 
 migrations/data/grade.jpeg
+scripts/*
