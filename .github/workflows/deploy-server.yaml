@@ -16,48 +16,48 @@ env:
   IMAGE_NAME_TAR: "pppk-json-prod.tar"
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  # test:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v5
 
-      - name: Create network pppk_json_net
-        run: docker network create pppk_json_net || echo "Network pppk_json_net already exists"
+  #     - name: Create network pppk_json_net
+  #       run: docker network create pppk_json_net || echo "Network pppk_json_net already exists"
 
-      - name: Create .env.prod file
-        run: |
-          echo "# the env configuration file for the project" >> .env.prod
+  #     - name: Create .env.prod file
+  #       run: |
+  #         echo "# the env configuration file for the project" >> .env.prod
 
-      - name: "Build Docker Image"
-        run: |
-          docker compose -f compose.prod.yaml up -d
+  #     - name: "Build Docker Image"
+  #       run: |
+  #         docker compose -f compose.prod.yaml up -d
 
-  build:
-    needs: test
-    runs-on: ubuntu-latest
+  # build:
+  #   needs: test
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v5
 
-      - name: "Build Docker Image"
-        run: |
-          IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f compose.prod.yaml build pppk_json
-          docker save ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} -o ${{ env.IMAGE_NAME_TAR }}
+  #     - name: "Build Docker Image"
+  #       run: |
+  #         IMAGE_NAME="${{ env.IMAGE_NAME }}" IMAGE_VERSION="${{ env.IMAGE_VERSION }}" docker compose -f compose.prod.yaml build pppk_json
+  #         docker save ${{ env.IMAGE_NAME }}:${{ env.IMAGE_VERSION }} -o ${{ env.IMAGE_NAME_TAR }}
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.IMAGE_NAME }}
-          path: |
-            compose.prod.yaml
-            ${{ env.IMAGE_NAME_TAR }}
+  #     - name: Upload artifact
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: ${{ env.IMAGE_NAME }}
+  #         path: |
+  #           compose.prod.yaml
+  #           ${{ env.IMAGE_NAME_TAR }}
 
   deploy:
     if: github.ref == 'refs/heads/master'
-    needs: build
+    # needs: build
     runs-on: [pppk-json]
 
     environment: prod

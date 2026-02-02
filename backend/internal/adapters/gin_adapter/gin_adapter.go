@@ -137,12 +137,17 @@ func (g *ginAdapter) healthCheck(c *gin.Context) {
 
 func corsMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		// Set CORS headers
 		c.Header("Access-Control-Allow-Origin", "*")
-		c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-		c.Header("Access-Control-Allow-Headers", "Content-Type, Authorization")
+		c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept, Origin, X-Requested-With, X-HTTP-Method-Override, Accept-Language, Accept-Encoding")
+		c.Header("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Cache-Control, Content-Language, Content-Type")
+		c.Header("Access-Control-Allow-Credentials", "true")
+		c.Header("Access-Control-Max-Age", "86400") // 24 hours
 
+		// Handle preflight requests
 		if c.Request.Method == "OPTIONS" {
-			c.AbortWithStatus(http.StatusNoContent)
+			c.AbortWithStatus(http.StatusOK)
 			return
 		}
 
