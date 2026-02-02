@@ -15,15 +15,17 @@ dev-go-server:
 	touch backend/web/dist/index.html
 	cd backend && go mod tidy && gow run ./cmd/server $(ARGS)
 
-prod-go-server: prod-frontend
-	@echo "Running Application with args: $(ARGS)"
+build-go-server:
+	@echo "Building Application"
 	cd backend \
 	&& go mod tidy \
 	&& rm -f ./bin/$(BIN_GO_SERVICE) || true \
-	&& go build -o ./bin/$(BIN_GO_SERVICE) ./cmd/server \
-	&& ./bin/$(BIN_GO_SERVICE) $(ARGS)
+	&& go build -o ./bin/$(BIN_GO_SERVICE) ./cmd/server
 
-prod-frontend:
+prod-go-server: build-frontend build-go-server
+	cd backend && ./bin/$(BIN_GO_SERVICE) $(ARGS)
+
+build-frontend:
 	@echo "Building Application for production"	
 	cd frontend && npm install && npm run build
 

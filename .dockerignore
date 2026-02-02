@@ -1,0 +1,23 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+.github/*
+
+backend/backup/*
+backend/bin/*
+backend/scripts/*
+backend/.env
+backend/.env.prod
+!backend/.env.example
+backend/.gitignore
+backend/web/dist/*
+backend/migrations/data/*
+
+frontend/dist/*
+frontend/node_modules/*
+frontend/.gitignore
+
+compose*.yaml
+compose*.yml
+docker/*
