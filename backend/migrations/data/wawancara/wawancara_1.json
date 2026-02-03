@@ -6,7 +6,7 @@
     "options": [
       {
         "option_text": "Sangat antusias dengan hal itu.",
-        "score": 1
+        "score": 3
       },
       {
         "option_text": "Tetap bekerja sebagaimana peraturan yang ada.",
@@ -29,7 +29,7 @@
     "options": [
       {
         "option_text": "Bertanya kepada orang tua, alasan mereka tidak menyukai pekerjaan saya",
-        "score": 3
+        "score": 2
       },
       {
         "option_text": "Menjelaskan bahwa saya menyukai pekerjaan tersebut",
@@ -37,11 +37,11 @@
       },
       {
         "option_text": "Meminta orang tua untuk melihat sendiri pekerjaan saya dan kemudian melakukan penilaian",
-        "score": 2
+        "score": 3
       },
       {
         "option_text": "Tetap bekerja dan menjelaskan kepada orang tua",
-        "score": 4
+        "score": 1
       }
     ]
   },
@@ -75,15 +75,15 @@
     "options": [
       {
         "option_text": "Menerima kritikan apa adanya dan mencari sumber referensi baru yang mendukung.",
-        "score": 4
+        "score": 3
       },
       {
         "option_text": "Menahan diri, mencermati krtitikan tersebut untuk melakukan perbaikan.",
-        "score": 3
+        "score": 4
       },
       {
         "option_text": "Meminta penjelasan dan dukungan Atasan, dan mencari strategi baru untuk perbaikan.",
-        "score": 3
+        "score": 2
       },
       {
         "option_text": "Tidak membalas kritikan tersebut dan juga tidak melakukan perbaikan karena tidak ada gunanya",
@@ -98,11 +98,11 @@
     "options": [
       {
         "option_text": "Saya akan lebih aktif dalam memperingatkan orang tersebut yang kedapatan sering merokok di area tersebut.",
-        "score": 4
+        "score": 3
       },
       {
         "option_text": "Bersama seluruh komponen instansi, untuk memberikan contoh perilaku baik tidak merokok.",
-        "score": 3
+        "score": 4
       },
       {
         "option_text": "Meminta Atasan agar turun langsung menangani masalah ini dan memberikan sanksi.",
@@ -125,11 +125,11 @@
       },
       {
         "option_text": "Membiarkannya menerima telepon",
-        "score": 1
+        "score": 4
       },
       {
         "option_text": "Berbisik kepadanya supaya berhenti menerima telepon",
-        "score": 4
+        "score": 3
       },
       {
         "option_text": "Membiarkannya",
@@ -167,7 +167,7 @@
     "options": [
       {
         "option_text": "Tidak ingin mengikutinya",
-        "score": 3
+        "score": 2
       },
       {
         "option_text": "Hal tersebut sudah biasa terjadi",
@@ -175,7 +175,7 @@
       },
       {
         "option_text": "Segera melaporkannya kepada atasan",
-        "score": 2
+        "score": 3
       },
       {
         "option_text": "Mengajak bidan lain untuk berhenti berbuat demikian",
@@ -213,7 +213,7 @@
     "options": [
       {
         "option_text": "Menggantikan teman Anda, dengan mengurusi kepentingan pelanggan tersebut.",
-        "score": 4
+        "score": 2
       },
       {
         "option_text": "Melanjutkan tugas teman yang kelelahan, supaya klinik tidak terbengkalai.",
@@ -221,7 +221,7 @@
       },
       {
         "option_text": "Menyelesaikan tugas Anda sampai selesai, baru membantu teman yang kelelahan.",
-        "score": 2
+        "score": 4
       },
       {
         "option_text": "Membiarkan saja karena bukan tugas saya.",

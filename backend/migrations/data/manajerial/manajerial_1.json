@@ -4,7 +4,10 @@
     "category": "MANAJERIAL",
     "question_text": "Atasan Anda melakukan rekayasa laporan keuangan kantor, maka Anda ....",
     "options": [
-      { "option_text": "Dalam hati tidak menyetujui hal tersebut", "score": 2 },
+      {
+        "option_text": "Dalam hati tidak menyetujui hal tersebut",
+        "score": 3
+      },
       {
         "option_text": "Hal tersebut sering terjadi di kantor manapun",
         "score": 1
@@ -15,7 +18,7 @@
       },
       {
         "option_text": "Tidak ingin terlibat dalam proses rekayasa tersebut",
-        "score": 3
+        "score": 2
       }
     ]
   },
@@ -28,8 +31,14 @@
         "option_text": "Mencari dengan seksama siapa yang turut bertanggung jawab terhadap kegagalan Anda",
         "score": 1
       },
-      { "option_text": "Mengambil waktu untuk menenangkan diri", "score": 3 },
-      { "option_text": "Bersedih hati", "score": 2 },
+      {
+        "option_text": "Mengambil waktu untuk menenangkan diri",
+        "score": 3
+      },
+      {
+        "option_text": "Bersedih hati",
+        "score": 2
+      },
       {
         "option_text": "Melakukan introspeksi dan memperbaiki upaya",
         "score": 4
@@ -41,7 +50,10 @@
     "category": "MANAJERIAL",
     "question_text": "Anda mengajukan suatu usulan kepada atasan Anda, namun usulan tersebut menurut atasan Anda kurang tepat. Sikap Anda adalah ....",
     "options": [
-      { "option_text": "Merasa sangat kecewa", "score": 2 },
+      {
+        "option_text": "Merasa sangat kecewa",
+        "score": 2
+      },
       {
         "option_text": "Mencari alternatif usulan lain yang tepat",
         "score": 4
@@ -69,8 +81,14 @@
         "option_text": "Tidak mau menemuinya karena Anda sedang istirahat",
         "score": 1
       },
-      { "option_text": "Menyuruhnya untuk menunggu", "score": 2 },
-      { "option_text": "Meminta teman Anda untuk menemuinya", "score": 3 }
+      {
+        "option_text": "Menyuruhnya untuk menunggu",
+        "score": 3
+      },
+      {
+        "option_text": "Meminta teman Anda untuk menemuinya",
+        "score": 2
+      }
     ]
   },
   {
@@ -80,17 +98,20 @@
     "options": [
       {
         "option_text": "Meminta orang asing tersebut untuk datang lain kali dan membawa penerjemah",
-        "score": 2
+        "score": 3
       },
       {
         "option_text": "Menyuruh rekan anda yang memahami bahasa orang asing tersebut untuk menemuinya",
-        "score": 3
+        "score": 2
       },
       {
         "option_text": "Meminta bantuan rekan Anda yang memahami bahasa orang asing tersebut untuk menerjemahkan ketika Anda sedang berbicara dengannya",
         "score": 4
       },
-      { "option_text": "Berpura-pura memahami pembicaraannya", "score": 1 }
+      {
+        "option_text": "Berpura-pura memahami pembicaraannya",
+        "score": 1
+      }
     ]
   },
   {
@@ -98,7 +119,10 @@
     "category": "MANAJERIAL",
     "question_text": "Buah mangga milik tetangga Anda berjatuhan dan mengenai genting rumah Anda hingga berlubang. Sikap Anda adalah ....",
     "options": [
-      { "option_text": "Mendatangi tetangga Anda dan marah-marah", "score": 1 },
+      {
+        "option_text": "Mendatangi tetangga Anda dan marah-marah",
+        "score": 1
+      },
       {
         "option_text": "Menyuruh tetangga Anda untuk menebang pohon mangganya",
         "score": 2
@@ -118,13 +142,22 @@
     "category": "MANAJERIAL",
     "question_text": "Rekan kerja Anda yang sedang cuti melahirkan meminta Anda untuk membawakan barang-barangnya yang tertinggal di kantor. Sikap Anda ....",
     "options": [
-      { "option_text": "Segera mengantarkannya", "score": 3 },
-      { "option_text": "Menggunakan jasa kurir untuk mengantar", "score": 2 },
+      {
+        "option_text": "Segera mengantarkannya",
+        "score": 3
+      },
+      {
+        "option_text": "Menggunakan jasa kurir untuk mengantar",
+        "score": 2
+      },
       {
         "option_text": "Mengantarkannya sepulang kantor sekaligus menjenguk rekan Anda",
         "score": 4
       },
-      { "option_text": "Menolak karena pekerjaan Anda banyak", "score": 1 }
+      {
+        "option_text": "Menolak karena pekerjaan Anda banyak",
+        "score": 1
+      }
     ]
   },
   {
@@ -144,7 +177,10 @@
         "option_text": "Berusaha semampunya untuk tidak melakukannya",
         "score": 3
       },
-      { "option_text": "Tidak ingin melakukannya sama sekali", "score": 4 }
+      {
+        "option_text": "Tidak ingin melakukannya sama sekali",
+        "score": 4
+      }
     ]
   },
   {
@@ -206,7 +242,10 @@
         "option_text": "Berusaha mengalahkan pesaing Anda dengan tidak sehat",
         "score": 1
       },
-      { "option_text": "Tidak mengikutinya karena takut kalah", "score": 2 },
+      {
+        "option_text": "Tidak mengikutinya karena takut kalah",
+        "score": 2
+      },
       {
         "option_text": "Mempelajari teknik terbaru fotografi dan berusaha yang terbaik",
         "score": 4
@@ -218,13 +257,22 @@
     "category": "MANAJERIAL",
     "question_text": "Ketika Anda ke pusat perbelanjaan tiba-tiba anak Anda meminta dibelikan mainan, maka Anda akan ....",
     "options": [
-      { "option_text": "Menolak karena harganya mahal.", "score": 2 },
+      {
+        "option_text": "Menolak karena harganya mahal.",
+        "score": 2
+      },
       {
         "option_text": "Menolak karena anda ingin ia membeli sendiri dengan uang tabungannya.",
         "score": 4
       },
-      { "option_text": "Membelikannya karena ia memaksa.", "score": 1 },
-      { "option_text": "Menolak karena tidak sesuai rencana.", "score": 3 }
+      {
+        "option_text": "Membelikannya karena ia memaksa.",
+        "score": 1
+      },
+      {
+        "option_text": "Menolak karena tidak sesuai rencana.",
+        "score": 3
+      }
     ]
   },
   {
@@ -232,7 +280,10 @@
     "category": "MANAJERIAL",
     "question_text": "Jika Anda sedang cuti kerja, tiba-tiba atasan anda menelepon untuk menyuruh Anda mengerjakan tugas di rumah secara mendadak. Sikap Anda adalah ....",
     "options": [
-      { "option_text": "Mematikan ponsel", "score": 1 },
+      {
+        "option_text": "Mematikan ponsel",
+        "score": 1
+      },
       {
         "option_text": "Memerintahkan staf lain untuk mengerjakannya",
         "score": 2
@@ -241,7 +292,10 @@
         "option_text": "Meminta atasan agar tugas tersebut dapat diselesaikan setalah Anda cuti",
         "score": 3
       },
-      { "option_text": "Memenuhi perintah atasan dengan segera", "score": 4 }
+      {
+        "option_text": "Memenuhi perintah atasan dengan segera",
+        "score": 4
+      }
     ]
   },
   {
@@ -261,7 +315,10 @@
         "option_text": "Saya akan berpikir ulang dan mencari jalan tengah",
         "score": 4
       },
-      { "option_text": "Saya mengalah", "score": 2 }
+      {
+        "option_text": "Saya mengalah",
+        "score": 2
+      }
     ]
   },
   {
@@ -269,7 +326,10 @@
     "category": "MANAJERIAL",
     "question_text": "Suatu hari Anda sedang rapat bersama para pimpinan, salah seorang pimpinan mengeluarkan pendapatnya. Namun, Anda tidak setuju dengan pendapat tersebut, maka Anda akan ....",
     "options": [
-      { "option_text": "Langsung mengeluarkan pendapat", "score": 4 },
+      {
+        "option_text": "Langsung mengeluarkan pendapat",
+        "score": 4
+      },
       {
         "option_text": "Menutup mulut karena tidak mau membantah pimpinan",
         "score": 2
@@ -312,8 +372,14 @@
     "category": "MANAJERIAL",
     "question_text": "Respon saya ketika dihadapkan dengan perubahan yang mendadak adalah ....",
     "options": [
-      { "option_text": "Bingung bagaimana harus bersikap", "score": 2 },
-      { "option_text": "Penuh harapan akan perubahan", "score": 4 },
+      {
+        "option_text": "Bingung bagaimana harus bersikap",
+        "score": 2
+      },
+      {
+        "option_text": "Penuh harapan akan perubahan",
+        "score": 4
+      },
       {
         "option_text": "Tertekan karena cemas akan dampak yang akan terjadi",
         "score": 1
@@ -364,7 +430,10 @@
         "option_text": "Ingin menggalang masa untuk melakukan demo terhadap pemerintah agar segera mengambil kebijakan yang berwenang dan terkait untuk membahas kelayakan tayangan tersebut",
         "score": 3
       },
-      { "option_text": "Menanyakan apa yang terjadi", "score": 2 }
+      {
+        "option_text": "Menanyakan apa yang terjadi",
+        "score": 2
+      }
     ]
   },
   {
@@ -380,7 +449,10 @@
         "option_text": "Menunjukkan bahwa 100 meter lagi ada bengkel",
         "score": 3
       },
-      { "option_text": "Menanyakan apa yang terjadi", "score": 2 },
+      {
+        "option_text": "Menanyakan apa yang terjadi",
+        "score": 2
+      },
       {
         "option_text": "Membantu membawakan sepeda motor itu ke bengkel",
         "score": 4
@@ -396,12 +468,18 @@
         "option_text": "Melontarkan gagasan yang memancing keterlibatan anggota",
         "score": 4
       },
-      { "option_text": "Mengusahakan agar pendapat saya diterima", "score": 2 },
+      {
+        "option_text": "Mengusahakan agar pendapat saya diterima",
+        "score": 2
+      },
       {
         "option_text": "Menciptakan suasana agar orang tidak berani mengungkapkan pendapatnya",
         "score": 1
       },
-      { "option_text": "Mempercayakan keputusan pada kelompok", "score": 3 }
+      {
+        "option_text": "Mempercayakan keputusan pada kelompok",
+        "score": 3
+      }
     ]
   },
   {
@@ -409,7 +487,10 @@
     "category": "MANAJERIAL",
     "question_text": "Ketika Anda diminta saran oleh teman yang sudah berhasil dalam usahanya, Anda akan menyarankan ....",
     "options": [
-      { "option_text": "Meningkatkan kemampuan dan pengetahuan", "score": 4 },
+      {
+        "option_text": "Meningkatkan kemampuan dan pengetahuan",
+        "score": 4
+      },
       {
         "option_text": "Memanfaatkan orang lain yang lebih berpengalaman dan berpengetahuan luas",
         "score": 2
@@ -429,7 +510,10 @@
     "category": "MANAJERIAL",
     "question_text": "Anda sedang mengemudi kendaraan, tiba-tiba handphone Anda berdering, apa yang akan Anda lakukan ....",
     "options": [
-      { "option_text": "Menepi untuk mengangkat handphone", "score": 4 },
+      {
+        "option_text": "Menepi untuk mengangkat handphone",
+        "score": 4
+      },
       {
         "option_text": "Menyuruh rekan yang disamping anda untuk mengangkatnya",
         "score": 2
@@ -453,8 +537,14 @@
         "option_text": "Menolak permintaannya dengan alasan mobil akan saya gunakan",
         "score": 3
       },
-      { "option_text": "Meminjamkannya dengan perasaan cemas", "score": 1 },
-      { "option_text": "Ragu-ragu untuk memenuhi permintaannya", "score": 2 },
+      {
+        "option_text": "Meminjamkannya dengan perasaan cemas",
+        "score": 1
+      },
+      {
+        "option_text": "Ragu-ragu untuk memenuhi permintaannya",
+        "score": 2
+      },
       {
         "option_text": "Menolak permintaannya karena ingin mematuhi peraturan",
         "score": 4
@@ -466,8 +556,14 @@
     "category": "MANAJERIAL",
     "question_text": "Suatu hari, pimpinan Anda sedang berada di luar kota sementara Ia harus menandatangani salah satu dokumen penting dan mendesak. Pimpinan sudah memberikan izin kepada Anda untuk memalsukan tanda tangannya. Sikap Anda adalah ....",
     "options": [
-      { "option_text": "Mengikuti perintah pimpinan.", "score": 2 },
-      { "option_text": "Menunggu hingga pimpinan datang.", "score": 3 },
+      {
+        "option_text": "Mengikuti perintah pimpinan.",
+        "score": 2
+      },
+      {
+        "option_text": "Menunggu hingga pimpinan datang.",
+        "score": 3
+      },
       {
         "option_text": "Meminta orang lain untuk memalsukan tanda tangan itu.",
         "score": 1
