@@ -23,7 +23,9 @@ func NewGinExamHandler(db *gorm.DB) *ginExamHandler {
 
 // RegisterRoutes registers all exam-related routes
 func (h *ginExamHandler) RegisterRoutes(router *gin.Engine) {
-	examGroup := router.Group("/api/v1/exam")
+	// Use the existing /api/v1 group from gin adapter
+	v1 := router.Group("/api/v1")
+	examGroup := v1.Group("/exam")
 	{
 		examGroup.GET("/:userID", h.GetOrCreateExam)
 		examGroup.POST("/:userID/start", h.StartExam)
@@ -36,7 +38,7 @@ func (h *ginExamHandler) RegisterRoutes(router *gin.Engine) {
 	}
 
 	// Admin/Dashboard routes
-	dashboardGroup := router.Group("/api/v1/dashboard")
+	dashboardGroup := v1.Group("/dashboard")
 	{
 		dashboardGroup.GET("/users", h.GetAllUsersDashboard)
 	}

@@ -403,105 +403,6 @@ info:
   title: PPPKJson Exam API
   version: 1.0.0
 paths:
-  /api/v1/questions:
-    get:
-      consumes:
-      - application/json
-      description: Retrieves questions with their options, filtered by category and
-        question text, with pagination support
-      parameters:
-      - description: Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)
-        in: query
-        name: category
-        type: string
-      - description: Search by question text
-        in: query
-        name: search
-        type: string
-      - description: 'Page number (default: 1)'
-        in: query
-        minimum: 1
-        name: page
-        type: integer
-      - description: 'Items per page (default: 10, use 0 for all)'
-        in: query
-        minimum: 0
-        name: limit
-        type: integer
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/dto.APIResponse'
-            - properties:
-                data:
-                  $ref: '#/definitions/dto.PaginatedQuestionResponse'
-              type: object
-      summary: Get questions by category and search text with pagination
-      tags:
-      - questions
-  /api/v1/questions/{questionID}/option/{optionID}/score:
-    put:
-      consumes:
-      - application/json
-      description: Updates the score value for a specific question option
-      parameters:
-      - description: Question ID
-        in: path
-        name: questionID
-        required: true
-        type: integer
-      - description: Option ID
-        in: path
-        name: optionID
-        required: true
-        type: integer
-      - description: New score value
-        in: body
-        name: body
-        required: true
-        schema:
-          $ref: '#/definitions/dto.UpdateScoreRequest'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/dto.APIResponse'
-            - properties:
-                data:
-                  $ref: '#/definitions/dto.QuestionOptionManagementResponse'
-              type: object
-      summary: Update question option score
-      tags:
-      - questions
-  /api/v1/questions/categories:
-    get:
-      consumes:
-      - application/json
-      description: Returns list of all available question categories
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/dto.APIResponse'
-            - properties:
-                data:
-                  items:
-                    type: string
-                  type: array
-              type: object
-      summary: Get question categories
-      tags:
-      - questions
   /dashboard/users:
     get:
       consumes:
@@ -852,6 +753,105 @@ paths:
       summary: Health Check
       tags:
       - system
+  /questions:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves questions with their options, filtered by category and
+        question text, with pagination support
+      parameters:
+      - description: Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)
+        in: query
+        name: category
+        type: string
+      - description: Search by question text
+        in: query
+        name: search
+        type: string
+      - description: 'Page number (default: 1)'
+        in: query
+        minimum: 1
+        name: page
+        type: integer
+      - description: 'Items per page (default: 10, use 0 for all)'
+        in: query
+        minimum: 0
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PaginatedQuestionResponse'
+              type: object
+      summary: Get questions by category and search text with pagination
+      tags:
+      - questions
+  /questions/{questionID}/option/{optionID}/score:
+    put:
+      consumes:
+      - application/json
+      description: Updates the score value for a specific question option
+      parameters:
+      - description: Question ID
+        in: path
+        name: questionID
+        required: true
+        type: integer
+      - description: Option ID
+        in: path
+        name: optionID
+        required: true
+        type: integer
+      - description: New score value
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateScoreRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.QuestionOptionManagementResponse'
+              type: object
+      summary: Update question option score
+      tags:
+      - questions
+  /questions/categories:
+    get:
+      consumes:
+      - application/json
+      description: Returns list of all available question categories
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  items:
+                    type: string
+                  type: array
+              type: object
+      summary: Get question categories
+      tags:
+      - questions
 schemes:
 - http
 - https

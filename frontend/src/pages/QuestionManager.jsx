@@ -44,8 +44,8 @@ const QuestionManager = () => {
         setCategories(response.data.data || []);
       }
     } catch (error) {
-      console.error('Failed to load categories:', error);
-      setError('Failed to load categories');
+
+        setError('Failed to load categories');
     }
   };
 
@@ -61,19 +61,44 @@ const QuestionManager = () => {
         limit: itemsPerPage === 'all' ? 0 : itemsPerPage
       };
       
-      console.log('API Request params:', requestParams); // Debug log
       
       const response = await questionAPI.getQuestionsByCategory(requestParams);
       
       if (response.data.success) {
-        console.log('API Response:', response.data.data); // Debug log
-        setQuestions(response.data.data.questions);
-        setPagination(response.data.data.pagination);
+        const responseData = response.data.data;
+        const questionsList = responseData.questions || responseData || [];
+        setQuestions(questionsList);
+        
+        // Ensure pagination data is properly set
+        let newPagination;
+        if (responseData.pagination) {
+            newPagination = {
+							currentPage: responseData.pagination.current_page,
+							itemsPerPage: itemsPerPage === 'all' ? 0 : itemsPerPage,
+							totalItems: responseData.pagination.total_items,
+							totalPages: responseData.pagination.total_pages
+          };
+        } else {
+          // Fallback pagination - assume there might be more data
+          const totalItems = questionsList.length;
+          // If we got exactly itemsPerPage questions, assume there might be more
+          const estimatedTotal = (questionsList.length === itemsPerPage && itemsPerPage !== 'all') ? totalItems * 2 : totalItems;
+          const totalPages = itemsPerPage === 'all' || itemsPerPage === 0 ? 1 : Math.ceil(estimatedTotal / itemsPerPage);
+
+          newPagination = {
+            currentPage: currentPage,
+            itemsPerPage: itemsPerPage === 'all' ? 0 : itemsPerPage,
+            totalItems: estimatedTotal,
+            totalPages: totalPages
+          };
+
+        }
+
+        setPagination(newPagination);
       } else {
         setError(response.data.message || 'Failed to load questions');
       }
     } catch (error) {
-      console.error('Failed to load questions:', error);
       setError('Failed to load questions. Please try again.');
     } finally {
       setLoading(false);
@@ -119,7 +144,6 @@ const QuestionManager = () => {
         setError(response.data.error || 'Failed to update score');
       }
     } catch (error) {
-      console.error('Failed to update score:', error);
       setError('Failed to update score. Please try again.');
     } finally {
       setUpdatingScore(false);
@@ -146,13 +170,7 @@ const QuestionManager = () => {
     return categoryClasses[category] || 'bg-secondary';
   };
 
-  const getScoreColorClass = (score) => {
-    if (score >= 8) return 'text-success';     // 8-10: Green (Excellent)
-    if (score >= 6) return 'text-primary';    // 6-7: Blue (Good) 
-    if (score >= 4) return 'text-info';       // 4-5: Cyan (Fair)
-    if (score >= 2) return 'text-warning';    // 2-3: Yellow (Poor)
-    return 'text-danger';                     // 0-1: Red (Very Poor)
-  };
+
 
   const truncateText = (text, maxLength = 80) => {
     if (text.length <= maxLength) return text;
@@ -169,17 +187,18 @@ const QuestionManager = () => {
   };
 
   const getPaginationRange = () => {
-    if (!pagination || !pagination.totalPages || pagination.totalPages <= 1) {
-      console.log('No pagination range needed:', pagination); // Debug log
+    const totalPages = pagination?.totalPages || 0;
+    
+    if (totalPages <= 1) {
       return [];
     }
     
-    const totalPages = pagination.totalPages;
     const range = [];
     const maxVisible = 5;
     let start = Math.max(1, currentPage - 2);
     let end = Math.min(totalPages, start + maxVisible - 1);
     
+    // Adjust start if we don't have enough pages at the end
     if (end - start < maxVisible - 1) {
       start = Math.max(1, end - maxVisible + 1);
     }
@@ -188,7 +207,6 @@ const QuestionManager = () => {
       range.push(i);
     }
     
-    console.log('Pagination range:', range); // Debug log
     return range;
   };
 
@@ -278,6 +296,25 @@ const QuestionManager = () => {
               <button type="button" className="btn-close" onClick={() => setSuccess('')}></button>
             </div>
           )}
+		
+          <div className='d-flex justify-content-end mb-4'>
+						<div className="d-flex align-items-end">
+							<label className="form-label fw-bold mb-0 me-2">Items per page:</label>
+							<select
+									className="form-select form-select-sm"
+									style={{ width: 'auto' }}
+									value={itemsPerPage}
+									onChange={(e) => handleItemsPerPageChange(e.target.value === 'all' ? 'all' : parseInt(e.target.value))}
+							>
+									<option value={10}>10</option>
+									<option value={20}>20</option>
+									<option value={25}>25</option>
+									<option value={75}>75</option>
+									<option value={0}>All</option>
+							</select>
+					</div>
+					</div>
+					
 
           {/* Questions Table */}
           <div className="card">
@@ -355,114 +392,82 @@ const QuestionManager = () => {
                         </table>
                       </div>
                     
-                      {/* Pagination Navigation with Items Per Page */}
-                      <div className="d-flex justify-content-between align-items-center mt-4">
-                        <div className="d-flex align-items-center">
-                          <span className="text-muted small">
-                            {pagination && pagination.totalItems > 0 ? (
-                              `Showing ${(currentPage - 1) * (itemsPerPage === 'all' ? pagination.totalItems : itemsPerPage) + 1} to ${Math.min(currentPage * (itemsPerPage === 'all' ? pagination.totalItems : itemsPerPage), pagination.totalItems)} of ${pagination.totalItems} questions`
-                            ) : (
-                              'Showing 0 to 0 of 0 questions'
-                            )}
-                          </span>
-                        </div>
-                        
-                        <div className="d-flex align-items-center gap-3">
-                          {/* Items per page selector */}
-                          <div className="d-flex align-items-center">
-                            <label className="form-label fw-bold mb-0 me-2">Items per page:</label>
-                            <select
-                              className="form-select form-select-sm"
-                              style={{ width: 'auto' }}
-                              value={itemsPerPage}
-                              onChange={(e) => handleItemsPerPageChange(e.target.value === 'all' ? 'all' : parseInt(e.target.value))}
-                            >
-                              <option value={10}>10</option>
-                              <option value={20}>20</option>
-                              <option value={25}>25</option>
-                              <option value={75}>75</option>
-                              <option value="all">All</option>
-                            </select>
-                          </div>
-                          
-                          {/* Pagination navigation */}
-                          {(() => {
-                            console.log('Pagination debug:', { pagination, itemsPerPage, totalPages: pagination?.totalPages }); // Debug log
-                            return pagination && pagination.totalPages > 1 && itemsPerPage !== 'all';
-                          })() && (
-                            <nav aria-label="Questions pagination">
-                              <ul className="pagination pagination-sm mb-0">
-                                <li className={`page-item ${currentPage <= 1 ? 'disabled' : ''}`}>
-                                  <button 
-                                    className="page-link"
-                                    onClick={() => handlePageChange(currentPage - 1)}
-                                    disabled={currentPage <= 1}
-                                  >
-                                    Previous
-                                  </button>
-                                </li>
-                                
-                                {getPaginationRange().map(page => (
-                                  <li key={page} className={`page-item ${currentPage === page ? 'active' : ''}`}>
-                                    <button 
-                                      className="page-link"
-                                      onClick={() => handlePageChange(page)}
-                                    >
-                                      {page}
-                                    </button>
-                                  </li>
-                                ))}
-                                
-                                <li className={`page-item ${currentPage >= (pagination?.totalPages || 0) ? 'disabled' : ''}`}>
-                                  <button 
-                                    className="page-link"
-                                    onClick={() => handlePageChange(currentPage + 1)}
-                                    disabled={currentPage >= (pagination?.totalPages || 0)}
-                                  >
-                                    Next
-                                  </button>
-                                </li>
-                              </ul>
-                            </nav>
-                          )}
-                        </div>
-                      </div>
+                    
+                    
                     </>
                   )}
                 </>
               )}
             </div>
           </div>
+					
+					<div className="row align-items-center mt-4 gap-3">
+						<div className="col"></div>
 
-          {/* Summary */}
-          {questions.length > 0 && (
-            <div className="card mt-4">
-              <div className="card-body">
-                <div className="row text-center">
-                  <div className="col-md-3">
-                    <h4 className="text-primary">{questions.length}</h4>
-                    <p className="text-muted mb-0">Found Questions</p>
-                  </div>
-                  <div className="col-md-3">
-                    <h4 className="text-success">
-                      {questions.reduce((sum, q) => sum + (q.options?.length || 0), 0)}
-                    </h4>
-                    <p className="text-muted mb-0">Total Options</p>
-                  </div>
-                  <div className="col-md-3">
-                    <h4 className="text-info">
-                      {selectedCategory || 'All'}
-                    </h4>
-                    <p className="text-muted mb-0">Current Category</p>
-                  </div>
-                  <div className="col-md-3">
-                    <h4 className="text-warning">{categories.length}</h4>
-                    <p className="text-muted mb-0">Total Categories</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+						<div className="col-auto">
+							<div className="d-flex align-items-center gap-3">
+								{/* Pagination navigation - Show when we have multiple pages */}
+								{((pagination?.totalPages || 0) > 1 && itemsPerPage !== 'all') || 
+								(questions.length >= itemsPerPage && itemsPerPage !== 'all' && itemsPerPage < 50) ? ( // Show pagination if we have full page of results
+								<nav aria-label="Questions pagination">
+										<ul className="pagination pagination-sm mb-0">
+										<li className={`page-item ${currentPage <= 1 ? 'disabled' : ''}`}>
+												<button 
+												className="page-link"
+												onClick={() => handlePageChange(currentPage - 1)}
+												disabled={currentPage <= 1}
+												>
+												Previous
+												</button>
+										</li>
+										{/* Generate page numbers 1, 2, 3, etc. */}
+										{Array.from({ length: Math.max(pagination?.totalPages || 2, 2) }, (_, i) => i + 1).map(page => (
+												<li key={page} className={`page-item ${currentPage === page ? 'active' : ''}`}>
+												<button 
+														className="page-link"
+														onClick={() => handlePageChange(page)}
+												>
+														{page}
+												</button>
+												</li>
+										))}
+										
+										<li className={`page-item ${currentPage >= Math.max(pagination?.totalPages || 2, 2) ? 'disabled' : ''}`}>
+												<button 
+												className="page-link"
+												onClick={() => handlePageChange(currentPage + 1)}
+												disabled={currentPage >= Math.max(pagination?.totalPages || 2, 2)}
+												>
+												Next
+												</button>
+										</li>
+										</ul>
+								</nav>
+								
+								) : null}
+							</div>
+						</div>
+
+						<div className="col text-end">
+							<div id="div2" className=" d-inline-block">
+								<div className="d-flex align-items-end">
+									<label className="form-label fw-bold mb-0 me-2">Items per page:</label>
+									<select
+											className="form-select form-select-sm"
+											style={{ width: 'auto' }}
+											value={itemsPerPage}
+											onChange={(e) => handleItemsPerPageChange(e.target.value === 'all' ? 'all' : parseInt(e.target.value))}
+									>
+											<option value={10}>10</option>
+											<option value={20}>20</option>
+											<option value={25}>25</option>
+											<option value={75}>75</option>
+											<option value={0}>All</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
         </div>
       </div>
 

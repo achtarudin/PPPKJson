@@ -23,7 +23,9 @@ func NewGinQuestionHandler(db *gorm.DB) *ginQuestionHandler {
 
 // RegisterRoutes registers all question management routes
 func (h *ginQuestionHandler) RegisterRoutes(router *gin.Engine) {
-	questionGroup := router.Group("/api/v1/questions")
+	// Use the existing /api/v1 group from gin adapter
+	v1 := router.Group("/api/v1")
+	questionGroup := v1.Group("/questions")
 	{
 		questionGroup.GET("", h.GetQuestionsByCategory)
 		questionGroup.PUT("/:questionID/option/:optionID/score", h.UpdateOptionScore)
@@ -42,7 +44,7 @@ func (h *ginQuestionHandler) RegisterRoutes(router *gin.Engine) {
 // @Param page query int false "Page number (default: 1)" minimum(1)
 // @Param limit query int false "Items per page (default: 10, use 0 for all)" minimum(0)
 // @Success 200 {object} dto.APIResponse{data=dto.PaginatedQuestionResponse}
-// @Router /api/v1/questions [get]
+// @Router /questions [get]
 func (h *ginQuestionHandler) GetQuestionsByCategory(c *gin.Context) {
 	category := c.Query("category")
 	searchText := c.Query("search")
@@ -145,7 +147,7 @@ func (h *ginQuestionHandler) GetQuestionsByCategory(c *gin.Context) {
 // @Param optionID path int true "Option ID"
 // @Param body body dto.UpdateScoreRequest true "New score value"
 // @Success 200 {object} dto.APIResponse{data=dto.QuestionOptionManagementResponse}
-// @Router /api/v1/questions/{questionID}/option/{optionID}/score [put]
+// @Router /questions/{questionID}/option/{optionID}/score [put]
 func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 	questionIDStr := c.Param("questionID")
 	optionIDStr := c.Param("optionID")
@@ -236,7 +238,7 @@ func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Success 200 {object} dto.APIResponse{data=[]string}
-// @Router /api/v1/questions/categories [get]
+// @Router /questions/categories [get]
 func (h *ginQuestionHandler) GetCategories(c *gin.Context) {
 	var categories []string
 	err := h.db.Model(&models.Question{}).Distinct("category").Pluck("category", &categories).Error
