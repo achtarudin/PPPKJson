@@ -1,10 +1,15 @@
+backup/
 bin/
-web/dist/*
-!web/dist/.gitkeep
+
+scripts/*
+!scripts/.gitkeep
 
 .env
 .env.prod
 
+web/dist/*
+!web/dist/.gitkeep
+
 migrations/data/
-scripts/
-backup/
+
+
