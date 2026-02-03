@@ -70,7 +70,18 @@ export const questionAPI = {
     };
     if (category) params.category = category;
     if (search) params.search = search;
-    return api.get('/questions', { params });
+    return api.get('/questions/management', { params });
+  },
+  
+  // Download questions as JSON
+  downloadQuestionsJSON: ({ category = '', search = '' } = {}) => {
+    const params = {};
+    if (category) params.category = category;
+    if (search) params.search = search;
+    
+    // Use the root level endpoint for download
+    const baseUrl = API_BASE_URL.replace('/api/v1', '');
+    return axios.get(`${baseUrl}/questions`, { params });
   },
   
   // Update score for a specific question option

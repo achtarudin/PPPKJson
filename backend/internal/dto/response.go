@@ -185,3 +185,17 @@ type PaginatedQuestionResponse struct {
 	Questions  []QuestionManagementResponse `json:"questions"`
 	Pagination PaginationMetadata           `json:"pagination"`
 }
+
+// ExportQuestionResponse represents a question in export JSON format
+type ExportQuestionResponse struct {
+	ID           string                         `json:"id"`
+	Category     string                         `json:"category"`
+	QuestionText string                         `json:"question_text"`
+	Options      []ExportQuestionOptionResponse `json:"options"`
+}
+
+// ExportQuestionOptionResponse represents a question option in export JSON format
+type ExportQuestionOptionResponse struct {
+	OptionText string `json:"option_text"`
+	Score      int    `json:"score"`
+}

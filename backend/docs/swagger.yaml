@@ -203,6 +203,26 @@ definitions:
         example: "1234"
         type: string
     type: object
+  dto.ExportQuestionOptionResponse:
+    properties:
+      option_text:
+        type: string
+      score:
+        type: integer
+    type: object
+  dto.ExportQuestionResponse:
+    properties:
+      category:
+        type: string
+      id:
+        type: string
+      options:
+        items:
+          $ref: '#/definitions/dto.ExportQuestionOptionResponse'
+        type: array
+      question_text:
+        type: string
+    type: object
   dto.PaginatedQuestionResponse:
     properties:
       pagination:
@@ -757,8 +777,8 @@ paths:
     get:
       consumes:
       - application/json
-      description: Retrieves questions with their options, filtered by category and
-        question text, with pagination support
+      description: Downloads questions in JSON format based on category and search
+        text filters
       parameters:
       - description: Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)
         in: query
@@ -768,29 +788,16 @@ paths:
         in: query
         name: search
         type: string
-      - description: 'Page number (default: 1)'
-        in: query
-        minimum: 1
-        name: page
-        type: integer
-      - description: 'Items per page (default: 10, use 0 for all)'
-        in: query
-        minimum: 0
-        name: limit
-        type: integer
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dto.APIResponse'
-            - properties:
-                data:
-                  $ref: '#/definitions/dto.PaginatedQuestionResponse'
-              type: object
-      summary: Get questions by category and search text with pagination
+            items:
+              $ref: '#/definitions/dto.ExportQuestionResponse'
+            type: array
+      summary: Download questions as JSON file
       tags:
       - questions
   /questions/{questionID}/option/{optionID}/score:
@@ -850,6 +857,46 @@ paths:
                   type: array
               type: object
       summary: Get question categories
+      tags:
+      - questions
+  /questions/management:
+    get:
+      consumes:
+      - application/json
+      description: Retrieves questions with their options, filtered by category and
+        question text, with pagination support
+      parameters:
+      - description: Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)
+        in: query
+        name: category
+        type: string
+      - description: Search by question text
+        in: query
+        name: search
+        type: string
+      - description: 'Page number (default: 1)'
+        in: query
+        minimum: 1
+        name: page
+        type: integer
+      - description: 'Items per page (default: 10, use 0 for all)'
+        in: query
+        minimum: 0
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dto.APIResponse'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PaginatedQuestionResponse'
+              type: object
+      summary: Get questions by category and search text with pagination
       tags:
       - questions
 schemes:

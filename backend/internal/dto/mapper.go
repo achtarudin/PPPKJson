@@ -2,6 +2,7 @@ package dto
 
 import (
 	"cutbray/pppk-json/internal/repositories/models"
+	"strconv"
 )
 
 // ToExamSessionResponse converts domain model to DTO
@@ -182,5 +183,32 @@ func ToQuestionOptionManagementResponse(option *models.QuestionOption) QuestionO
 		Score:      option.Score,
 		CreatedAt:  option.CreatedAt,
 		UpdatedAt:  option.UpdatedAt,
+	}
+}
+
+// ToExportQuestionResponses converts slice of question models to export format
+func ToExportQuestionResponses(questions []models.Question) []ExportQuestionResponse {
+	responses := make([]ExportQuestionResponse, len(questions))
+	for i, question := range questions {
+		responses[i] = ToExportQuestionResponse(&question, i+1)
+	}
+	return responses
+}
+
+// ToExportQuestionResponse converts question model to export DTO format
+func ToExportQuestionResponse(question *models.Question, index int) ExportQuestionResponse {
+	options := make([]ExportQuestionOptionResponse, len(question.Options))
+	for i, opt := range question.Options {
+		options[i] = ExportQuestionOptionResponse{
+			OptionText: opt.OptionText,
+			Score:      opt.Score,
+		}
+	}
+
+	return ExportQuestionResponse{
+		ID:           strconv.Itoa(index), // Convert index to string (1,2,3...)
+		Category:     question.Category,
+		QuestionText: question.QuestionText,
+		Options:      options,
 	}
 }

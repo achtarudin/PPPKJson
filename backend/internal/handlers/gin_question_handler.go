@@ -3,6 +3,7 @@ package handlers
 import (
 	"cutbray/pppk-json/internal/dto"
 	"cutbray/pppk-json/internal/repositories/models"
+	"cutbray/pppk-json/internal/repositories/question_service"
 	"math"
 	"net/http"
 	"strconv"
@@ -12,22 +13,25 @@ import (
 )
 
 type ginQuestionHandler struct {
-	db *gorm.DB
+	questionRepo question_service.QuestionService
 }
 
 func NewGinQuestionHandler(db *gorm.DB) *ginQuestionHandler {
 	return &ginQuestionHandler{
-		db: db,
+		questionRepo: question_service.NewQuestionService(db),
 	}
 }
 
 // RegisterRoutes registers all question management routes
 func (h *ginQuestionHandler) RegisterRoutes(router *gin.Engine) {
+	// Add the download endpoint at root level for easy access
+	router.GET("/questions", h.DownloadQuestionsJSON)
+
 	// Use the existing /api/v1 group from gin adapter
 	v1 := router.Group("/api/v1")
 	questionGroup := v1.Group("/questions")
 	{
-		questionGroup.GET("", h.GetQuestionsByCategory)
+		questionGroup.GET("/management", h.GetQuestionsByCategory)
 		questionGroup.PUT("/:questionID/option/:optionID/score", h.UpdateOptionScore)
 		questionGroup.GET("/categories", h.GetCategories)
 	}
@@ -44,7 +48,7 @@ func (h *ginQuestionHandler) RegisterRoutes(router *gin.Engine) {
 // @Param page query int false "Page number (default: 1)" minimum(1)
 // @Param limit query int false "Items per page (default: 10, use 0 for all)" minimum(0)
 // @Success 200 {object} dto.APIResponse{data=dto.PaginatedQuestionResponse}
-// @Router /questions [get]
+// @Router /questions/management [get]
 func (h *ginQuestionHandler) GetQuestionsByCategory(c *gin.Context) {
 	category := c.Query("category")
 	searchText := c.Query("search")
@@ -62,18 +66,9 @@ func (h *ginQuestionHandler) GetQuestionsByCategory(c *gin.Context) {
 		limit = 10
 	}
 
-	// Build base query for counting
-	countQuery := h.db.Model(&models.Question{})
-	if category != "" {
-		countQuery = countQuery.Where("category = ?", category)
-	}
-	if searchText != "" {
-		countQuery = countQuery.Where("LOWER(question_text) LIKE LOWER(?)", "%"+searchText+"%")
-	}
-
-	// Get total count
-	var totalCount int64
-	if err := countQuery.Count(&totalCount).Error; err != nil {
+	// Get total count using repository
+	totalCount, err := h.questionRepo.CountQuestionsWithFilters(category, searchText)
+	if err != nil {
 		c.JSON(http.StatusInternalServerError, dto.APIResponse{
 			Success: false,
 			Message: "Failed to count questions",
@@ -82,25 +77,16 @@ func (h *ginQuestionHandler) GetQuestionsByCategory(c *gin.Context) {
 		return
 	}
 
-	// Build query for fetching questions
+	// Get questions using repository
 	var questions []models.Question
-	query := h.db.Preload("Options").Order("id ASC")
-
-	if category != "" {
-		query = query.Where("category = ?", category)
-	}
-
-	if searchText != "" {
-		query = query.Where("LOWER(question_text) LIKE LOWER(?)", "%"+searchText+"%")
-	}
-
-	// Apply pagination only if limit > 0 (0 means get all)
 	if limit > 0 {
 		offset := (page - 1) * limit
-		query = query.Offset(offset).Limit(limit)
+		questions, err = h.questionRepo.GetQuestionsWithFilters(category, searchText, offset, limit)
+	} else {
+		questions, err = h.questionRepo.GetAllQuestionsWithFilters(category, searchText)
 	}
 
-	if err := query.Find(&questions).Error; err != nil {
+	if err != nil {
 		c.JSON(http.StatusInternalServerError, dto.APIResponse{
 			Success: false,
 			Message: "Failed to fetch questions",
@@ -191,9 +177,8 @@ func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 		return
 	}
 
-	// Check if the option belongs to the specified question
-	var option models.QuestionOption
-	err = h.db.Where("id = ? AND question_id = ?", uint(optionID), uint(questionID)).First(&option).Error
+	// Get the question option using repository
+	option, err := h.questionRepo.GetQuestionOptionByID(uint(questionID), uint(optionID))
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			c.JSON(http.StatusNotFound, dto.APIResponse{
@@ -212,7 +197,7 @@ func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 
 	// Update the score
 	option.Score = req.Score
-	if err := h.db.Save(&option).Error; err != nil {
+	if err := h.questionRepo.UpdateQuestionOption(option); err != nil {
 		c.JSON(http.StatusInternalServerError, dto.APIResponse{
 			Success: false,
 			Message: "Failed to update score",
@@ -222,7 +207,7 @@ func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 	}
 
 	// Convert to management DTO
-	optionResponse := dto.ToQuestionOptionManagementResponse(&option)
+	optionResponse := dto.ToQuestionOptionManagementResponse(option)
 
 	c.JSON(http.StatusOK, dto.APIResponse{
 		Success: true,
@@ -240,8 +225,7 @@ func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 // @Success 200 {object} dto.APIResponse{data=[]string}
 // @Router /questions/categories [get]
 func (h *ginQuestionHandler) GetCategories(c *gin.Context) {
-	var categories []string
-	err := h.db.Model(&models.Question{}).Distinct("category").Pluck("category", &categories).Error
+	categories, err := h.questionRepo.GetDistinctCategories()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, dto.APIResponse{
 			Success: false,
@@ -256,4 +240,36 @@ func (h *ginQuestionHandler) GetCategories(c *gin.Context) {
 		Message: "Categories retrieved successfully",
 		Data:    categories,
 	})
+}
+
+// DownloadQuestionsJSON downloads questions as JSON file based on search parameters
+// @Summary Download questions as JSON file
+// @Description Downloads questions in JSON format based on category and search text filters
+// @Tags questions
+// @Accept json
+// @Produce application/json
+// @Param category query string false "Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)"
+// @Param search query string false "Search by question text"
+// @Success 200 {array} dto.ExportQuestionResponse
+// @Router /questions [get]
+func (h *ginQuestionHandler) DownloadQuestionsJSON(c *gin.Context) {
+	category := c.Query("category")
+	searchText := c.Query("search")
+
+	// Get questions using repository
+	questions, err := h.questionRepo.GetAllQuestionsWithFilters(category, searchText)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, dto.APIResponse{
+			Success: false,
+			Message: "Failed to fetch questions",
+			Error:   err.Error(),
+		})
+		return
+	}
+
+	// Convert to export format
+	exportQuestions := dto.ToExportQuestionResponses(questions)
+
+	// Return JSON without download headers (let frontend handle download)
+	c.JSON(http.StatusOK, exportQuestions)
 }

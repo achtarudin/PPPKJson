@@ -9,6 +9,7 @@ const QuestionManager = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [downloading, setDownloading] = useState(false);
 
   // Modal states
   const [showModal, setShowModal] = useState(false);
@@ -46,6 +47,48 @@ const QuestionManager = () => {
     } catch (error) {
 
         setError('Failed to load categories');
+    }
+  };
+
+  const downloadQuestions = async () => {
+    try {
+      setDownloading(true);
+      setError('');
+      
+      const response = await questionAPI.downloadQuestionsJSON({
+        category: selectedCategory,
+        search: searchText
+      });
+      
+      // Create filename based on filters
+      let filename = 'questions';
+      if (selectedCategory) {
+        filename += `_${selectedCategory}`;
+      }
+      if (searchText) {
+        filename += '_search';
+      }
+      filename += '.json';
+      
+      // Create blob and download
+      const blob = new Blob([JSON.stringify(response.data, null, 2)], {
+        type: 'application/json'
+      });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+      setSuccess(`Questions downloaded successfully as ${filename}`);
+    } catch (error) {
+      setError('Failed to download questions');
+      console.error('Download error:', error);
+    } finally {
+      setDownloading(false);
     }
   };
 
@@ -226,13 +269,12 @@ const QuestionManager = () => {
           {/* Category Filter & Search */}
           <div className="card mb-4">
             <div className="card-body">
-              <div className="row align-items-center">
-                <div className="col-md-2">
+
+              <div className='row justify-content-between align-items-end '>
+                <div className='col-5'>
                   <label htmlFor="categorySelect" className="form-label fw-bold">
                     Filter by Category:
                   </label>
-                </div>
-                <div className="col-md-3">
                   <select
                     id="categorySelect"
                     className="form-select"
@@ -247,12 +289,11 @@ const QuestionManager = () => {
                     ))}
                   </select>
                 </div>
-                <div className="col-md-2">
+
+                <div className='col-5'>
                   <label htmlFor="searchInput" className="form-label fw-bold">
                     Search Question:
                   </label>
-                </div>
-                <div className="col-md-4">
                   <input
                     id="searchInput"
                     type="text"
@@ -262,21 +303,42 @@ const QuestionManager = () => {
                     onChange={(e) => setSearchText(e.target.value)}
                   />
                 </div>
-                <div className="col-md-1">
-                  <button
-                    className="btn btn-primary"
-                    onClick={loadQuestions}
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <span className="spinner-border spinner-border-sm me-2" role="status"></span>
-                        Loading...
-                      </>
-                    ) : (
-                      'Refresh'
-                    )}
-                  </button>
+
+                 <div className="col-2">
+                  <div className='d-flex justify-content-between'>
+                    <button
+                      className="btn btn-primary"
+                      onClick={loadQuestions}
+                      disabled={loading}
+                    >
+                      {loading ? (
+                        <>
+                          <span className="spinner-border spinner-border-sm me-2" role="status"></span>
+                          Loading...
+                        </>
+                      ) : (
+                        'Refresh'
+                      )}
+                    </button>
+
+                    <button
+                      className="btn btn-success"
+                      onClick={downloadQuestions}
+                      disabled={downloading || loading}
+                    >
+                      {downloading ? (
+                        <>
+                          <span className="spinner-border spinner-border-sm me-2" role="status"></span>
+                          Downloading...
+                        </>
+                      ) : (
+                        <>
+                          <i className="bi bi-download me-1"></i>
+                          Download JSON
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

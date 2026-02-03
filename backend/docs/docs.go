@@ -577,6 +577,84 @@ const docTemplate = `{
         },
         "/questions": {
             "get": {
+                "description": "Downloads questions in JSON format based on category and search text filters",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Download questions as JSON file",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Category filter (TEKNIS, MANAJERIAL, SOSIAL KULTURAL, WAWANCARA)",
+                        "name": "category",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Search by question text",
+                        "name": "search",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/dto.ExportQuestionResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/questions/categories": {
+            "get": {
+                "description": "Returns list of all available question categories",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "questions"
+                ],
+                "summary": "Get question categories",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/dto.APIResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/questions/management": {
+            "get": {
                 "description": "Retrieves questions with their options, filtered by category and question text, with pagination support",
                 "consumes": [
                     "application/json"
@@ -629,44 +707,6 @@ const docTemplate = `{
                                     "properties": {
                                         "data": {
                                             "$ref": "#/definitions/dto.PaginatedQuestionResponse"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "/questions/categories": {
-            "get": {
-                "description": "Returns list of all available question categories",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "questions"
-                ],
-                "summary": "Get question categories",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dto.APIResponse"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
                                         }
                                     }
                                 }
@@ -1015,6 +1055,37 @@ const docTemplate = `{
                 "user_id": {
                     "type": "string",
                     "example": "1234"
+                }
+            }
+        },
+        "dto.ExportQuestionOptionResponse": {
+            "type": "object",
+            "properties": {
+                "option_text": {
+                    "type": "string"
+                },
+                "score": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.ExportQuestionResponse": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.ExportQuestionOptionResponse"
+                    }
+                },
+                "question_text": {
+                    "type": "string"
                 }
             }
         },
