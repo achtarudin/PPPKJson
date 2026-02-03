@@ -27,7 +27,7 @@ func NewQuestionService(db *gorm.DB) QuestionService {
 
 func (r *questionService) GetQuestionsWithFilters(category, searchText string, offset, limit int) ([]models.Question, error) {
 	var questions []models.Question
-	query := r.db.Preload("Options").Order("id ASC")
+	query := r.db.Preload("Options")
 
 	if category != "" {
 		query = query.Where("category = ?", category)
@@ -41,7 +41,7 @@ func (r *questionService) GetQuestionsWithFilters(category, searchText string, o
 		query = query.Offset(offset).Limit(limit)
 	}
 
-	err := query.Find(&questions).Error
+	err := query.Order("id ASC").Find(&questions).Error
 	return questions, err
 }
 
@@ -63,7 +63,7 @@ func (r *questionService) CountQuestionsWithFilters(category, searchText string)
 
 func (r *questionService) GetAllQuestionsWithFilters(category, searchText string) ([]models.Question, error) {
 	var questions []models.Question
-	query := r.db.Preload("Options").Order("id ASC")
+	query := r.db.Preload("Options")
 
 	if category != "" {
 		query = query.Where("category = ?", category)
@@ -73,7 +73,7 @@ func (r *questionService) GetAllQuestionsWithFilters(category, searchText string
 		query = query.Where("LOWER(question_text) LIKE LOWER(?)", "%"+searchText+"%")
 	}
 
-	err := query.Find(&questions).Error
+	err := query.Order("id ASC").Find(&questions).Error
 	return questions, err
 }
 
