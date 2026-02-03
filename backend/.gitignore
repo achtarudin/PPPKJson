@@ -5,5 +5,6 @@ web/dist/*
 .env
 .env.prod
 
-migrations/data/grade.jpeg
-scripts/*
+migrations/data/
+scripts/
+backup/
