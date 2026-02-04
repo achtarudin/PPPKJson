@@ -353,6 +353,7 @@ definitions:
   dto.UpdateScoreRequest:
     properties:
       score:
+        description: Score int `json:"score" binding:"required,min=0,max=10" example:"5"`
         example: 5
         maximum: 10
         minimum: 0

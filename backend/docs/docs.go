@@ -1275,6 +1275,7 @@ const docTemplate = `{
             ],
             "properties": {
                 "score": {
+                    "description": "Score int ` + "`" + `json:\"score\" binding:\"required,min=0,max=10\" example:\"5\"` + "`" + `",
                     "type": "integer",
                     "maximum": 10,
                     "minimum": 0,

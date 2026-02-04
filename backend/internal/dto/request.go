@@ -8,5 +8,6 @@ type SubmitAnswerRequest struct {
 
 // UpdateScoreRequest represents the request payload for updating question option score
 type UpdateScoreRequest struct {
-	Score int `json:"score" binding:"required,min=0,max=10" example:"5"`
+	// Score int `json:"score" binding:"required,min=0,max=10" example:"5"`
+	Score *int `json:"score" binding:"required,min=0,max=10" example:"5"`
 }

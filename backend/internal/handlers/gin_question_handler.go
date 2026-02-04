@@ -169,7 +169,8 @@ func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 	}
 
 	// Validate score range (0-10)
-	if req.Score < 0 || req.Score > 10 {
+	finalScore := *req.Score
+	if finalScore < 0 || finalScore > 10 {
 		c.JSON(http.StatusBadRequest, dto.APIResponse{
 			Success: false,
 			Message: "Score must be between 0 and 10",
@@ -196,7 +197,7 @@ func (h *ginQuestionHandler) UpdateOptionScore(c *gin.Context) {
 	}
 
 	// Update the score
-	option.Score = req.Score
+	option.Score = finalScore
 	if err := h.questionRepo.UpdateQuestionOption(option); err != nil {
 		c.JSON(http.StatusInternalServerError, dto.APIResponse{
 			Success: false,
