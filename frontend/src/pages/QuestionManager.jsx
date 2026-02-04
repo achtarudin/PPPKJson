@@ -14,6 +14,8 @@ const QuestionManager = () => {
   // Modal states
   const [showModal, setShowModal] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [selectedTextNo, setSelectedTextNo] = useState(null);
+
   const [updatingScore, setUpdatingScore] = useState(false);
 
   // Server-side pagination states
@@ -193,14 +195,16 @@ const QuestionManager = () => {
     }
   };
 
-  const openEditModal = (question) => {
+  const openEditModal = (question, textNo) => {
     setSelectedQuestion(question);
+    setSelectedTextNo(textNo);
     setShowModal(true);
   };
 
   const closeModal = () => {
     setShowModal(false);
     setSelectedQuestion(null);
+    setSelectedTextNo(null);
   };
 
   const getCategoryBadgeClass = (category) => {
@@ -410,7 +414,8 @@ const QuestionManager = () => {
                         <table className="table table-hover">
                           <thead className="table-light">
                             <tr>
-                              <th style={{ width: '80px' }}>No</th>
+                              <th style={{ width: '50px' }}>No</th>
+                              <th style={{ width: '80px' }}>Text No</th>
                               <th style={{ width: '150px' }}>Category</th>
                               <th>Question Text</th>
                               <th style={{ width: '120px' }}>Options Count</th>
@@ -422,31 +427,32 @@ const QuestionManager = () => {
                               const sequentialNumber = (currentPage - 1) * (itemsPerPage === 'all' ? questions.length : itemsPerPage) + index + 1;
                               return (
                                 <tr key={question.id}>
-                                  <td className="fw-bold">{sequentialNumber}</td>
-                              <td>
-                                <span className={`badge ${getCategoryBadgeClass(question.category)}`}>
-                                  {question.category}
-                                </span>
-                              </td>
-                              <td>
-                                <div title={question.question_text}>
-                                  {truncateText(question.question_text)}
-                                </div>
-                              </td>
-                              <td>
-                                <span className="badge bg-secondary">
-                                  {question.options?.length || 0} options
-                                </span>
-                              </td>
-                              <td>
-                                <button
-                                  className="btn btn-sm btn-outline-primary"
-                                  onClick={() => openEditModal(question)}
-                                  title="Edit Scores"
-                                >
-                                  <i className="bi bi-pencil-square"></i> Edit Scores
-                                </button>
-                              </td>
+                                  <td className="fw-nonrmal">{sequentialNumber}</td>
+                                  <td className="fw-bold text-center"> {index +1}</td>
+                                  <td>
+                                    <span className={`badge ${getCategoryBadgeClass(question.category)}`}>
+                                      {question.category}
+                                    </span>
+                                  </td>
+                                  <td>
+                                    <div title={question.question_text}>
+                                      {truncateText(question.question_text)}
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <span className="badge bg-secondary">
+                                      {question.options?.length || 0} options
+                                    </span>
+                                  </td>
+                                  <td>
+                                    <button
+                                      className="btn btn-sm btn-outline-primary"
+                                      onClick={() => openEditModal(question, index + 1)}
+                                      title="Edit Scores"
+                                    >
+                                      <i className="bi bi-pencil-square"></i> Edit Scores
+                                    </button>
+                                  </td>
                             </tr>
                               );
                             })}
@@ -568,7 +574,7 @@ const QuestionManager = () => {
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title">
-                    Edit Scores - Question #{selectedQuestion.id}
+                    Edit Scores - Text No #{selectedTextNo}  
                     <span className={`badge ${getCategoryBadgeClass(selectedQuestion.category)} ms-2`}>
                       {selectedQuestion.category}
                     </span>
