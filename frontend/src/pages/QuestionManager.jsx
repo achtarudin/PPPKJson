@@ -415,11 +415,10 @@ const QuestionManager = () => {
                           <thead className="table-light">
                             <tr>
                               <th style={{ width: '50px' }}>No</th>
-                              <th style={{ width: '80px' }}>Text No</th>
                               <th style={{ width: '150px' }}>Category</th>
                               <th>Question Text</th>
                               <th style={{ width: '120px' }}>Options Count</th>
-                              <th style={{ width: '150px' }}>Actions</th>
+                              <th style={{ width: '250px' }}>Actions</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -427,8 +426,7 @@ const QuestionManager = () => {
                               const sequentialNumber = (currentPage - 1) * (itemsPerPage === 'all' ? questions.length : itemsPerPage) + index + 1;
                               return (
                                 <tr key={question.id}>
-                                  <td className="fw-nonrmal">{sequentialNumber}</td>
-                                  <td className="fw-bold text-center"> {index +1}</td>
+                                  <td className="fw-bold">{sequentialNumber}</td>
                                   <td>
                                     <span className={`badge ${getCategoryBadgeClass(question.category)}`}>
                                       {question.category}
@@ -436,7 +434,7 @@ const QuestionManager = () => {
                                   </td>
                                   <td>
                                     <div title={question.question_text}>
-                                      {truncateText(question.question_text)}
+                                      {truncateText(question.question_text, 100)}
                                     </div>
                                   </td>
                                   <td>
@@ -450,7 +448,7 @@ const QuestionManager = () => {
                                       onClick={() => openEditModal(question, index + 1)}
                                       title="Edit Scores"
                                     >
-                                      <i className="bi bi-pencil-square"></i> Edit Scores
+                                      <i className="bi bi-pencil-square"></i> Edit Scores (Question {index + 1})  
                                     </button>
                                   </td>
                             </tr>
